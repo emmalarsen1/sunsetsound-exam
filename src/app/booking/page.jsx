@@ -14,14 +14,26 @@ function Booking() {
     <div style={{ paddingTop: "200px" }}>
       <ol>
         <li>
-          <button onClick={() => setPage(0)}>Ticketds</button>
+          <button onClick={() => setPage(0)}>Tickets</button>
         </li>
         <li>
-          <button onClick={() => setPage(1)}>Step 2</button>
+          <button onClick={() => setPage(1)}>ticket info</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(2)}>campingspots</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(3)}>billing</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(4)}>done</button>
         </li>
       </ol>
       {page === 0 && <Ticketsbox bookingInfo={bookingInfo} setBookingInfo={setBookingInfo} />}
-      {page === 1 && <h1>hej igen</h1>}
+      {page === 1 && <h1>ticket info</h1>}
+      {page === 2 && <h1>campingspots</h1>}
+      {page === 3 && <h1>Billing</h1>}
+      {page === 4 && <h1>done</h1>}
       <button onClick={() => setPage((o) => o - 1)}>Back</button>
       <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
         Next
