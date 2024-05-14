@@ -15,7 +15,7 @@ function Booking() {
           <button onClick={() => setPage(0)}>Ticketds</button>
         </li>
         <li>
-          <button>Step 2</button>
+          <button onClick={() => setPage(1)}>Step 2</button>
         </li>
       </ol>
       {page === 0 && <Step1 bookingInfo={bookingInfo} setBookingInfo={setBookingInfo} />}
@@ -34,6 +34,15 @@ function Booking() {
 export default Booking;
 
 function Step1({ bookingInfo, setBookingInfo }) {
+  function remove() {
+    setBookingInfo((old) => {
+      return {
+        ...old,
+        regular: Math.max(0, old.regular - 1),
+      };
+    });
+  }
+
   function add() {
     setBookingInfo((old) => {
       return {
