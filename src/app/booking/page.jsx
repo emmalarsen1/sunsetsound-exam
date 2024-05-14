@@ -60,7 +60,7 @@ function Booking() {
       <section>
         <h2>Basket</h2>
         <p>Reguklar tickets: {ticketChoice.regular}</p>
-        <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299}</p>
+        <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
       </section>
     </div>
   );
