@@ -3,7 +3,12 @@ import layout from "./layout.jsx";
 import { dummyData } from "./data/dummyData";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const url = "http://localhost:8080/bands";
+  const res = await fetch(url);
+  const bandData = await res.json();
+  console.log(bandData);
+
   return (
     <main>
       <div className={styles.indexWrap}>
@@ -21,7 +26,7 @@ export default function Home() {
           Program
         </Link>
       </div>
-      {dummyData.map((data) => (
+      {bandData.map((data) => (
         <Link href={`/bands/${data.slug}`}>{data.name}</Link>
       ))}
     </main>
