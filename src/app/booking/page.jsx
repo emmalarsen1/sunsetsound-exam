@@ -3,6 +3,7 @@ import { useState } from "react";
 import styles from "../styles/Nextbutton.module.css";
 import TicketsBox from "../components/TicketsBox";
 import GearBox from "../components/GearBox";
+import Ordercomplete from "../components/Ordercomplete";
 
 function Booking() {
   const [page, setPage] = useState(0);
@@ -38,15 +39,22 @@ function Booking() {
       {page === 0 && (
         <section>
           {" "}
-          <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+          <TicketsBox
+            ticketChoice={ticketChoice}
+            setTicketChoice={setTicketChoice}
+          />{" "}
+          <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
         </section>
       )}
       {page === 1 && <h1>ticket info</h1>}
       {page === 2 && <h1>campingspots</h1>}
       {page === 3 && <h1>Billing</h1>}
-      {page === 4 && <h1>done</h1>}
+      {page === 4 && <Ordercomplete />}
       <button onClick={() => setPage((o) => o - 1)}>Back</button>
-      <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
+      <button
+        className={styles.nextbutton}
+        onClick={() => setPage((o) => o + 1)}
+      >
         Next
       </button>
       <section>
