@@ -1,8 +1,8 @@
 import React from "react";
 
-function Ticketsbox({ bookingInfo, setBookingInfo }) {
+function Ticketsbox({ ticketchoice, setticketChoice }) {
   function remove() {
-    setBookingInfo((old) => {
+    setticketChoice((old) => {
       return {
         ...old,
         regular: Math.max(0, old.regular - 1),
@@ -11,7 +11,7 @@ function Ticketsbox({ bookingInfo, setBookingInfo }) {
   }
 
   function add() {
-    setBookingInfo((old) => {
+    setticketChoice((old) => {
       return {
         ...old,
         regular: old.regular + 1,
@@ -22,7 +22,7 @@ function Ticketsbox({ bookingInfo, setBookingInfo }) {
     <div>
       <h2>Regular</h2>
       <button onClick={remove}>-</button>
-      <span>{bookingInfo.regular}</span>
+      <span>{ticketchoice.regular}</span>
       <button onClick={add}>+</button>
     </div>
   );
