@@ -1,8 +1,8 @@
 import React from "react";
 
-function Ticketsbox({ ticketchoice, setticketChoice }) {
+function TicketsBox({ ticketChoice, setTicketChoice }) {
   function remove() {
-    setticketChoice((old) => {
+    setTicketChoice((old) => {
       return {
         ...old,
         regular: Math.max(0, old.regular - 1),
@@ -11,7 +11,7 @@ function Ticketsbox({ ticketchoice, setticketChoice }) {
   }
 
   function add() {
-    setticketChoice((old) => {
+    setTicketChoice((old) => {
       return {
         ...old,
         regular: old.regular + 1,
@@ -22,9 +22,9 @@ function Ticketsbox({ ticketchoice, setticketChoice }) {
     <div>
       <h2>Regular</h2>
       <button onClick={remove}>-</button>
-      <span>{ticketchoice.regular}</span>
+      <span>{ticketChoice.regular}</span>
       <button onClick={add}>+</button>
     </div>
   );
 }
-export default Ticketsbox;
+export default TicketsBox;

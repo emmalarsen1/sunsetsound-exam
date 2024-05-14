@@ -1,8 +1,8 @@
 import React from "react";
 
-function Gearbox({ gearchoice, setgearChoice }) {
+function GearBox({ gearChoice, setGearChoice }) {
   function remove() {
-    setgearChoice((old) => {
+    setGearChoice((old) => {
       return {
         ...old,
         twotent: Math.max(0, old.twotent - 1),
@@ -11,7 +11,7 @@ function Gearbox({ gearchoice, setgearChoice }) {
   }
 
   function add() {
-    setgearChoice((old) => {
+    setGearChoice((old) => {
       return {
         ...old,
         twotent: old.twotent + 1,
@@ -22,9 +22,9 @@ function Gearbox({ gearchoice, setgearChoice }) {
     <div>
       <h2>two tent</h2>
       <button onClick={remove}>-</button>
-      <span>{gearchoice.twotent}</span>
+      <span>{gearChoice.twotent}</span>
       <button onClick={add}>+</button>
     </div>
   );
 }
-export default Gearbox;
+export default GearBox;

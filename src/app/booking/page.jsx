@@ -1,17 +1,17 @@
 "use client";
 import { useState } from "react";
 import styles from "../styles/Nextbutton.module.css";
-import Ticketsbox from "../components/Ticketsbox";
-import Gearbox from "../components/Gearbox";
+import TicketsBox from "../components/TicketsBox";
+import GearBox from "../components/GearBox";
 
 function Booking() {
   const [page, setPage] = useState(0);
-  const [ticketchoice, setticketChoice] = useState({
+  const [ticketChoice, setTicketChoice] = useState({
     area: null,
     regular: 0,
     vip: 0,
   });
-  const [gearchoice, setgearChoice] = useState({
+  const [gearChoice, setGearChoice] = useState({
     area: null,
     twotent: 0,
     threetent: 0,
@@ -38,7 +38,7 @@ function Booking() {
       {page === 0 && (
         <section>
           {" "}
-          <Ticketsbox ticketchoice={ticketchoice} setticketChoice={setticketChoice} /> <Gearbox gearchoice={gearchoice} setgearChoice={setgearChoice} />{" "}
+          <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
         </section>
       )}
       {page === 1 && <h1>ticket info</h1>}
@@ -51,8 +51,8 @@ function Booking() {
       </button>
       <section>
         <h2>Basket</h2>
-        <p>Reguklar tickets: {ticketchoice.regular}</p>
-        <p>Total: {ticketchoice.regular * 799 + ticketchoice.vip * 1299}</p>
+        <p>Reguklar tickets: {ticketChoice.regular}</p>
+        <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299}</p>
       </section>
     </div>
   );
