@@ -1,4 +1,7 @@
 import "./styles/globals.css";
+import { Libre_Baskerville } from "next/font/google"
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +16,11 @@ export default async function RootLayout({ children }) {
   {
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+        </body>
       </html>
     );
   }
