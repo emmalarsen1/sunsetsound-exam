@@ -14,8 +14,8 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.indexButWrap}>
-        <Link className={styles.indexButton} href={"/tickets"}>
-          Tickets
+        <Link className={styles.indexButton} href={"/booking"}>
+          Get Tickets
         </Link>
         <Link className={styles.indexButton} href={"/program"}>
           Program
