@@ -11,6 +11,11 @@ function Booking() {
     regular: 0,
     vip: 0,
   });
+  const [gearchoice, setgearChoice] = useState({
+    area: null,
+    twotent: 0,
+    threetent: 0,
+  });
   return (
     <div style={{ paddingTop: "200px" }}>
       <ol>
@@ -30,7 +35,12 @@ function Booking() {
           <button onClick={() => setPage(4)}>done</button>
         </li>
       </ol>
-      {page === 0 && <Ticketsbox ticketchoice={ticketchoice} setticketChoice={setticketChoice} />}
+      {page === 0 && (
+        <section>
+          {" "}
+          <Ticketsbox ticketchoice={ticketchoice} setticketChoice={setticketChoice} /> <Gearbox gearchoice={gearchoice} setgearChoice={setgearChoice} />{" "}
+        </section>
+      )}
       {page === 1 && <h1>ticket info</h1>}
       {page === 2 && <h1>campingspots</h1>}
       {page === 3 && <h1>Billing</h1>}

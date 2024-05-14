@@ -1,28 +1,28 @@
 import React from "react";
 
-function Gearbox({ bookingInfo, setBookingInfo }) {
+function Gearbox({ gearchoice, setgearChoice }) {
   function remove() {
-    setBookingInfo((old) => {
+    setgearChoice((old) => {
       return {
         ...old,
-        regular: Math.max(0, old.regular - 1),
+        twotent: Math.max(0, old.twotent - 1),
       };
     });
   }
 
   function add() {
-    setBookingInfo((old) => {
+    setgearChoice((old) => {
       return {
         ...old,
-        regular: old.regular + 1,
+        twotent: old.twotent + 1,
       };
     });
   }
   return (
     <div>
-      <h2>Regular</h2>
+      <h2>two tent</h2>
       <button onClick={remove}>-</button>
-      <span>{bookingInfo.regular}</span>
+      <span>{gearchoice.twotent}</span>
       <button onClick={add}>+</button>
     </div>
   );
