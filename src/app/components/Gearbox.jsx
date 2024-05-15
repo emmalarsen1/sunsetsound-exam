@@ -32,17 +32,31 @@ function GearBox({ gearChoice, setGearChoice }) {
     <>
       <div>
         <h2>two tent</h2>
-        <button onClick={() => setTwoPerson((o) => o - 1)}>-</button>
+        <button onClick={remove}>-</button>
         <span>{twoPerson}</span>
-        <button onClick={() => setTwoPerson((o) => o + 1)}>+</button>
+        <button onClick={add}>+</button>
       </div>
       <div>
         <h2>three tent</h2>
-        <button onClick={() => setThreePerson((o) => o - 1)}>-</button>
+        <button onClick={remove}>-</button>
         <span>{threePerson}</span>
-        <button onClick={() => setThreePerson((o) => o + 1)}>+</button>
+        <button onClick={add}>+</button>
       </div>
     </>
   );
 }
+
+//     <div>
+//   <h2>two tent</h2>
+//   <button onClick={() => setTwoPerson((o) => o - 1)}>-</button>
+//   <span>{twoPerson}</span>
+//   <button onClick={() => setTwoPerson((o) => o + 1)}>+</button>
+// </div>
+// <div>
+//   <h2>three tent</h2>
+//   <button onClick={() => setThreePerson((o) => o - 1)}>-</button>
+//   <span>{threePerson}</span>
+//   <button onClick={() => setThreePerson((o) => o + 1)}>+</button>
+// </div>
+
 export default GearBox;
