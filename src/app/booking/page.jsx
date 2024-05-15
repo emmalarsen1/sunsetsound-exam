@@ -52,9 +52,9 @@ function Booking() {
       </button>
       <section>
         <h2>Basket</h2>
-        <p>Reguklar tickets: {ticketChoice.regular}</p>
-        <p>2-person tents:</p>
-        <p>3-person tents:</p>
+        <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
+        <p>2-person tent: {gearChoice.twotent}x 299,-</p>
+        <p>3-person tent: {gearChoice.threetent}x 399,-</p>
         <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
       </section>
     </div>
