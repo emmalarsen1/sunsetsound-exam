@@ -1,22 +1,30 @@
 import React from "react";
+import { useState } from "react";
 
 function GearBox({ gearChoice, setGearChoice }) {
+  const [twoPerson, setTwoPerson] = useState(0);
+  const [threePerson, setThreePerson] = useState(0);
+
   function remove() {
+    setTwoPerson((o) => o - 1);
+    setThreePerson((o) => o - 1);
     setGearChoice((old) => {
       return {
         ...old,
-        twotent: Math.max(0, old.twotent - 1),
-        threetent: Math.max(0, old.threetent - 1),
+        twotent: twoPerson,
+        threetent: threePerson,
       };
     });
   }
 
   function add() {
+    setTwoPerson((o) => o + 1);
+    setThreePerson((o) => o + 1);
     setGearChoice((old) => {
       return {
         ...old,
-        twotent: old.twotent + 1,
-        threetent: old.threetent + 1,
+        twotent: twoPerson,
+        threetent: threePerson,
       };
     });
   }
@@ -24,15 +32,15 @@ function GearBox({ gearChoice, setGearChoice }) {
     <>
       <div>
         <h2>two tent</h2>
-        <button onClick={remove}>-</button>
-        <span>{gearChoice.twotent}</span>
-        <button onClick={add}>+</button>
+        <button onClick={() => setTwoPerson((o) => o - 1)}>-</button>
+        <span>{twoPerson}</span>
+        <button onClick={() => setTwoPerson((o) => o + 1)}>+</button>
       </div>
       <div>
         <h2>three tent</h2>
-        <button onClick={remove}>-</button>
-        <span>{gearChoice.threetent}</span>
-        <button onClick={add}>+</button>
+        <button onClick={() => setThreePerson((o) => o - 1)}>-</button>
+        <span>{threePerson}</span>
+        <button onClick={() => setThreePerson((o) => o + 1)}>+</button>
       </div>
     </>
   );

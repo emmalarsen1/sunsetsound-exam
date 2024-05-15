@@ -39,11 +39,7 @@ function Booking() {
       {page === 0 && (
         <section>
           {" "}
-          <TicketsBox
-            ticketChoice={ticketChoice}
-            setTicketChoice={setTicketChoice}
-          />{" "}
-          <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+          <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
         </section>
       )}
       {page === 1 && <h1>ticket info</h1>}
@@ -51,15 +47,14 @@ function Booking() {
       {page === 3 && <h1>Billing</h1>}
       {page === 4 && <Ordercomplete />}
       <button onClick={() => setPage((o) => o - 1)}>Back</button>
-      <button
-        className={styles.nextbutton}
-        onClick={() => setPage((o) => o + 1)}
-      >
+      <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
         Next
       </button>
       <section>
         <h2>Basket</h2>
         <p>Reguklar tickets: {ticketChoice.regular}</p>
+        <p>2-person tents:</p>
+        <p>3-person tents:</p>
         <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
       </section>
     </div>
