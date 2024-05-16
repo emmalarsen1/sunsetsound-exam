@@ -3,6 +3,10 @@ main {
   padding: 100px;
 }
 
+footer {
+  background-color: rgb(251, 218, 177);
+}
+
 h1,
 h2 {
   font-family: "feneon-dense", sans-serif;

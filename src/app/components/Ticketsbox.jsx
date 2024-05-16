@@ -1,7 +1,7 @@
 import React from "react";
 
 function TicketsBox({ ticketChoice, setTicketChoice }) {
-  function remove() {
+  function removeRegular() {
     setTicketChoice((old) => {
       return {
         ...old,
@@ -10,7 +10,7 @@ function TicketsBox({ ticketChoice, setTicketChoice }) {
     });
   }
 
-  function add() {
+  function addRegular() {
     setTicketChoice((old) => {
       return {
         ...old,
@@ -18,13 +18,40 @@ function TicketsBox({ ticketChoice, setTicketChoice }) {
       };
     });
   }
+
+  function removeVip() {
+    setTicketChoice((old) => {
+      return {
+        ...old,
+        vip: Math.max(0, old.vip - 1),
+      };
+    });
+  }
+
+  function addVip() {
+    setTicketChoice((old) => {
+      return {
+        ...old,
+        vip: old.vip + 1,
+      };
+    });
+  }
   return (
-    <div>
-      <h2>Regular</h2>
-      <button onClick={remove}>-</button>
-      <span>{ticketChoice.regular}</span>
-      <button onClick={add}>+</button>
-    </div>
+    <>
+      <div>
+        <h2>Regular Ticket</h2>
+        <button onClick={removeRegular}>-</button>
+        <span>{ticketChoice.regular}</span>
+        <button onClick={addRegular}>+</button>
+      </div>
+
+      <div>
+        <h2>VIP Ticket</h2>
+        <button onClick={removeVip}>-</button>
+        <span>{ticketChoice.vip}</span>
+        <button onClick={addVip}>+</button>
+      </div>
+    </>
   );
 }
 export default TicketsBox;
