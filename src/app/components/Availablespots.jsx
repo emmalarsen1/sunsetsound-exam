@@ -1,17 +1,64 @@
 "use client";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Availablespots({ data }) {
   const [spots, setSpots] = useState(data);
+  const [selectedArea, setSelectedArea] = useState(null);
+  const [ticketCount, setTicketCount] = useState(1);
+
+  const getTotalTicketsBasket = () => {
+    return (
+      ticketChoice.regular +
+      ticketChoice.vip +
+      gearChoice.twotent +
+      gearChoice.threetent
+    );
+  };
+  const handleSelection = (event) => {
+    const selectedArea = event.target.value;
+    const area = spots.find((spot) => spot.area === selectedArea);
+    if (area.available >= ticketCount) {
+      setSelectedArea(selectedArea);
+    } else {
+      alert(
+        "There is not enough spots available for the selected amount of tickets"
+      );
+    }
+  };
 
   return (
-    <div>
-      <h1>Så mange pladser på{spots[0].area}</h1>
-      <p> er ledige:{spots[0].available}</p>
-    </div>
+    <form>
+      <fieldset>
+        <legend>Choose your camping area</legend>
+        {spots.map((spot, index) => (
+          <div key={index}>
+            <input
+              type="radio"
+              name="campingArea"
+              id={`campingArea${index}`}
+              value={spot.area}
+              onChange={handleSelection}
+            />
+            <span>{spot.available} spots available at </span>
+            <label htmlFor={`campingArea${index}`}>{spot.area}</label>
+          </div>
+        ))}
+      </fieldset>
+    </form>
   );
 }
+
+//   return (
+//     <form>
+//       <fieldset>
+//         <legend>Choose your camping area</legend>
+//         <input type="radio" name="svartheim" id="svartheim" value="svartheim" />
+//         <label htmlFor="svartheim">Svartheim</label>
+//       </fieldset>
+//     </form>
+//   );
+// }
 // async function Availablespots() {
 //   const url = "http://localhost:8080/available-spots";
 //   const res = await fetch(url);
