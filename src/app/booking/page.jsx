@@ -34,7 +34,7 @@ function Booking() {
 
   return (
     <div className={styles.bookingmain}>
-      <ol>
+      <ol className={styles.breadcrumbswrapper}>
         <li>
           <button onClick={() => setPage(0)}>Tickets</button>
         </li>
