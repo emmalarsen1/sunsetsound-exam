@@ -4,4 +4,7 @@ main {
 
 h1,
 h2 {
+  font-family: "feneon-dense", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
