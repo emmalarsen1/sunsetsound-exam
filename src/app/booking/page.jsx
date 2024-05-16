@@ -51,6 +51,7 @@ function Booking() {
           <button onClick={() => setPage(4)}>done</button>
         </li>
       </ol>
+      <div className={styles.bookingwrapper}></div>
       {page === 0 && (
         <section>
           {" "}
