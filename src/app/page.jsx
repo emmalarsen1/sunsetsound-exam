@@ -1,16 +1,10 @@
 import styles from "./styles/page.module.css";
 import layout from "./layout.jsx";
-import { dummyData } from "./data/dummyData";
 import Link from "next/link";
 
 export default async function Home() {
-  const url = "http://localhost:8080/bands";
-  const res = await fetch(url);
-  const bandData = await res.json();
-  console.log(bandData);
-
   return (
-    <main>
+    <>
       <div className={styles.indexWrap}>
         <div className={styles.indexTitles}>
           <h1>SUNSET SUNSOUND JUBII</h1>
@@ -26,9 +20,6 @@ export default async function Home() {
           Program
         </Link>
       </div>
-      {bandData.map((data) => (
-        <Link href={`/bands/${data.slug}`}>{data.name}</Link>
-      ))}
-    </main>
+    </>
   );
 }

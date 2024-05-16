@@ -1,11 +1,17 @@
 import React from "react";
+import Link from "next/link";
 
-function page() {
+export default async function page() {
+  const url = "http://localhost:8080/bands";
+  const res = await fetch(url);
+  const bandData = await res.json();
+  console.log(bandData);
   return (
-    <div>
+    <>
       <h1>Program yehaww</h1>
-    </div>
+      {bandData.map((data) => (
+        <Link href={`/bands/${data.slug}`}>{data.name}</Link>
+      ))}
+    </>
   );
 }
-
-export default page;

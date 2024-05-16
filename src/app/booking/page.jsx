@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import styles from "../styles/Nextbutton.module.css";
+import styles from "./Booking.module.css";
 import TicketsBox from "../components/TicketsBox";
 import GearBox from "../components/GearBox";
 import Availablespots from "../components/AvailableSpots";
@@ -29,8 +29,8 @@ function Booking() {
   });
 
   return (
-    <div style={{ paddingTop: "200px" }}>
-      <ol>
+    <div className={styles.bookingmain}>
+      <ol className={styles.breadcrumbswrapper}>
         <li>
           <button onClick={() => setPage(0)}>Tickets</button>
         </li>
@@ -47,27 +47,31 @@ function Booking() {
           <button onClick={() => setPage(4)}>done</button>
         </li>
       </ol>
-      {page === 0 && (
+      <div className={styles.bookingwrapper}>
         <section>
-          {" "}
-          <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+          {page === 0 && (
+            <div>
+              {" "}
+              <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+            </div>
+          )}
+          {page === 1 && <h1>ticket info</h1>}
+          {page === 2 && <Availablespots data={data} />}
+          {page === 3 && <h1>Billing</h1>}
+          {page === 4 && <Ordercomplete />}
+          <button onClick={() => setPage((o) => o - 1)}>Back</button>
+          <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
+            Next
+          </button>
         </section>
-      )}
-      {page === 1 && <h1>ticket info</h1>}
-      {page === 2 && <Availablespots data={data} />}
-      {page === 3 && <h1>Billing</h1>}
-      {page === 4 && <Ordercomplete />}
-      <button onClick={() => setPage((o) => o - 1)}>Back</button>
-      <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
-        Next
-      </button>
-      <section>
-        <h2>Basket</h2>
-        <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
-        <p>2-person tent: {gearChoice.twotent}x 299,-</p>
-        <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-        <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
-      </section>
+        <section>
+          <h2>Basket</h2>
+          <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
+          <p>2-person tent: {gearChoice.twotent}x 299,-</p>
+          <p>3-person tent: {gearChoice.threetent}x 399,-</p>
+          <p>Total: {ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
+        </section>
+      </div>
     </div>
   );
 }

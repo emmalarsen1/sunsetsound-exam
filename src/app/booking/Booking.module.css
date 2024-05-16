@@ -1,0 +1,19 @@
+.bookingmain {
+  max-width: fit-content;
+}
+
+.bookingwrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.breadcrumbswrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
