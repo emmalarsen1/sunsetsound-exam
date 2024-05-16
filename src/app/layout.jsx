@@ -17,7 +17,9 @@ export default async function RootLayout({ children }) {
   {
     return (
       <html lang="en">
-        <Link rel="stylesheet" href="https://use.typekit.net/svd4gfu.css" />
+        <head>
+          <link rel="stylesheet" href="https://use.typekit.net/svd4gfu.css" />
+        </head>
         <body>
           <Header></Header>
           {children}
