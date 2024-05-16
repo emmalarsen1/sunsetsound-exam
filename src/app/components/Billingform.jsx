@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../styles/BillingForm.module.css";
 
 function BillingForm() {
   const checkForError = (e) => {
@@ -15,7 +16,7 @@ function BillingForm() {
 
   return (
     <div>
-      <form action="">
+      <form className={styles.billingwrapper} action="">
         <label>
           Name
           <input type="text" name="navn" placeholder="fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>

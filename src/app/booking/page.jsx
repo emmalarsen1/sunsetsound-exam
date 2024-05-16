@@ -5,6 +5,7 @@ import TicketsBox from "../components/TicketsBox";
 import GearBox from "../components/GearBox";
 import Availablespots from "../components/AvailableSpots";
 import Ordercomplete from "../components/Ordercomplete";
+import BillingForm from "../components/Billingform";
 
 function Booking() {
   const [data, setData] = useState(null);
@@ -39,16 +40,16 @@ function Booking() {
           <button onClick={() => setPage(0)}>Tickets</button>
         </li>
         <li>
-          <button onClick={() => setPage(1)}>ticket info</button>
+          <button onClick={() => setPage(1)}>Ticket Info</button>
         </li>
         <li>
-          <button onClick={() => setPage(2)}>campingspots</button>
+          <button onClick={() => setPage(2)}>Camping</button>
         </li>
         <li>
-          <button onClick={() => setPage(3)}>billing</button>
+          <button onClick={() => setPage(3)}>Billing</button>
         </li>
         <li>
-          <button onClick={() => setPage(4)}>done</button>
+          <button onClick={() => setPage(4)}>Confirmed</button>
         </li>
       </ol>
       <div className={styles.bookingwrapper}>
@@ -61,7 +62,7 @@ function Booking() {
           )}
           {page === 1 && <h1>ticket info</h1>}
           {page === 2 && <Availablespots data={data} />}
-          {page === 3 && <h1>Billing</h1>}
+          {page === 3 && <BillingForm></BillingForm>}
           {page === 4 && <Ordercomplete />}
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
           <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
