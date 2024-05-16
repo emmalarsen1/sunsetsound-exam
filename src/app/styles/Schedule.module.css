@@ -1,0 +1,22 @@
+.daypicker {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  overflow-y: auto;
+  gap: 3rem;
+}
+/* new grid */
+.gridwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.new_grid {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.hidden {
+  opacity: 0;
+}

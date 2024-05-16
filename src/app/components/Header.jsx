@@ -11,6 +11,7 @@ function Header() {
           <Link href={"/booking"}>Get tickets</Link>
           <Link href={"/program"}>Program</Link>
           <Link href={"/tickets"}>Tickets</Link>
+          <Link href={"/schedule"}>Schedule</Link>
         </div>
       </nav>
     </header>
