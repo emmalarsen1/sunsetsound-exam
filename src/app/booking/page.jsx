@@ -1,11 +1,21 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "../styles/Nextbutton.module.css";
 import TicketsBox from "../components/TicketsBox";
 import GearBox from "../components/GearBox";
+import Availablespots from "../components/AvailableSpots";
 import Ordercomplete from "../components/Ordercomplete";
 
 function Booking() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:8080/available-spots")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      });
+  }, []);
   const [page, setPage] = useState(0);
   const [ticketChoice, setTicketChoice] = useState({
     area: null,
@@ -17,6 +27,7 @@ function Booking() {
     twotent: 0,
     threetent: 0,
   });
+
   return (
     <div style={{ paddingTop: "200px" }}>
       <ol>
@@ -43,7 +54,7 @@ function Booking() {
         </section>
       )}
       {page === 1 && <h1>ticket info</h1>}
-      {page === 2 && <h1>campingspots</h1>}
+      {page === 2 && <Availablespots data={data} />}
       {page === 3 && <h1>Billing</h1>}
       {page === 4 && <Ordercomplete />}
       <button onClick={() => setPage((o) => o - 1)}>Back</button>
