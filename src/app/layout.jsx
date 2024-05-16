@@ -17,12 +17,9 @@ export default async function RootLayout({ children }) {
   {
     return (
       <html lang="en">
-<<<<<<< HEAD
         <head>
           <link rel="stylesheet" href="https://use.typekit.net/svd4gfu.css" />
         </head>
-=======
->>>>>>> Opsætningsforsøg
         <body>
           <Header></Header>
           <main>{children}</main>
