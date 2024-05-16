@@ -2,19 +2,11 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Availablespots({ data }) {
+export default function Availablespots({ data, ticketTotal }) {
   const [spots, setSpots] = useState(data);
   const [selectedArea, setSelectedArea] = useState(null);
   const [ticketCount, setTicketCount] = useState(1);
 
-  const getTotalTicketsBasket = () => {
-    return (
-      ticketChoice.regular +
-      ticketChoice.vip +
-      gearChoice.twotent +
-      gearChoice.threetent
-    );
-  };
   const handleSelection = (event) => {
     const selectedArea = event.target.value;
     const area = spots.find((spot) => spot.area === selectedArea);
@@ -31,19 +23,22 @@ export default function Availablespots({ data }) {
     <form>
       <fieldset>
         <legend>Choose your camping area</legend>
-        {spots.map((spot, index) => (
-          <div key={index}>
-            <input
-              type="radio"
-              name="campingArea"
-              id={`campingArea${index}`}
-              value={spot.area}
-              onChange={handleSelection}
-            />
-            <span>{spot.available} spots available at </span>
-            <label htmlFor={`campingArea${index}`}>{spot.area}</label>
-          </div>
-        ))}
+        {spots.map(
+          (spot, index) =>
+            ticketTotal < spot.available && (
+              <div key={index}>
+                <input
+                  type="radio"
+                  name="campingArea"
+                  id={`campingArea${index}`}
+                  value={spot.area}
+                  onChange={handleSelection}
+                />
+                <span>{spot.available} spots available at </span>
+                <label htmlFor={`campingArea${index}`}>{spot.area}</label>
+              </div>
+            )
+        )}
       </fieldset>
     </form>
   );
