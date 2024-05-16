@@ -1,6 +1,5 @@
 import "./styles/globals.css";
 import "./styles/reset.css";
-import { Libre_Baskerville } from "next/font/google";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
@@ -18,12 +17,15 @@ export default async function RootLayout({ children }) {
   {
     return (
       <html lang="en">
+<<<<<<< HEAD
         <head>
           <link rel="stylesheet" href="https://use.typekit.net/svd4gfu.css" />
         </head>
+=======
+>>>>>>> Opsætningsforsøg
         <body>
           <Header></Header>
-          {children}
+          <main>{children}</main>
           <Footer></Footer>
         </body>
       </html>
