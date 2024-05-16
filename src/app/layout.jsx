@@ -2,6 +2,7 @@ import "./styles/globals.css";
 import { Libre_Baskerville } from "next/font/google";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
+import Link from "next/link";
 
 export const metadata = {
   title: "Sunset sound festival",
@@ -16,6 +17,7 @@ export default async function RootLayout({ children }) {
   {
     return (
       <html lang="en">
+        <Link rel="stylesheet" href="https://use.typekit.net/svd4gfu.css" />
         <body>
           <Header></Header>
           {children}
