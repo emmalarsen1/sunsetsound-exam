@@ -6,7 +6,7 @@ function Header() {
   return (
     <header>
       <nav className={styles.nav}>
-        <Link href={"./"}>Home</Link>
+        <Link href={"/"}>Home</Link>
         <div className={styles.headermenu}>
           <Link href={"/booking"}>Get tickets</Link>
           <Link href={"/program"}>Program</Link>

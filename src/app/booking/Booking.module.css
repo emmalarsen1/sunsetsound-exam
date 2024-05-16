@@ -17,3 +17,8 @@
   flex-direction: row;
   gap: 1.5rem;
 }
+
+.feewrapper {
+  display: flex;
+  flex-direction: row;
+}

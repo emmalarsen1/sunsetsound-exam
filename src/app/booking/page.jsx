@@ -8,6 +8,7 @@ import Ordercomplete from "../components/Ordercomplete";
 import BillingForm from "../components/Billingform";
 
 function Booking() {
+  const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch("http://localhost:8080/available-spots")
@@ -71,6 +72,12 @@ function Booking() {
         </section>
         <section>
           <h2>Basket</h2>
+          {fee.map((item) => (
+            <div className={styles.feewrapper} key={item.id}>
+              <p>{item.name}&nbsp;</p>
+              <p>{item.price},-</p>
+            </div>
+          ))}
           <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
           <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
           <p>2-person tent: {gearChoice.twotent}x 299,-</p>

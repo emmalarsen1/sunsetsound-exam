@@ -3,11 +3,6 @@ import styles from "../styles/BillingForm.module.css";
 
 function BillingForm() {
   const checkForError = (e) => {
-    if (e.target.value.match(e.target.pattern) != e.target.value) {
-      e.target.parentElement.setAttribute("id", "error");
-    } else {
-      e.target.parentElement.removeAttribute("id", "error");
-    }
     if (e.target.name == "expodate") {
       if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
       else if (e.target.value.toString().length === 3 && e.target.value.toString().charAt(2) === "/") e.target.value = e.target.value.replace("/", "");
@@ -39,14 +34,14 @@ function BillingForm() {
 
         <label for="zip">
           Zip / City
-          <input id="zip" type="text" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
+          <input id="zip" type="number" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
           <input type="text" name="city" placeholder="fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
         </label>
 
         <label htmlFor="">
           Credit Card Number
-          <input type="text" name="cardnumber" placeholder="1212 1212 1212 1212" pattern="[0-9]{16}" required maxLength={16} inputMode="numerical" onChange={checkForError} />
-          <input type="tel" name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
+          <input name="cardnumber" placeholder="1212 1212 1212 1212" pattern="[0-9]{16}" required maxLength={16} inputMode="numerical" onChange={checkForError} />
+          <input name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
         </label>
       </form>
     </div>
