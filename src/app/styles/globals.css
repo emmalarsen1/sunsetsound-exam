@@ -1,6 +1,15 @@
-main {
+/* main {
   background-color: bisque;
   padding: 100px;
+} */
+
+body {
+  height: 100vh;
+  margin: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: flex-start; */
+  background: radial-gradient(circle at center top, #f7ef1f, #bcfbbd, #99e8e4, #99e8e4);
 }
 
 h1,
