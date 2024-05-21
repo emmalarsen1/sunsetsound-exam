@@ -83,13 +83,7 @@ function Schedule() {
         </button>
       </div>
 
-      <div>
-        <div className={styles.areas}>
-          <h3 className={styles.hidden}>TIME</h3>
-          <h3>MIDGARD</h3>
-          <h3>JOTUNHEIM</h3>
-          <h3>VANAHEIM</h3>
-        </div>
+      <div className={styles.gridwrapper}>
         <div>
           {insertTimes()}
           {bands && (
@@ -99,6 +93,12 @@ function Schedule() {
               <OneSchedule data={bands.Vanaheim} />
             </div>
           )}
+        </div>
+        <div className={styles.areas}>
+          <h3 className={styles.hidden}>TIME</h3>
+          <h3>MIDGARD</h3>
+          <h3>JOTUNHEIM</h3>
+          <h3>VANAHEIM</h3>
         </div>
       </div>
     </div>
