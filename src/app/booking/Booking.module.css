@@ -1,24 +1,30 @@
-.bookingmain {
+.bookingMain {
   max-width: fit-content;
+  border: 3px rgb(102, 102, 252) solid;
+  max-width: 1200px;
+  background-color: aliceblue;
 }
 
-.bookingwrapper {
+.bookingWrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  max-width: 1000px;
+  align-items: flex-start;
+  justify-content: space-around;
   margin: 0 auto;
   gap: 2rem;
 }
 
-.breadcrumbswrapper {
+.breadCrumbsWrapper {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
 }
 
-.feewrapper {
+.feeWrapper {
   display: flex;
   flex-direction: row;
+}
+
+.feeTotal {
+  font-weight: bold;
 }
