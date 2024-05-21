@@ -17,6 +17,14 @@
   text-align: center;
 }
 
+.topBandStyle {
+  font-size: 3em;
+  margin: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .midBandWrapper {
   padding-top: 2rem;
   display: inline-flex;
@@ -27,6 +35,13 @@
   text-align: center;
 }
 
+.midBandStyle {
+  font-size: 1.8em;
+  margin: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
 .botBandWrapper {
   padding-top: 2rem;
   display: inline-flex;
@@ -35,4 +50,10 @@
   justify-content: center;
   column-gap: 1rem;
   text-align: center;
+}
+
+.botBandStyle {
+  font-size: 1.4em;
+  margin: 0;
+  cursor: pointer;
 }

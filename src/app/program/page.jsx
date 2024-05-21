@@ -18,21 +18,21 @@ export default async function page() {
       <div className={styles.programwrapper}>
         <div className={styles.topBandWrapper}>
           {topBand.map((data) => (
-            <Link key={bandData} href={`/bands/${data.slug}`}>
+            <Link className={styles.topBandStyle} key={bandData} href={`/bands/${data.slug}`}>
               {data.name}
             </Link>
           ))}
         </div>
         <div className={styles.midBandWrapper}>
           {midBand.map((data) => (
-            <Link key={bandData} href={`/bands/${data.slug}`}>
+            <Link className={styles.midBandStyle} key={bandData} href={`/bands/${data.slug}`}>
               {data.name}
             </Link>
           ))}
         </div>
         <div className={styles.botBandWrapper}>
           {botBand.map((data) => (
-            <Link key={bandData} href={`/bands/${data.slug}`}>
+            <Link className={styles.botBandStyle} key={bandData} href={`/bands/${data.slug}`}>
               {data.name}
             </Link>
           ))}

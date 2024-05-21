@@ -1,25 +1,9 @@
-main {
-  padding: 100px;
-}
-
-footer {
-}
-
-h1,
-h2 {
-  font-family: "feneon-dense", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-h3 {
-  font-family: "libre baskerville";
-}
-
-input {
-  border: 1px black solid;
+:root {
+  --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
 }
 
 body {
+  padding: 0;
   margin: 0;
   /* display: flex;
   justify-content: center;
@@ -39,4 +23,27 @@ body {
   100% {
     background-position: 50% 0%;
   }
+}
+
+main {
+  padding: 200px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+footer {
+}
+
+h1,
+h2 {
+  font-family: "feneon-dense", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+h3 {
+  font-family: "libre baskerville";
+}
+
+input {
+  border: 1px black solid;
 }
