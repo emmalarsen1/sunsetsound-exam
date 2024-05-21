@@ -2,11 +2,11 @@
   opacity: 0;
 }
 .areas {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 .new_times {
-  display: flex;
   gap: 20px;
   align-items: center;
   padding: 12px;

@@ -83,8 +83,8 @@ function Schedule() {
         </button>
       </div>
 
-      <div className={styles.areas}>
-        <div>
+      <div>
+        <div className={styles.areas}>
           <h3 className={styles.hidden}>TIME</h3>
           <h3>MIDGARD</h3>
           <h3>JOTUNHEIM</h3>
