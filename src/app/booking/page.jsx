@@ -6,10 +6,15 @@ import Gearbox from "../components/Gearbox";
 import Availablespots from "../components/Availablespots";
 import Ordercomplete from "../components/Ordercomplete";
 import Billingform from "../components/Billingform";
+import TicketForm from "../components/Ticketinfo";
 
 function Booking() {
-  const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
+  const fee = [
+    { name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 },
+  ];
+
   const [data, setData] = useState(null);
+
   useEffect(() => {
     // fetch("https://broken-tinted-wombat.glitch.me/available-spots")
     fetch("http://localhost:8080/available-spots")
@@ -38,61 +43,89 @@ function Booking() {
     threetent: 0,
   });
 
+  const [formData, setFormData] = useState({
+    regular: [],
+    vip: [],
+  });
+  const handleFormDataChange = (type, index, field, value) => {
+    setFormData((prev) => {
+      const newFormData = { ...prev };
+      if (!newFormData[type][index]) {
+        newFormData[type][index] = {};
+      }
+      newFormData[type][index][field] = value;
+      return newFormData;
+    });
+  };
   return (
-    <>
-      <h1>Get Tickets</h1>
-      <div className={styles.bookingMain}>
-        <ol className={styles.breadCrumbsWrapper}>
-          <li>
-            <button onClick={() => setPage(0)}>Tickets</button>
-          </li>
-          <li>
-            <button onClick={() => setPage(1)}>Ticket Info</button>
-          </li>
-          <li>
-            <button onClick={() => setPage(2)}>Camping</button>
-          </li>
-          <li>
-            <button onClick={() => setPage(3)}>Billing</button>
-          </li>
-          <li>
-            <button onClick={() => setPage(4)}>Confirmed</button>
-          </li>
-        </ol>
-        <div className={styles.bookingWrapper}>
-          <section>
-            {page === 0 && (
-              <div>
-                {" "}
-                <Ticketsbox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <Gearbox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
-              </div>
-            )}
-            {page === 1 && <h1>ticket info</h1>}
-            {page === 2 && <Availablespots data={data} ticketTotal={ticketTotal} />}
-            {page === 3 && <Billingform></Billingform>}
-            {page === 4 && <Ordercomplete />}
-            <button onClick={() => setPage((o) => Math.max(o - 1, 0))}>Back</button>
-            <button className={styles.nextbutton} onClick={() => setPage((o) => Math.min(o + 1, 4))}>
-              Next
-            </button>
-          </section>
-          <section>
-            <h2>Basket</h2>
-            {fee.map((item) => (
-              <div className={styles.feeWrapper} key={item.id}>
-                <p>{item.name}&nbsp;</p>
-                <p>{item.price},-</p>
-              </div>
-            ))}
-            <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
-            <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
-            <p>2-person tent: {gearChoice.twotent}x 299,-</p>
-            <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-            <p className={styles.feeTotal}>Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399},-</p>
-          </section>
-        </div>
+    <div className={styles.bookingmain}>
+      <ol className={styles.breadcrumbswrapper}>
+        <li>
+          <button onClick={() => setPage(0)}>Tickets</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(1)}>Ticket Info</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(2)}>Camping</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(3)}>Billing</button>
+        </li>
+        <li>
+          <button onClick={() => setPage(4)}>Confirmed</button>
+        </li>
+      </ol>
+      <div className={styles.bookingwrapper}>
+        <section>
+          {page === 0 && (
+            <div>
+              {" "}
+              <Ticketsbox
+                ticketChoice={ticketChoice}
+                setTicketChoice={setTicketChoice}
+              />{" "}
+              <Gearbox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+            </div>
+          )}
+          {page === 1 && <h1>ticket info</h1>}
+          {page === 2 && (
+            <Availablespots data={data} ticketTotal={ticketTotal} />
+          )}
+          {page === 3 && <Billingform></Billingform>}
+          {page === 4 && <Ordercomplete />}
+          <button onClick={() => setPage((o) => o - 1)}>Back</button>
+          <button
+            className={styles.nextbutton}
+            onClick={() => setPage((o) => o + 1)}
+          >
+            Next
+          </button>
+        </section>
+        <section>
+          <h2>Basket</h2>
+          {fee.map((item) => (
+            <div className={styles.feewrapper} key={item.id}>
+              <p>{item.name}&nbsp;</p>
+              <p>{item.price},-</p>
+            </div>
+          ))}
+          <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
+          <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
+          <p>2-person tent: {gearChoice.twotent}x 299,-</p>
+          <p>3-person tent: {gearChoice.threetent}x 399,-</p>
+          <p>
+            Total:{" "}
+            {fee[0].amount * fee[0].price +
+              ticketChoice.regular * 799 +
+              ticketChoice.vip * 1299 +
+              gearChoice.twotent * 299 +
+              gearChoice.threetent * 399}
+            ,-
+          </p>
+        </section>
       </div>
-    </>
+    </div>
   );
 }
 
