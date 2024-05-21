@@ -3,6 +3,7 @@ import { dummyData } from "@/app/data/dummyData";
 import Image from "next/image";
 
 export async function generateStaticParams() {
+  // const res = await fetch("https://broken-tinted-wombat.glitch.me/bands");
   const res = await fetch("http://localhost:8080/bands");
   const pages = await res.json();
 
@@ -16,6 +17,7 @@ export async function generateStaticParams() {
 export default async function page({ params }) {
   const { slug } = params;
 
+  // const url = `https://broken-tinted-wombat.glitch.me/bands?slug=${slug}`;
   const url = `http://localhost:8080/bands?slug=${slug}`;
   const res = await fetch(url);
 

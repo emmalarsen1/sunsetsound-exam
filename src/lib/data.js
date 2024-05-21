@@ -1,3 +1,4 @@
+// const endPoint = "https://broken-tinted-wombat.glitch.me/";
 const endPoint = "http://localhost:8080/";
 
 export async function getData(param) {
