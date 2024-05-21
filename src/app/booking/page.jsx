@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "../booking/Booking.module.css";
-import TicketsBox from "../components/TicketsBox";
+import Ticketsbox from "../components/Ticketsbox";
 import GearBox from "../components/GearBox";
-import Availablespots from "../components/AvailableSpots";
+import Availablespots from "../components/Availablespots";
 import Ordercomplete from "../components/Ordercomplete";
-import BillingForm from "../components/Billingform";
+import Billingform from "../components/Billingform";
 
 function Booking() {
   const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
@@ -61,12 +61,12 @@ function Booking() {
           {page === 0 && (
             <div>
               {" "}
-              <TicketsBox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+              <Ticketsbox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
             </div>
           )}
           {page === 1 && <h1>ticket info</h1>}
           {page === 2 && <Availablespots data={data} ticketTotal={ticketTotal} />}
-          {page === 3 && <BillingForm></BillingForm>}
+          {page === 3 && <Billingform></Billingform>}
           {page === 4 && <Ordercomplete />}
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
           <button className={styles.nextbutton} onClick={() => setPage((o) => o + 1)}>
