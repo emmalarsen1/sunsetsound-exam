@@ -1,22 +1,27 @@
-.daypicker {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  overflow-y: auto;
-  gap: 3rem;
-}
-/* new grid */
 .gridwrapper {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.new_grid {
-  display: grid;
-  grid-template-columns: auto repeat(3, 1fr);
-  gap: 1rem;
-}
-
 .hidden {
   opacity: 0;
+}
+.areas {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.new_times {
+  gap: 20px;
+  align-items: center;
+  padding: 12px;
+}
+.new_times_title {
+  font-size: clamp(0.9375rem, 0.7636rem + 0.8696vi, 1.4375rem);
+}
+.title {
+  font-size: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
+  text-align: center;
+  padding: 20px;
 }

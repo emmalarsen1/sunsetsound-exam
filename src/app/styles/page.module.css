@@ -56,6 +56,7 @@
   max-width: 400px;
   gap: 1.5rem 1rem;
 }
+
 .indexHeaderTitle {
   font-size: clamp(3.125rem, 1.4358rem + 5.4054vi, 5.625rem);
 }
