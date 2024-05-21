@@ -85,7 +85,7 @@ function Booking() {
           <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
           <p>2-person tent: {gearChoice.twotent}x 299,-</p>
           <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-          <p>Total: {fee.amount * +ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}</p>
+          <p>Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399},-</p>
         </section>
       </div>
     </div>

@@ -1,10 +1,8 @@
 main {
-  background-color: bisque;
   padding: 100px;
 }
 
 footer {
-  background-color: rgb(251, 218, 177);
 }
 
 h1,
@@ -19,4 +17,26 @@ h3 {
 
 input {
   border: 1px black solid;
+}
+
+body {
+  margin: 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: flex-start; */
+  background: radial-gradient(circle at center top, #f7ef1f, #bcfbbd, #99e8e4, #99e8e4);
+  animation: moveGradient 15s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
