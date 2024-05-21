@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/BillingForm.module.css";
+import styles from "../styles/Billingform.module.css";
 
-function BillingForm() {
+function Billingform() {
   const checkForError = (e) => {
     if (e.target.name == "expodate") {
       if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
@@ -48,7 +48,7 @@ function BillingForm() {
   );
 }
 
-export default BillingForm;
+export default Billingform;
 
 // <Input name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required maxLength={16} inputmode="numerical" />
 // <div className={styles.grid}>

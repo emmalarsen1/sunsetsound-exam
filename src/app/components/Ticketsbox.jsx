@@ -1,6 +1,6 @@
 import React from "react";
 
-function TicketsBox({ ticketChoice, setTicketChoice }) {
+function Ticketsbox({ ticketChoice, setTicketChoice }) {
   function removeRegular() {
     setTicketChoice((old) => {
       return {
@@ -54,4 +54,4 @@ function TicketsBox({ ticketChoice, setTicketChoice }) {
     </>
   );
 }
-export default TicketsBox;
+export default Ticketsbox;

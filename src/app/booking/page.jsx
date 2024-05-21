@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styles from "../booking/Booking.module.css";
 import Ticketsbox from "../components/Ticketsbox";
-import GearBox from "../components/GearBox";
+import Gearbox from "../components/Gearbox";
 import Availablespots from "../components/Availablespots";
 import Ordercomplete from "../components/Ordercomplete";
 import Billingform from "../components/Billingform";
@@ -61,7 +61,7 @@ function Booking() {
           {page === 0 && (
             <div>
               {" "}
-              <Ticketsbox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <GearBox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+              <Ticketsbox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <Gearbox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
             </div>
           )}
           {page === 1 && <h1>ticket info</h1>}

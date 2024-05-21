@@ -1,6 +1,6 @@
 import React from "react";
 
-function GearBox({ gearChoice, setGearChoice }) {
+function Gearbox({ gearChoice, setGearChoice }) {
   function removeTwoPersons() {
     setGearChoice((old) => {
       return {
@@ -53,4 +53,4 @@ function GearBox({ gearChoice, setGearChoice }) {
     </>
   );
 }
-export default GearBox;
+export default Gearbox;
