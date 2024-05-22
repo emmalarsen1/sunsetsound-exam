@@ -117,7 +117,6 @@ function Booking() {
           </section>
         </div>
       </div>
-      /
     </>
   );
 }
