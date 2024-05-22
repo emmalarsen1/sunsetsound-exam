@@ -9,7 +9,7 @@ export default async function Home() {
         <div className={styles.indexTitles}>
           <h1 className={styles.indexHeaderTitle}>SUNSET SOUND</h1>
           <h3 className={styles.indexSubTitle}>SUMMER MUSIC FESTIVAL 2024</h3>
-          <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda iste eius autem, pariatur animi at itaque ex sunt fuga optio aliquid, in ipsa nobis sit similique adipisci facere unde nam.</h2>
+          <h2>Main Street 25, 7800 Foocity Denmark</h2>
         </div>
         <div className={styles.indexButWrap}>
           <Link className={styles.indexButton} href={"/booking"}>

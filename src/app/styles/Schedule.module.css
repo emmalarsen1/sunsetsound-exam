@@ -4,18 +4,27 @@
   align-items: flex-start;
 }
 
+.new_grid {
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  grid-gap: 1rem;
+  gap: 1rem;
+  max-width: 1000px;
+  overflow-x: auto;
+}
+
 .hidden {
   opacity: 0;
 }
-.areas {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
+
 .new_times {
-  gap: 20px;
+  font-size: 2rem;
+  display: grid;
   align-items: center;
-  padding: 12px;
+  text-align: center;
+  grid-gap: 1rem;
+  gap: 1rem;
 }
 .new_times_title {
   font-size: clamp(0.9375rem, 0.7636rem + 0.8696vi, 1.4375rem);
@@ -24,4 +33,70 @@
   font-size: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
   text-align: center;
   padding: 20px;
+}
+
+.oneschedulegrid {
+  display: contents;
+  gap: 1rem;
+}
+
+.img_textstyle {
+  display: grid;
+  place-items: center;
+  max-width: 300px;
+}
+
+.img_textstyle p:hover {
+  cursor: pointer;
+}
+
+.img_textstyle > * {
+  grid-area: 1 / 1;
+}
+
+.img_textstyle p {
+  color: white;
+  font-size: 1.8rem;
+  z-index: 1;
+  text-align: center;
+  font-family: "libre baskerville";
+  padding: 20px;
+}
+
+.img_textstyle img {
+  width: 100%;
+  display: block;
+  block-size: revert-layer;
+  justify-content: center;
+}
+.break_text {
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: #5e7af5;
+  font-family: "libre baskerville", cursive;
+}
+.areatitle {
+  text-align: center;
+  font-size: 2.2rem;
+}
+.img_overlay {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+}
+
+.color_overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #5e7af5;
+  opacity: 0.8;
+}
+.days {
+  text-align: center;
+}
+.button {
+  padding: 10px;
+  font-size: 1.3rem;
+  transition: 1.3s ease-in;
 }
