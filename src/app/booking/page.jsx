@@ -9,9 +9,7 @@ import Billingform from "../components/Billingform";
 import TicketForm from "../components/Ticketinfo";
 
 function Booking() {
-  const fee = [
-    { name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 },
-  ];
+  const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
 
   const [data, setData] = useState(null);
 
@@ -117,9 +115,10 @@ function Booking() {
               </div>
             ))}
           </section>
-        )}
+        </div>
       </div>
-    </div>
+      /
+    </>
   );
 }
 
