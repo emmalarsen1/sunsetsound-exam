@@ -8,15 +8,22 @@ import combineData from "@/lib/combineData";
 function Schedule() {
   const [bands, setbands] = useState();
   const [day, setDay] = useState("mon");
+  const [midgard, setMidgard] = useState([]);
+  const [vanaheim, setVanaheim] = useState([]);
+  const [jotunheim, setJotuneheim] = useState([]);
 
-  async function fetchData() {
+  async function fetchData(parm) {
     const data = await combineData();
     setbands(data);
+
+    setMidgard(data.Midgard[parm]);
+    setVanaheim(data.Vanaheim[parm]);
+    setJotuneheim(data.Jotunheim[parm]);
   }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(day);
+  }, [day]);
 
   //Time
   const insertTimes = () => {
@@ -31,74 +38,96 @@ function Schedule() {
     <div>
       <h1 className={styles.title}>schedule</h1>
 
-      <div>
+      <div className={styles.days}>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("mon");
           }}
+          variant="link"
         >
           MONDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("tue");
           }}
+          variant="link"
         >
           TUESDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("wed");
           }}
+          variant="link"
         >
           WEDNESDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("thu");
           }}
+          variant="link"
         >
           THURSDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("fri");
           }}
+          variant="link"
         >
           FRIDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("sat");
           }}
+          variant="link"
         >
           SATURDAY
         </button>
         <button
+          className={styles.button}
           onClick={() => {
             setDay("sun");
           }}
+          variant="link"
         >
           SUNDAY
         </button>
       </div>
 
       <div className={styles.gridwrapper}>
-        <div>
-          {insertTimes()}
-          {bands && (
-            <div>
-              <OneSchedule data={bands.Midgard} />
-              <OneSchedule data={bands.Jotunheim} />
-              <OneSchedule data={bands.Vanaheim} />
-            </div>
-          )}
-        </div>
-        <div className={styles.areas}>
+        <div className={styles.new_grid}>
           <h3 className={styles.hidden}>TIME</h3>
-          <h3>MIDGARD</h3>
-          <h3>JOTUNHEIM</h3>
-          <h3>VANAHEIM</h3>
+          <h3 className={styles.areatitle}>MIDGARD</h3>
+          <h3 className={styles.areatitle}>JOTUNHEIM</h3>
+          <h3 className={styles.areatitle}>VANAHEIM</h3>
+          {insertTimes()}
+          <article className={styles.oneschedulegrid}>
+            <div>
+              {midgard.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
+              })}
+            </div>
+            <div>
+              {vanaheim.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
+              })}
+            </div>
+            <div>
+              {jotunheim.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
+              })}
+            </div>
+          </article>
         </div>
       </div>
     </div>
