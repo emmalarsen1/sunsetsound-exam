@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .new_grid {
@@ -64,6 +65,11 @@
   justify-content: center;
   align-items: center;
 }
+.img_textstyle .color_container:hover {
+  /* border: 2px solid white; */
+  background-color: #3458f9;
+}
+
 .break_text {
   font-size: 1.5rem;
   padding: 1rem;
