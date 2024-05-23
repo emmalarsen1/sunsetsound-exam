@@ -23,8 +23,7 @@
   display: grid;
   align-items: center;
   text-align: center;
-  grid-gap: 1rem;
-  gap: 1rem;
+  padding-right: 20px;
 }
 .new_times_title {
   font-size: clamp(0.9375rem, 0.7636rem + 0.8696vi, 1.4375rem);
@@ -42,7 +41,7 @@
 
 .img_textstyle {
   display: grid;
-  place-items: center;
+  text-align: center;
   max-width: 300px;
   min-height: 100px;
 }
@@ -51,29 +50,26 @@
   cursor: pointer;
 }
 
-.img_textstyle > * {
-  grid-area: 1 / 1;
-}
-
 .img_textstyle p {
   color: white;
   font-size: 1.8rem;
   z-index: 1;
   text-align: center;
   font-family: "libre baskerville";
+  padding: 2px;
 }
-
-.img_textstyle img {
-  width: 100%;
-  display: block;
-  block-size: revert-layer;
+.img_textstyle .color_container {
+  background-color: #5e7af5;
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 .break_text {
   font-size: 1.5rem;
   padding: 1rem;
   color: #5e7af5;
   font-family: "libre baskerville", cursive;
+  place-self: center;
 }
 .areatitle {
   text-align: center;
