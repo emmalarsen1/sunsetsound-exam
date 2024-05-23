@@ -12,6 +12,7 @@ function Schedule() {
   const [midgard, setMidgard] = useState([]);
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
+  const [fullDay, setFullDay] = useState("Monday");
 
   async function fetchData(parm) {
     const data = await combineData();
@@ -21,6 +22,25 @@ function Schedule() {
     setVanaheim(data.Vanaheim[parm]);
     setJotuneheim(data.Jotunheim[parm]);
   }
+
+  function showWeekDay(parm) {
+    const dayFullName = {
+      mon: "Monday",
+      tue: "Tuesday",
+      wed: "Wednesday",
+      thu: "Thursday",
+      fri: "Friday",
+      sat: "Saturday",
+      sun: "Sunday",
+    };
+
+    return dayFullName[parm];
+  }
+
+  useEffect(() => {
+    fetchData(day);
+    setFullDay(showWeekDay(day));
+  }, [day]);
 
   useEffect(() => {
     fetchData(day);
@@ -104,7 +124,7 @@ function Schedule() {
           SUNDAY
         </button>
       </div>
-
+      <div className={styles.weekday}>{fullDay}</div>
       <div className={styles.gridwrapper}>
         <div className={styles.new_grid}>
           <h3 className={styles.hidden}>TIME</h3>
