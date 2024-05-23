@@ -1,0 +1,25 @@
+.bandWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bandName {
+  display: flex;
+  justify-content: center;
+}
+
+.bandMembers {
+}
+
+.bandGenre {
+}
+
+.bandBio {
+}
+
+.bandImage {
+  max-width: 500px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--white);
+}

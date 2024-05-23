@@ -2,15 +2,20 @@
   --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
 }
 
-body {
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   /* display: flex;
   justify-content: center;
   align-items: flex-start; */
   background: radial-gradient(circle at center top, #f7ef1f, #bcfbbd, #99e8e4, #99e8e4);
   animation: moveGradient 15s ease-in-out infinite;
   background-size: 200% 200%;
+  min-height: 100vh;
 }
 
 @keyframes moveGradient {
@@ -26,9 +31,10 @@ body {
 }
 
 main {
-  padding: 200px;
-  min-height: 100vh;
-  box-sizing: border-box;
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 1200px;
 }
 
 footer {
