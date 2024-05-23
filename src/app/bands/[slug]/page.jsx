@@ -29,6 +29,7 @@ export default async function page({ params }) {
   return (
     <>
       <section>
+        <Image src={data.logo && !data.logo.startsWith("https") ? `http://localhost:8080/logos/${data.logo}` : data.logo} alt="cover of the band" width={160} height={160} />
         <h1>{data.name}</h1>
         <p>{data.members}</p>
         <p>{data.genre}</p>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import styles from "../styles/Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import React from "react";
@@ -108,8 +109,8 @@ function Schedule() {
         <div className={styles.new_grid}>
           <h3 className={styles.hidden}>TIME</h3>
           <h3 className={styles.areatitle}>MIDGARD</h3>
-          <h3 className={styles.areatitle}>JOTUNHEIM</h3>
           <h3 className={styles.areatitle}>VANAHEIM</h3>
+          <h3 className={styles.areatitle}>JOTUNHEIM</h3>
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
             <div>
