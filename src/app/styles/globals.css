@@ -40,7 +40,11 @@ main {
 footer {
 }
 
-h1,
+h1 {
+  font-size: var(--h1Title);
+  font-family: "feneon-dense", sans-serif;
+}
+
 h2 {
   font-family: "feneon-dense", sans-serif;
   font-weight: 300;
@@ -52,4 +56,9 @@ h3 {
 
 input {
   border: 1px black solid;
+}
+
+.globalHeader {
+  font-size: 8vw;
+  font-weight: 200;
 }

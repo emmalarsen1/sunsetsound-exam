@@ -1,5 +1,5 @@
 import React from "react";
-import { dummyData } from "@/app/data/dummyData";
+import combineData from "@/lib/combineData";
 import Image from "next/image";
 import styles from "./Bandname.module.css";
 
@@ -43,7 +43,7 @@ export default async function page({ params }) {
   return (
     <>
       <section>
-        <h1 className={styles.bandName}>{data.name}</h1>
+        <h1 className={`${styles.bandName} globalHeader`}>{data.name}</h1>
         <div className={styles.bandWrapper}>
           <div>
             <p>Dag, Tid, Scene</p>
