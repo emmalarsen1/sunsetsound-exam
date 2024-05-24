@@ -21,11 +21,6 @@ function Schedule() {
     setMidgard(data.Midgard[parm]);
     setVanaheim(data.Vanaheim[parm]);
     setJotuneheim(data.Jotunheim[parm]);
-
-    // const url = "https://broken-tinted-wombat.glitch.me/bands";
-    const url = "http://localhost:8080/bands";
-    const res = await fetch(url);
-    const bandData = await res.json();
   }
 
   function showWeekDay(parm) {
@@ -139,18 +134,18 @@ function Schedule() {
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
             <div>
-              {midgard.map((act, data) => {
-                return <OneSchedule key={act.logo} band={act} href={`/bands/${data.slug}`} />;
+              {midgard.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
               })}
             </div>
             <div>
-              {vanaheim.map((act, data) => {
-                return <OneSchedule key={act.logo} band={act} href={`/bands/${data.slug}`} />;
+              {vanaheim.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
               })}
             </div>
             <div>
-              {jotunheim.map((act, data) => {
-                return <OneSchedule key={act.logo} band={act} href={`/bands/${data.slug}`} />;
+              {jotunheim.map((act) => {
+                return <OneSchedule key={act.logo} band={act} />;
               })}
             </div>
           </article>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/Schedule.module.css";
 
-function OneSchedule({ band, slug }) {
+function OneSchedule({ band }) {
   return (
     <div className={styles.img_textstyle}>
       {band.act === "break" ? (
