@@ -1,28 +1,156 @@
+/********** mobile burger menu ***********/
+
+.burger_wrapper {
+  --burger-height: 2rem;
+  cursor: pointer;
+  height: var(--burger-height);
+  aspect-ratio: 1.55/1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.6rem;
+}
+
+.hamburger {
+  background: black;
+  width: 100%;
+  height: 2.5px;
+  position: relative;
+  transition: 10ms 300ms ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+  position: absolute;
+  width: 100%;
+  height: 2.5px;
+  content: "";
+  z-index: 2000;
+}
+
+.hamburger::before {
+  top: calc(var(--burger-height) / -2 + 2px);
+  background: black;
+}
+
+.hamburger::after {
+  top: calc(var(--burger-height) / 2 - 2px);
+  background-color: black;
+}
+
+.hamburger.open::before,
+.hamburger.open::after {
+  transition: top 300ms 50ms ease, transform 300ms 350ms ease;
+  top: 0;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+}
+.hamburger.open {
+  background: transparent;
+}
+
+.menu {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  background-color: #5e7af5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.menu.close {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu.open {
+  opacity: 100;
+}
+
+.menu_links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 0;
+}
+.menu_links a {
+  text-decoration: none;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: black;
+  padding: 2px;
+  font-family: "feneon-dense", sans-serif;
+}
+
+.menu_links a:hover,
+.menu_links a.active {
+  color: white;
+}
+
+.menu_links_wrapper {
+  display: grid;
+}
+.headermenu {
+  display: none;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem;
   position: fixed;
+  z-index: 1000;
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1000;
-  box-sizing: border-box;
 }
 
-.headermenu {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
-
-.headermenu a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: black;
-}
+/****** logo ********/
 .nav img {
   width: 100px;
   inline-size: none;
+}
+/********** Desktop menu ************/
+@media (width > 600px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  .headermenu {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .headermenu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+  }
+  .nav img {
+    inline-size: none;
+    padding: 0;
+  }
+
+  .burger_wrapper {
+    display: none;
+  }
 }
