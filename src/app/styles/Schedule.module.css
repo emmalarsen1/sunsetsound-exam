@@ -71,6 +71,11 @@
   background-color: #3458f9;
 }
 
+.color_container a {
+  color: currentColor;
+  text-decoration: none;
+}
+
 .break_text {
   font-size: 1.5rem;
   padding: 1rem;
