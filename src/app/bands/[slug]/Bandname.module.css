@@ -6,6 +6,12 @@
 .bandName {
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .bandMembers {

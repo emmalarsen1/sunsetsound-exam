@@ -14,6 +14,8 @@ export default async function combineData() {
           act.members = matched.members;
           act.genre = matched.genre;
           act.slug = matched.slug;
+          act.venue = stage;
+          act.day = day;
         }
       });
     }

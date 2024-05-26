@@ -1,19 +1,32 @@
 import React from "react";
-import combineData from "@/lib/combineData";
+import combinedData from "@/lib/combineData";
+import { getData } from "@/lib/data";
 import Image from "next/image";
 import styles from "./Bandname.module.css";
 
 export async function generateStaticParams() {
   // const res = await fetch("https://broken-tinted-wombat.glitch.me/bands");
-  const res = await fetch("http://localhost:8080/bands");
-  const pages = await res.json();
+  // const res = await fetch("http://localhost:8080/bands");
+  // const pages = await res.json();
+  // const paths = pages.map((page) => {
+  //   return { slug: page.slug };
+  // });
+  // return paths;
 
-  const paths = pages.map((page) => {
-    return { slug: page.slug };
-  });
-
-  return paths;
+  const data = await getData("bands");
+  return data.map((oneBand) => ({
+    slug: oneBand.slug,
+  }));
 }
+
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const fetchData = await getData("bands");
+  const filterData = fetchData.filter((oneBand) => oneBand.slug === slug);
+  const data = filterData[0];
+}
+
+// funktion til opdeling af band members:
 function formatBandMembers(members) {
   const len = members.length;
   if (len === 0) {
@@ -28,32 +41,54 @@ function formatBandMembers(members) {
 }
 
 export default async function page({ params }) {
-  const { slug } = params;
-
   // const url = `https://broken-tinted-wombat.glitch.me/bands?slug=${slug}`;
-  const url = `http://localhost:8080/bands?slug=${slug}`;
-  const res = await fetch(url);
+  // const url = `http://localhost:8080/bands?slug=${slug}`;
+  // const res = await fetch(url);
+  // const bandData = await res.json();
+  // const oneBand = bandData.filter((oneRule) => oneRule.slug === slug);
+  // const data = oneBand[0];
 
-  const bandData = await res.json();
-  const oneBand = bandData.filter((oneRule) => oneRule.slug === slug);
-  const data = oneBand[0];
+  const { slug } = params;
+  const fetchData = await combinedData();
+  const filterData = Object.entries(fetchData).map((venue) => {
+    const filtered = Object.entries(venue[1]).map((oneDay) => oneDay[1].filter((band) => band.slug === slug));
+    return filtered;
+  });
+
+  const dataFlattend = filterData.flat(Infinity);
+  const data = dataFlattend[0];
+  const dayFullName = {
+    mon: "Monday",
+    tue: "Tuesday",
+    wed: "Wednesday",
+    thu: "Thursday",
+    fri: "Friday",
+    sat: "Saturday",
+    sun: "Sunday",
+  };
+
   const formattedMembers = formatBandMembers(data.members);
-  console.log(data);
 
   return (
     <>
-      <section>
-        <h1 className={`${styles.bandName} globalHeader`}>{data.name}</h1>
-        <div className={styles.bandWrapper}>
+      <h1 className={`${styles.bandName} globalHeader`}>{data.act}</h1>
+      <section className={styles.bandWrapper}>
+        <div>
+          <div className={styles.infoWrapper}>
+            <p>
+              {data.start}-{data.end}
+            </p>
+            <p>{dayFullName[data.day]}</p>
+            <p>{data.venue}</p>
+          </div>
           <div>
-            <p>Dag, Tid, Scene</p>
             <p>{data.bio}</p>
             <p>
-              Let {data.name} take you on a {data.genre}-journey, guided by the incredible talents of {formattedMembers}.
+              Let {data.act} take you on a {data.genre}-journey, guided by the incredible talents of {formattedMembers}.
             </p>
           </div>
-          <Image className={styles.bandImage} src={data.logo && !data.logo.startsWith("https") ? `http://localhost:8080/logos/${data.logo}` : data.logo} alt="cover of the band" width={160} height={160} />
         </div>
+        <Image className={styles.bandImage} src={data.logo && !data.logo.startsWith("https") ? `http://localhost:8080/logos/${data.logo}` : data.logo} alt="cover of the band" width={160} height={160} />
       </section>
     </>
   );
