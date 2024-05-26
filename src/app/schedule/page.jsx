@@ -13,7 +13,7 @@ function Schedule() {
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
-  const [areaFilter, setAreaFilter] = useState("all");
+  const [areaFilter, setAreaFilter] = useState("");
   const [showStageBands, setShowStageBands] = useState(false);
 
   async function fetchData(parm) {
@@ -60,7 +60,38 @@ function Schedule() {
   return (
     <div>
       <h1 className={`globalHeader`}>Schedule</h1>
+      <p>Choose a stage:</p>
+      <div className={styles.mobileButtons}>
+        <button
+          className={styles.areabutton}
+          onClick={() => {
+            setAreaFilter("midgard");
+            setShowStageBands(true);
+          }}
+        >
+          MIDGARD
+        </button>
+        <button
+          className={styles.areabutton}
+          onClick={() => {
+            setAreaFilter("vanaheim");
+            setShowStageBands(true);
+          }}
+        >
+          VANAHEIM
+        </button>
+        <button
+          className={styles.areabutton}
+          onClick={() => {
+            setAreaFilter("jotunheim");
+            setShowStageBands(true);
+          }}
+        >
+          JOTUNHEIM
+        </button>
+      </div>
 
+      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
       <div className={styles.days}>
         {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
           <button key={d} className={styles.button} onClick={() => setDay(d)}>
@@ -68,7 +99,6 @@ function Schedule() {
           </button>
         ))}
       </div>
-
       {/* <di
       v className={styles.days}>
         <button
@@ -135,20 +165,7 @@ function Schedule() {
           SUNDAY
         </button>
       </div> */}
-
-      <div className={styles.weekday}>{fullDay}</div>
-      <div className={styles.mobileButtons}>
-        <button className={styles.areabutton} onClick={() => setAreaFilter("midgard")}>
-          MIDGARD
-        </button>
-        <button className={styles.areabutton} onClick={() => setAreaFilter("vanaheim")}>
-          VANAHEIM
-        </button>
-        <button className={styles.areabutton} onClick={() => setAreaFilter("jotunheim")}>
-          JOTUNHEIM
-        </button>
-      </div>
-      <div className={styles.gridwrapper}>
+      <div className={`${styles.gridwrapper} ${showStageBands ? styles.show : ""}`}>
         <div className={styles.new_grid}>
           <h2 className={styles.hidden}>TIME</h2>
           <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>MIDGARD</h3>
