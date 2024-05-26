@@ -1,13 +1,59 @@
-.footer {
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
+.tabletContainer,
+.desktopContainer {
+  background-color: rgba(182, 184, 247, 0.5);
+  padding: 20px;
+  border-top: 1px solid #5e7af5;
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+
+  /* Logo */
+  .logo {
+    display: block;
+    color: black;
+    width: 200px;
+    inline-size: none;
+    align-self: center;
+  }
+}
+.mobileContainer {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  .logo {
+    display: none;
+  }
 }
 
-.footerGrid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 5rem;
-  width: 100%;
-  max-width: 1200px;
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left,
+.right {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
+.left li,
+.right li {
+  margin-bottom: 5px;
+}
+.left a,
+.right a {
+  text-decoration: none;
+  color: black;
+}
+.left a:hover,
+.right a:hover {
+  color: azure;
+}
+.footerTitle {
+  font-family: "libre baskerville";
+  font-weight: 500;
+  font-weight: bold;
 }
