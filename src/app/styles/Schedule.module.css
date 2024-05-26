@@ -15,10 +15,7 @@
   display: none;
 }
 
-.gridwrapper {
-  display: block;
-}
-.gridwrapper .show {
+.showContent {
   display: block;
 }
 

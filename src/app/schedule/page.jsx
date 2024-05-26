@@ -13,8 +13,8 @@ function Schedule() {
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
-  const [areaFilter, setAreaFilter] = useState("");
-  const [showStageBands, setShowStageBands] = useState(false);
+  const [areaFilter, setAreaFilter] = useState("all");
+  const [visibleContent, setVisibleContent] = useState(null);
 
   async function fetchData(parm) {
     const data = await combineData();
@@ -57,6 +57,14 @@ function Schedule() {
     return <div className={styles.new_times}>{list}</div>;
   };
 
+  const toggleVisibility = (area) => {
+    if (visibleContent === area) {
+      setVisibleContent(null);
+    } else {
+      setVisibleContent(area);
+    }
+  };
+
   return (
     <div>
       <h1 className={`globalHeader`}>Schedule</h1>
@@ -65,30 +73,42 @@ function Schedule() {
         <button
           className={styles.areabutton}
           onClick={() => {
-            setAreaFilter("midgard");
-            setShowStageBands(true);
+            toggleVisibility("midgard");
           }}
         >
           MIDGARD
         </button>
+        <div className={`${styles.accordionContent} ${visibleContent === "midgard" ? styles.showContent : ""}`}>
+          {midgard.map((act) => (
+            <OneSchedule key={act.logo} band={act} />
+          ))}
+        </div>
         <button
           className={styles.areabutton}
           onClick={() => {
-            setAreaFilter("vanaheim");
-            setShowStageBands(true);
+            toggleVisibility("vanaheim");
           }}
         >
           VANAHEIM
         </button>
+        <div className={`${styles.accordionContent} ${visibleContent === "vanaheim" ? styles.showContent : ""}`}>
+          {vanaheim.map((act) => (
+            <OneSchedule key={act.logo} band={act} />
+          ))}
+        </div>
         <button
           className={styles.areabutton}
           onClick={() => {
-            setAreaFilter("jotunheim");
-            setShowStageBands(true);
+            toggleVisibility("jotunheim");
           }}
         >
           JOTUNHEIM
         </button>
+        <div className={`${styles.accordionContent} ${visibleContent === "jotunheim" ? styles.showContent : ""}`}>
+          {jotunheim.map((act) => (
+            <OneSchedule key={act.logo} band={act} />
+          ))}
+        </div>
       </div>
 
       <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
@@ -165,7 +185,7 @@ function Schedule() {
           SUNDAY
         </button>
       </div> */}
-      <div className={`${styles.gridwrapper} ${showStageBands ? styles.show : ""}`}>
+      <div className={styles.gridwrapper}>
         <div className={styles.new_grid}>
           <h2 className={styles.hidden}>TIME</h2>
           <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>MIDGARD</h3>
@@ -173,27 +193,21 @@ function Schedule() {
           <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>JOTUNHEIM</h3>
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
-            {(areaFilter === "all" || areaFilter === "midgard") && (
-              <div>
-                {midgard.map((act) => (
-                  <OneSchedule key={act.logo} band={act} />
-                ))}
-              </div>
-            )}
-            {(areaFilter === "all" || areaFilter === "vanaheim") && (
-              <div>
-                {vanaheim.map((act) => (
-                  <OneSchedule key={act.logo} band={act} />
-                ))}
-              </div>
-            )}
-            {(areaFilter === "all" || areaFilter === "jotunheim") && (
-              <div>
-                {jotunheim.map((act) => (
-                  <OneSchedule key={act.logo} band={act} />
-                ))}
-              </div>
-            )}
+            <div>
+              {midgard.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
+            </div>
+            <div>
+              {vanaheim.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
+            </div>
+            <div>
+              {jotunheim.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
+            </div>
           </article>
         </div>
       </div>
