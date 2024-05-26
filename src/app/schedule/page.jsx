@@ -13,6 +13,8 @@ function Schedule() {
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
+  const [areaFilter, setAreaFilter] = useState("all");
+  const [showStageBands, setShowStageBands] = useState(false);
 
   async function fetchData(parm) {
     const data = await combineData();
@@ -60,6 +62,15 @@ function Schedule() {
       <h1 className={styles.title}>schedule</h1>
 
       <div className={styles.days}>
+        {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
+          <button key={d} className={styles.button} onClick={() => setDay(d)}>
+            {showWeekDay(d).toUpperCase()}
+          </button>
+        ))}
+      </div>
+
+      {/* <di
+      v className={styles.days}>
         <button
           className={styles.button}
           onClick={() => {
@@ -123,31 +134,49 @@ function Schedule() {
         >
           SUNDAY
         </button>
-      </div>
+      </div> */}
+
       <div className={styles.weekday}>{fullDay}</div>
+      <div className={styles.mobileButtons}>
+        <button className={styles.areabutton} onClick={() => setAreaFilter("midgard")}>
+          MIDGARD
+        </button>
+        <button className={styles.areabutton} onClick={() => setAreaFilter("vanaheim")}>
+          VANAHEIM
+        </button>
+        <button className={styles.areabutton} onClick={() => setAreaFilter("jotunheim")}>
+          JOTUNHEIM
+        </button>
+      </div>
       <div className={styles.gridwrapper}>
         <div className={styles.new_grid}>
-          <h3 className={styles.hidden}>TIME</h3>
-          <h3 className={styles.areatitle}>MIDGARD</h3>
-          <h3 className={styles.areatitle}>VANAHEIM</h3>
-          <h3 className={styles.areatitle}>JOTUNHEIM</h3>
+          <h2 className={styles.hidden}>TIME</h2>
+          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>MIDGARD</h3>
+          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>VANAHEIM</h3>
+          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>JOTUNHEIM</h3>
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
-            <div>
-              {midgard.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
-            </div>
-            <div>
-              {vanaheim.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
-            </div>
-            <div>
-              {jotunheim.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
-            </div>
+            {(areaFilter === "all" || areaFilter === "midgard") && (
+              <div>
+                {midgard.map((act) => (
+                  <OneSchedule key={act.logo} band={act} />
+                ))}
+              </div>
+            )}
+            {(areaFilter === "all" || areaFilter === "vanaheim") && (
+              <div>
+                {vanaheim.map((act) => (
+                  <OneSchedule key={act.logo} band={act} />
+                ))}
+              </div>
+            )}
+            {(areaFilter === "all" || areaFilter === "jotunheim") && (
+              <div>
+                {jotunheim.map((act) => (
+                  <OneSchedule key={act.logo} band={act} />
+                ))}
+              </div>
+            )}
           </article>
         </div>
       </div>
