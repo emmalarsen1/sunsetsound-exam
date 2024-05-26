@@ -1,9 +1,25 @@
-.eachSection {
+.desktopContainer,
+.tabletContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 4rem;
   gap: 6%;
+}
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem;
+  padding: 1rem;
+  .card {
+    margin-bottom: 2rem;
+  }
+}
+
+.tabletContainer {
+  flex-grow: 1;
 }
 .card {
   width: 22rem;
@@ -23,7 +39,8 @@
 .name,
 .description,
 .price,
-.campingTitle {
+.campingTitle,
+.moreInfo {
   text-align: center;
   font-family: "Libre Baskerville";
   font-style: normal;
@@ -52,11 +69,19 @@
   text-transform: capitalize;
   margin-top: 5rem;
 }
+.moreInfo {
+  font-size: 20px;
+  font-weight: 400;
+}
+.backContent {
+  align-content: center;
+}
 .campingTitle {
   font-size: 1.875rem;
   font-style: normal;
   font-weight: 400;
-  margin-top: 15%;
+  margin-top: 6rem;
+  margin-bottom: -2rem;
 }
 /* Skal ændres/rettes når knap-komponent er lavet */
 .indexButton {
