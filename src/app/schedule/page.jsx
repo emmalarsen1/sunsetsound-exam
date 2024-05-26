@@ -13,7 +13,6 @@ function Schedule() {
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
-  const [areaFilter, setAreaFilter] = useState("all");
   const [visibleContent, setVisibleContent] = useState(null);
 
   async function fetchData(parm) {
@@ -58,11 +57,7 @@ function Schedule() {
   };
 
   const toggleVisibility = (area) => {
-    if (visibleContent === area) {
-      setVisibleContent(null);
-    } else {
-      setVisibleContent(area);
-    }
+    setVisibleContent((prevVisibleContent) => (prevVisibleContent === area ? null : area));
   };
 
   return (
@@ -70,48 +65,41 @@ function Schedule() {
       <h1 className={`globalHeader`}>Schedule</h1>
       <p>Choose a stage:</p>
       <div className={styles.mobileButtons}>
-        <button
-          className={styles.areabutton}
-          onClick={() => {
-            toggleVisibility("midgard");
-          }}
-        >
+        <button className={`${styles.areabutton} ${visibleContent === "midgard" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("midgard")}>
           MIDGARD
         </button>
-        <div className={`${styles.accordionContent} ${visibleContent === "midgard" ? styles.showContent : ""}`}>
-          {midgard.map((act) => (
-            <OneSchedule key={act.logo} band={act} />
-          ))}
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "midgard" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div>
+            {midgard.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
         </div>
-        <button
-          className={styles.areabutton}
-          onClick={() => {
-            toggleVisibility("vanaheim");
-          }}
-        >
+        <button className={`${styles.areabutton} ${visibleContent === "vanaheim" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("vanaheim")}>
           VANAHEIM
         </button>
-        <div className={`${styles.accordionContent} ${visibleContent === "vanaheim" ? styles.showContent : ""}`}>
-          {vanaheim.map((act) => (
-            <OneSchedule key={act.logo} band={act} />
-          ))}
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "vanaheim" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div>
+            {vanaheim.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
         </div>
-        <button
-          className={styles.areabutton}
-          onClick={() => {
-            toggleVisibility("jotunheim");
-          }}
-        >
+        <button className={`${styles.areabutton} ${visibleContent === "jotunheim" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("jotunheim")}>
           JOTUNHEIM
         </button>
-        <div className={`${styles.accordionContent} ${visibleContent === "jotunheim" ? styles.showContent : ""}`}>
-          {jotunheim.map((act) => (
-            <OneSchedule key={act.logo} band={act} />
-          ))}
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "jotunheim" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div>
+            {jotunheim.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
       <div className={styles.days}>
         {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
           <button key={d} className={styles.button} onClick={() => setDay(d)}>
@@ -119,73 +107,8 @@ function Schedule() {
           </button>
         ))}
       </div>
-      {/* <di
-      v className={styles.days}>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("mon");
-          }}
-          variant="link"
-        >
-          MONDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("tue");
-          }}
-          variant="link"
-        >
-          TUESDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("wed");
-          }}
-          variant="link"
-        >
-          WEDNESDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("thu");
-          }}
-          variant="link"
-        >
-          THURSDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("fri");
-          }}
-          variant="link"
-        >
-          FRIDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("sat");
-          }}
-          variant="link"
-        >
-          SATURDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("sun");
-          }}
-          variant="link"
-        >
-          SUNDAY
-        </button>
-      </div> */}
-      <div className={styles.gridwrapper}>
+      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
+      <div className={`${styles.gridwrapper} ${styles.hideOnMobile}`}>
         <div className={styles.new_grid}>
           <h2 className={styles.hidden}>TIME</h2>
           <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>MIDGARD</h3>
