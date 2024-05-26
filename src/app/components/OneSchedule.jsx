@@ -7,11 +7,9 @@ function OneSchedule({ band }) {
       {band.act === "break" ? (
         <h3 className={styles.break_text}>–– break ––</h3>
       ) : (
-        <div className={styles.color_container}>
-          <Link href={`/bands/${band.slug}`}>
-            <p>{band.act}</p>
-          </Link>
-        </div>
+        <Link className={styles.color_container} href={`/bands/${band.slug}`}>
+          <p className={styles.band_name}>{band.act}</p>
+        </Link>
       )}
     </div>
   );
