@@ -59,7 +59,7 @@ function Schedule() {
 
   return (
     <div>
-      <h1 className={styles.title}>schedule</h1>
+      <h1 className={`globalHeader`}>Schedule</h1>
 
       <div className={styles.days}>
         {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
