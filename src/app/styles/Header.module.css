@@ -153,4 +153,7 @@
   .burger_wrapper {
     display: none;
   }
+  .menu {
+    display: none;
+  }
 }
