@@ -90,32 +90,35 @@ export default async function page({ params }) {
       <h1 className={`${styles.bandName} globalHeader`}>{data.act}</h1>
       <section className={styles.bandWrapper}>
         <div>
-          <div className={styles.infoWrapper}>
-            <p className={styles.dataWrapper}>
-              {data.start}-{data.end}
-            </p>
-            <p className={styles.dataWrapper}>{dayFullName[data.day]}</p>
-            <p className={styles.dataWrapper}>{data.venue}</p>
-          </div>
           <div>
             <p className={styles.bandBio}>{data.bio}</p>
             <p className={styles.bandHype}>
               Let {data.act} take you on a {data.genre}-journey, guided by the incredible talents of {formattedMembers}.
             </p>
           </div>
+          <div className={styles.infoWrapper}>
+            <p className={styles.dataWrapper}>{dayFullName[data.day]}</p>
+            <p className={styles.dataWrapper}>
+              {data.start}-{data.end}
+            </p>
+            <p className={styles.dataWrapper}>{data.venue}</p>
+          </div>
         </div>
         <Image className={styles.bandImage} src={data.logo && !data.logo.startsWith("https") ? `http://localhost:8080/logos/${data.logo}` : data.logo} alt="cover of the band" width={160} height={160} />
       </section>
 
-      <section>
+      <section className={styles.randomBandsSection}>
         <h2 className={styles.randomBandsHeader}>You might also like</h2>
         <div className={styles.randomBandsWrapper}>
           {randomBands.map((band) => (
             <div key={band.slug}>
-              <h3>{band.name}</h3>
-              <p>{slicedBio(band.bio, 150)}</p>
-              <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={100} height={100} />
-              <Link href={`/bands/${band.slug}`}>Check this band!</Link>
+              <Link href={`/bands/${band.slug}`} className={styles.bandLink}>
+                <h3 className={styles.randomBandsSubH}>{band.name}</h3>
+                <p>{slicedBio(band.bio, 150)}</p>
+                <div className={styles.imageWrapper}>
+                  <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={10} height={10} />
+                </div>
+              </Link>
             </div>
           ))}
         </div>

@@ -54,8 +54,8 @@ function Billingform(setPage) {
 
         <label htmlFor="">
           Address
-          <input type="text" name="address" aria-label="Address 1" placeholder="Street and number" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required />
-          <input type="text" name="adress2" aria-label="Address 2" placeholder="Appartment number, etc." pattern="[a-zA-ZæøåÆØÅ\s\-]+" />
+          <input type="text" name="address" aria-label="Address 1" placeholder="Street and number" pattern="[a-zA-ZæøåÆØÅ\s\-0-9]+" required />
+          <input type="text" name="adress2" aria-label="Address 2" placeholder="Appartment number, etc." pattern="[0-9][a-zA-ZæøåÆØÅ\s\-]+" />
         </label>
 
         <label for="zip">

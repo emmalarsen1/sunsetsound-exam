@@ -20,7 +20,7 @@
 }
 
 .dataWrapper {
-  padding: 7px 7px;
+  padding: 5px 15px;
   background-color: #5e7af5;
   color: white;
   display: flex;
@@ -36,8 +36,8 @@
 }
 
 .bandBio {
-  padding: 20px;
-  margin: 20px 0 0;
+  padding: 0 20px;
+  margin: 0;
   text-align: left;
   max-width: 100%;
   width: 100%;
@@ -54,17 +54,41 @@
 
 .bandImage {
   max-width: 500px;
+  width: 100%;
+  height: auto;
   margin: 0;
   overflow: hidden;
   color: var(--white);
 }
 
+.randomBandsSection {
+  margin: 5rem 0;
+  overflow: auto;
+}
+
 .randomBandsHeader {
   display: flex;
   justify-content: center;
+  font-size: 4rem;
+  white-space: nowrap;
+}
+
+.randomBandsSubH {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
 }
 
 .randomBandsWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.bandLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
