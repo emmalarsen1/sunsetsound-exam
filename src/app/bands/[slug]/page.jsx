@@ -77,15 +77,15 @@ export default async function page({ params }) {
       <section className={styles.bandWrapper}>
         <div>
           <div className={styles.infoWrapper}>
-            <p>
+            <p className={styles.dataWrapper}>
               {data.start}-{data.end}
             </p>
-            <p>{dayFullName[data.day]}</p>
-            <p>{data.venue}</p>
+            <p className={styles.dataWrapper}>{dayFullName[data.day]}</p>
+            <p className={styles.dataWrapper}>{data.venue}</p>
           </div>
           <div>
-            <p>{data.bio}</p>
-            <p>
+            <p className={styles.bandBio}>{data.bio}</p>
+            <p className={styles.bandHype}>
               Let {data.act} take you on a {data.genre}-journey, guided by the incredible talents of {formattedMembers}.
             </p>
           </div>

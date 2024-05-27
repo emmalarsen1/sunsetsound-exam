@@ -12,6 +12,21 @@
 .infoWrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.dataWrapper {
+  padding: 7px 7px;
+  background-color: #5e7af5;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .bandMembers {
@@ -21,6 +36,20 @@
 }
 
 .bandBio {
+  padding: 20px;
+  margin: 20px 0 0;
+  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bandHype {
+  padding: 20px;
+  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .bandImage {
