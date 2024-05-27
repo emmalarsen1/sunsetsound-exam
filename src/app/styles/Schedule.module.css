@@ -5,7 +5,6 @@
 }
 .hidden {
   opacity: 0;
-  position: absolute;
 }
 .hideOnMobile {
   display: none;
@@ -44,7 +43,7 @@
 }
 
 .new_times {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: grid;
   align-items: center;
   text-align: start;
@@ -55,7 +54,7 @@
   display: grid;
   text-align: center;
   max-width: 300px;
-  min-height: 100px;
+  min-height: 90px;
 }
 
 .img_textstyle p:hover {
@@ -64,12 +63,11 @@
 
 .img_textstyle p {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   z-index: 1;
   text-align: center;
   font-family: system-ui, sans-serif;
   padding: 5px;
-  min-width: 270px;
 }
 .img_textstyle .color_container {
   background-color: #5e7af5;
