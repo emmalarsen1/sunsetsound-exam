@@ -70,7 +70,7 @@ function Schedule() {
           </button>
         ))}
       </div>
-      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
+      <div className={styles.weekday}>{fullDay}</div>
       <p className={styles.hideOnDesktop}>Choose a stage:</p>
       <div className={styles.mobileButtons}>
         <button className={`${styles.areabutton} ${visibleContent === "midgard" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("midgard")}>
@@ -112,9 +112,9 @@ function Schedule() {
       <div className={`${styles.gridwrapper} ${styles.hideOnMobile}`}>
         <div className={styles.new_grid}>
           <h2 className={styles.hidden}>TIME</h2>
-          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>MIDGARD</h3>
-          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>VANAHEIM</h3>
-          <h3 className={`${styles.areatitle} ${styles.hideOnMobile}`}>JOTUNHEIM</h3>
+          <h3 className={styles.areatitle}>MIDGARD</h3>
+          <h3 className={styles.areatitle}>VANAHEIM</h3>
+          <h3 className={styles.areatitle}>JOTUNHEIM</h3>
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
             <div>
