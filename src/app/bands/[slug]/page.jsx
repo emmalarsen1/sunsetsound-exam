@@ -3,6 +3,7 @@ import combinedData from "@/lib/combineData";
 import { getData } from "@/lib/data";
 import Image from "next/image";
 import styles from "./Bandname.module.css";
+import NotFound from "@/app/not-found";
 
 export async function generateStaticParams() {
   // const res = await fetch("https://broken-tinted-wombat.glitch.me/bands");
@@ -67,6 +68,7 @@ export default async function page({ params }) {
     sun: "Sunday",
   };
 
+  if (!data) return NotFound();
   const formattedMembers = formatBandMembers(data.members);
 
   return (

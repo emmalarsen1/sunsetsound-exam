@@ -46,7 +46,7 @@ export async function addBooking(info) {
     zip: info.zip,
     email: info.email,
     tele: info.tele,
-    extrappl: info.extrappl,
+    // extrappl: info.extrappl,
     userid: info.userid,
   });
 
@@ -66,12 +66,12 @@ export async function addBooking(info) {
 export async function addReservation(info) {
   let headersList = {
     Accept: "application/json",
-    apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    apikey: apikey,
     prefer: "return=representation",
     "Content-Type": "application/json",
   };
 
-  const getId = await fetch("https://lwvdzfdgkmziuewtursm.supabase.co/rest/v1/form_foo_festival?userid=eq." + info.userid, {
+  const getId = await fetch("https://pexwboaieovroxjkczsc.supabase.co/rest/v1/sunsetfest?userid=eq." + info.userid, {
     headers: headersList,
   });
   const idData = await getId.json();
@@ -87,7 +87,7 @@ export async function addReservation(info) {
     greencamping: info.greencamping,
   });
 
-  let response = await fetch("https://lwvdzfdgkmziuewtursm.supabase.co/rest/v1/foo_festival_bookings", {
+  let response = await fetch("https://pexwboaieovroxjkczsc.supabase.co/rest/v1/sunsetfest_booking", {
     method: "POST",
     body: bodyContent,
     headers: headersList,
