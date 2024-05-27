@@ -114,6 +114,10 @@
   top: 0;
 }
 
+.active {
+  color: aqua;
+}
+
 /****** logo ********/
 .nav img {
   width: 100px;
