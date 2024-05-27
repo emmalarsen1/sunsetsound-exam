@@ -63,14 +63,23 @@ function Schedule() {
   return (
     <div>
       <h1 className={`globalHeader`}>Schedule</h1>
-      <p>Choose a stage:</p>
+      <div className={styles.days}>
+        {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
+          <button key={d} className={styles.button} onClick={() => setDay(d)}>
+            {showWeekDay(d).toUpperCase()}
+          </button>
+        ))}
+      </div>
+      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
+      <p className={styles.hideOnDesktop}>Choose a stage:</p>
       <div className={styles.mobileButtons}>
         <button className={`${styles.areabutton} ${visibleContent === "midgard" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("midgard")}>
           MIDGARD
         </button>
+        <div></div>
         <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "midgard" ? styles.showContent : ""}`}>
           {insertTimes()}
-          <div>
+          <div className={styles.bandbox}>
             {midgard.map((act) => (
               <OneSchedule key={act.logo} band={act} />
             ))}
@@ -81,7 +90,7 @@ function Schedule() {
         </button>
         <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "vanaheim" ? styles.showContent : ""}`}>
           {insertTimes()}
-          <div>
+          <div className={styles.bandbox}>
             {vanaheim.map((act) => (
               <OneSchedule key={act.logo} band={act} />
             ))}
@@ -92,7 +101,7 @@ function Schedule() {
         </button>
         <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "jotunheim" ? styles.showContent : ""}`}>
           {insertTimes()}
-          <div>
+          <div className={styles.bandbox}>
             {jotunheim.map((act) => (
               <OneSchedule key={act.logo} band={act} />
             ))}
@@ -100,14 +109,6 @@ function Schedule() {
         </div>
       </div>
 
-      <div className={styles.days}>
-        {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
-          <button key={d} className={styles.button} onClick={() => setDay(d)}>
-            {showWeekDay(d).toUpperCase()}
-          </button>
-        ))}
-      </div>
-      <div className={`${styles.weekday} ${styles.hideOnMobile}`}>{fullDay}</div>
       <div className={`${styles.gridwrapper} ${styles.hideOnMobile}`}>
         <div className={styles.new_grid}>
           <h2 className={styles.hidden}>TIME</h2>

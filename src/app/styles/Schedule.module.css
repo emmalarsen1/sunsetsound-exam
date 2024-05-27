@@ -11,6 +11,9 @@
   display: none;
 }
 
+.bandbox {
+  flex-grow: 1;
+}
 .mobileContent {
   display: none;
 }
@@ -30,11 +33,14 @@
 
 .showContent.areagrid {
   display: flex;
-  border: 1px solid #5e7af5;
-  border-radius: 0.6rem;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px);
+  border: 2px solid #5e7af5;
+  border-bottom-left-radius: 0.6rem;
+  border-bottom-right-radius: 0.6rem;
+  /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px); */
   padding: 15px;
+  justify-content: space-around;
+  margin-top: -10px;
 }
 
 .new_times {
@@ -98,7 +104,7 @@
 }
 .button {
   padding: 10px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   transition: 1.3s ease-in;
 }
 .weekday {
@@ -237,5 +243,12 @@
     padding: 5px;
     color: #5e7af5;
     text-transform: uppercase;
+    padding-bottom: 15px;
+  }
+  .hideOnDesktop {
+    display: none;
+  }
+  .hideOnMobile {
+    display: block;
   }
 }
