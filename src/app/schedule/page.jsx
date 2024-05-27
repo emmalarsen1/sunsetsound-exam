@@ -13,6 +13,7 @@ function Schedule() {
   const [vanaheim, setVanaheim] = useState([]);
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
+  const [visibleContent, setVisibleContent] = useState(null);
 
   async function fetchData(parm) {
     const data = await combineData();
@@ -55,98 +56,81 @@ function Schedule() {
     return <div className={styles.new_times}>{list}</div>;
   };
 
+  const toggleVisibility = (area) => {
+    setVisibleContent((prevVisibleContent) => (prevVisibleContent === area ? null : area));
+  };
+
   return (
     <div>
       <h1 className={`globalHeader`}>Schedule</h1>
-
       <div className={styles.days}>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("mon");
-          }}
-          variant="link"
-        >
-          MONDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("tue");
-          }}
-          variant="link"
-        >
-          TUESDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("wed");
-          }}
-          variant="link"
-        >
-          WEDNESDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("thu");
-          }}
-          variant="link"
-        >
-          THURSDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("fri");
-          }}
-          variant="link"
-        >
-          FRIDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("sat");
-          }}
-          variant="link"
-        >
-          SATURDAY
-        </button>
-        <button
-          className={styles.button}
-          onClick={() => {
-            setDay("sun");
-          }}
-          variant="link"
-        >
-          SUNDAY
-        </button>
+        {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
+          <button key={d} className={styles.button} onClick={() => setDay(d)}>
+            {showWeekDay(d).toUpperCase()}
+          </button>
+        ))}
       </div>
       <div className={styles.weekday}>{fullDay}</div>
-      <div className={styles.gridwrapper}>
+      <p className={styles.hideOnDesktop}>Choose a stage:</p>
+      <div className={styles.mobileButtons}>
+        <button className={`${styles.areabutton} ${visibleContent === "midgard" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("midgard")}>
+          MIDGARD
+        </button>
+        <div></div>
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "midgard" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div className={styles.bandbox}>
+            {midgard.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
+        </div>
+        <button className={`${styles.areabutton} ${visibleContent === "vanaheim" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("vanaheim")}>
+          VANAHEIM
+        </button>
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "vanaheim" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div className={styles.bandbox}>
+            {vanaheim.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
+        </div>
+        <button className={`${styles.areabutton} ${visibleContent === "jotunheim" ? styles.activeButton : ""}`} onClick={() => toggleVisibility("jotunheim")}>
+          JOTUNHEIM
+        </button>
+        <div className={`${styles.accordionContent} ${styles.areagrid} ${visibleContent === "jotunheim" ? styles.showContent : ""}`}>
+          {insertTimes()}
+          <div className={styles.bandbox}>
+            {jotunheim.map((act) => (
+              <OneSchedule key={act.logo} band={act} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`${styles.gridwrapper} ${styles.hideOnMobile}`}>
         <div className={styles.new_grid}>
-          <h3 className={styles.hidden}>TIME</h3>
+          <h2 className={styles.hidden}>TIME</h2>
           <h3 className={styles.areatitle}>MIDGARD</h3>
           <h3 className={styles.areatitle}>VANAHEIM</h3>
           <h3 className={styles.areatitle}>JOTUNHEIM</h3>
           {insertTimes()}
           <article className={styles.oneschedulegrid}>
             <div>
-              {midgard.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
+              {midgard.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
             </div>
             <div>
-              {vanaheim.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
+              {vanaheim.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
             </div>
             <div>
-              {jotunheim.map((act) => {
-                return <OneSchedule key={act.logo} band={act} />;
-              })}
+              {jotunheim.map((act) => (
+                <OneSchedule key={act.logo} band={act} />
+              ))}
             </div>
           </article>
         </div>
