@@ -248,7 +248,4 @@
   .hideOnDesktop {
     display: none;
   }
-  .hideOnMobile {
-    display: block;
-  }
 }
