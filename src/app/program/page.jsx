@@ -14,7 +14,7 @@ export default async function page() {
 
   return (
     <>
-      <h1 className={`globalHeader`}>Program</h1>
+      <h1 className={`globalHeader`}>Lineup</h1>
       <div className={styles.programwrapper}>
         <div className={styles.topBandWrapper}>
           {topBand.map((data) => (
