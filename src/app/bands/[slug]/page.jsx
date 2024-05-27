@@ -4,6 +4,7 @@ import { getData } from "@/lib/data";
 import Image from "next/image";
 import styles from "./Bandname.module.css";
 import NotFound from "@/app/not-found";
+import Link from "next/link";
 
 export async function generateStaticParams() {
   // const res = await fetch("https://broken-tinted-wombat.glitch.me/bands");
@@ -68,6 +69,19 @@ export default async function page({ params }) {
     sun: "Sunday",
   };
 
+  const allBandsData = await getData("bands");
+  const remainingBands = allBandsData.filter((band) => band.slug !== slug);
+
+  const shuffledBands = remainingBands.sort(() => 0.5 - Math.random());
+  const randomBands = shuffledBands.slice(0, 3);
+
+  const slicedBio = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.slice(0, maxLength) + "..";
+    }
+    return text;
+  };
+
   if (!data) return NotFound();
   const formattedMembers = formatBandMembers(data.members);
 
@@ -91,6 +105,20 @@ export default async function page({ params }) {
           </div>
         </div>
         <Image className={styles.bandImage} src={data.logo && !data.logo.startsWith("https") ? `http://localhost:8080/logos/${data.logo}` : data.logo} alt="cover of the band" width={160} height={160} />
+      </section>
+
+      <section>
+        <h2 className={styles.randomBandsHeader}>You might also like</h2>
+        <div className={styles.randomBandsWrapper}>
+          {randomBands.map((band) => (
+            <div key={band.slug}>
+              <h3>{band.name}</h3>
+              <p>{slicedBio(band.bio, 150)}</p>
+              <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={100} height={100} />
+              <Link href={`/bands/${band.slug}`}>Check this band!</Link>
+            </div>
+          ))}
+        </div>
       </section>
     </>
   );

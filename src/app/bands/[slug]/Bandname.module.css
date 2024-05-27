@@ -58,3 +58,13 @@
   overflow: hidden;
   color: var(--white);
 }
+
+.randomBandsHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.randomBandsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
