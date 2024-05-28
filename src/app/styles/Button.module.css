@@ -17,7 +17,10 @@
 .buttonstyle a {
   text-decoration: none;
   color: black;
-  font-size: 1.3rem;
+}
+.button_a {
+  font-size: 1.1rem;
+  text-transform: uppercase;
 }
 .pink {
   background-color: #ffa3c7;
