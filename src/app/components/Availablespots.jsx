@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 
-export default function Availablespots({ data, ticketTotal }) {
+export default function Availablespots({ data, ticketTotal, page, setPage }) {
   const [spots, setSpots] = useState(data);
   const [selectedArea, setSelectedArea] = useState(null);
   const [ticketCount, setTicketCount] = useState(1);
@@ -13,34 +13,34 @@ export default function Availablespots({ data, ticketTotal }) {
     if (area.available >= ticketCount) {
       setSelectedArea(selectedArea);
     } else {
-      alert(
-        "There is not enough spots available for the selected amount of tickets"
-      );
+      alert("There is not enough spots available for the selected amount of tickets");
     }
   };
 
   return (
-    <form>
-      <fieldset>
-        <legend>Choose your camping area</legend>
-        {spots.map(
-          (spot, index) =>
-            ticketTotal < spot.available && (
-              <div key={index}>
-                <input
-                  type="radio"
-                  name="campingArea"
-                  id={`campingArea${index}`}
-                  value={spot.area}
-                  onChange={handleSelection}
-                />
-                <span>{spot.available} spots available at </span>
-                <label htmlFor={`campingArea${index}`}>{spot.area}</label>
-              </div>
-            )
-        )}
-      </fieldset>
-    </form>
+    <>
+      <form>
+        <fieldset>
+          <legend>Choose your camping area</legend>
+          {spots.map(
+            (spot, index) =>
+              ticketTotal < spot.available && (
+                <div key={index}>
+                  <input type="radio" name="campingArea" id={`campingArea${index}`} value={spot.area} onChange={handleSelection} />
+                  <span>{spot.available} spots available at </span>
+                  <label htmlFor={`campingArea${index}`}>{spot.area}</label>
+                </div>
+              )
+          )}
+        </fieldset>
+      </form>
+      {page !== 4 && (
+        <div>
+          <button onClick={() => setPage((o) => o - 1)}>Back</button>
+          <button onClick={() => setPage((o) => o + 1)}>Next</button>
+        </div>
+      )}
+    </>
   );
 }
 
