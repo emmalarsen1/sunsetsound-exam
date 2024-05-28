@@ -1,14 +1,7 @@
 import React from "react";
 import styles from "../booking/Booking.module.css";
 
-function Ticketsbox({
-  ticketChoice,
-  setTicketChoice,
-  gearChoice,
-  setGearChoice,
-  page,
-  setPage,
-}) {
+function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
   // FUNKTIONER FOR TICKETS
   function removeRegular() {
     setTicketChoice((old) => {
@@ -20,12 +13,14 @@ function Ticketsbox({
   }
 
   function addRegular() {
-    setTicketChoice((old) => {
-      return {
-        ...old,
-        regular: old.regular + 1,
-      };
-    });
+    if (getTotalTickets() < 5) {
+      setTicketChoice((old) => {
+        return {
+          ...old,
+          regular: old.regular + 1,
+        };
+      });
+    }
   }
 
   function removeVip() {
@@ -38,12 +33,20 @@ function Ticketsbox({
   }
 
   function addVip() {
-    setTicketChoice((old) => {
-      return {
-        ...old,
-        vip: old.vip + 1,
-      };
-    });
+    if (getTotalTickets() < 5) {
+      setTicketChoice((old) => {
+        return {
+          ...old,
+          vip: old.vip + 1,
+        };
+      });
+    }
+  }
+
+  // TOTAL TICKETS
+  function getTotalTickets() {
+    const total = ticketChoice.regular + ticketChoice.vip;
+    return Math.min(total, 5);
   }
 
   // FUNKTIONER FOR CAMPING
@@ -64,6 +67,7 @@ function Ticketsbox({
       };
     });
   }
+
   function removeThreePersons() {
     setGearChoice((old) => {
       return {
@@ -129,10 +133,7 @@ function Ticketsbox({
         <div className={styles.ticketLine}>
           <p>2-person tent</p>
           <div>
-            <button
-              onClick={removeTwoPersons}
-              className={styles.miunsPlusButton}
-            >
+            <button onClick={removeTwoPersons} className={styles.miunsPlusButton}>
               -
             </button>
             <span>{gearChoice.twotent}</span>
@@ -146,10 +147,7 @@ function Ticketsbox({
       <div className={styles.ticketLine}>
         <p>3-person tent</p>
         <div className={styles.plusMinusCollected}>
-          <button
-            onClick={removeThreePersons}
-            className={styles.miunsPlusButton}
-          >
+          <button onClick={removeThreePersons} className={styles.miunsPlusButton}>
             -
           </button>
           <span>{gearChoice.threetent}</span>
@@ -162,11 +160,7 @@ function Ticketsbox({
         <label>
           Greencamping
           <span></span>
-          <input
-            type="checkbox"
-            checked={gearChoice.greenCamping}
-            onChange={toggleGreenCamp}
-          />
+          <input type="checkbox" checked={gearChoice.greenCamping} onChange={toggleGreenCamp} />
         </label>
       </div>
 
@@ -174,10 +168,7 @@ function Ticketsbox({
       {page !== 4 && (
         <div>
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <button
-            onClick={() => setPage((o) => o + 1)}
-            disabled={buttonDisabled()}
-          >
+          <button onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}>
             Next
           </button>
         </div>
