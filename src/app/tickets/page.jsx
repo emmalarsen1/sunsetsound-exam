@@ -7,7 +7,7 @@ import TicketCardBack from "../components/TicketCardBack";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 
-function page() {
+function Tickets() {
   const [isFlippedRegular, setIsFlippedRegular] = useState(false);
   const [isFlippedVIP, setIsFlippedVIP] = useState(false);
   const [isFlipped2PersonTent, setIsFlipped2PersonTent] = useState(false);
@@ -134,7 +134,7 @@ function page() {
   );
 }
 
-export default page;
+export default Tickets;
 
 {
   /* 

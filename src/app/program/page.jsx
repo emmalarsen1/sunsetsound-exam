@@ -3,8 +3,8 @@ import Link from "next/link";
 import styles from "./Program.module.css";
 
 export default async function page() {
-  // const url = "https://broken-tinted-wombat.glitch.me/bands";
-  const url = "http://localhost:8080/bands";
+  const url = "https://broken-tinted-wombat.glitch.me/bands";
+  // const url = "http://localhost:8080/bands";
   const res = await fetch(url);
   const bandData = await res.json();
 

@@ -14,8 +14,8 @@ function Booking() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // fetch("https://broken-tinted-wombat.glitch.me/available-spots")
-    fetch("http://localhost:8080/available-spots")
+    fetch("https://broken-tinted-wombat.glitch.me/available-spots")
+      // fetch("http://localhost:8080/available-spots")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
