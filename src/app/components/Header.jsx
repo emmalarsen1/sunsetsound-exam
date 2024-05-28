@@ -5,6 +5,7 @@ import styles from "../styles/Header.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { useMediaQuery } from "react-responsive";
 
 function Header() {
   const pathname = usePathname();
@@ -19,8 +20,15 @@ function Header() {
     }
   };
 
+  // mediaquerys //
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 601px) and (max-width: 1024px)",
+  });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
+  //
   return (
-    <header>
+    <header className={isMobile ? styles.mobileContainer : isTablet ? styles.tabletContainer : styles.desktopContainer}>
       <nav className={styles.nav}>
         <Link href={"/"} passHref>
           <Image className={styles.logo} src="ss_logo.svg" alt="logo" width={50} height={50}></Image>

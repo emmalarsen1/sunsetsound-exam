@@ -5,6 +5,7 @@ import OneSchedule from "../components/OneSchedule";
 import React from "react";
 import { useState, useEffect } from "react";
 import combineData from "@/lib/combineData";
+import { useMediaQuery } from "react-responsive";
 
 function Schedule() {
   const [bands, setbands] = useState();
@@ -14,6 +15,14 @@ function Schedule() {
   const [jotunheim, setJotuneheim] = useState([]);
   const [fullDay, setFullDay] = useState("Monday");
   const [visibleContent, setVisibleContent] = useState(null);
+
+  // mediaquerys //
+  const isMobile = useMediaQuery({ query: "(max-width: 600px)" });
+  const isTablet = useMediaQuery({
+    query: "(min-width: 601px) and (max-width: 1024px)",
+  });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1025px)" });
+  //
 
   async function fetchData(parm) {
     const data = await combineData();
@@ -61,7 +70,7 @@ function Schedule() {
   };
 
   return (
-    <div>
+    <div className={isMobile ? styles.mobileContainer : isTablet ? styles.tabletContainer : styles.desktopContainer}>
       <h1 className={`globalHeader`}>Schedule</h1>
       <div className={styles.days}>
         {["mon", "tue", "wed", "thu", "fri", "sat", "sun"].map((d) => (
