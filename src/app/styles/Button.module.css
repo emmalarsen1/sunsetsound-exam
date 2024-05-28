@@ -1,5 +1,5 @@
 .buttonstyle:hover {
-  background-color: rgba(255, 255, 255, 0.656);
+  background-color: #fdf202;
   border-color: #181818;
   box-shadow: 5px 5px 0 0 #282828;
   color: #181818;
@@ -14,10 +14,13 @@
   padding: 15px 20px 15px 20px;
   transition: all 200ms linear 0s;
   text-align: center;
-  background-color: #ffa552;
+  background-color: #fdf202;
 }
 .buttonstyle a {
   text-decoration: none;
   color: black;
   font-size: 1.3rem;
+}
+.pink {
+  background-color: #ffa3c7;
 }
