@@ -1,5 +1,11 @@
 :root {
   --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
+  --color-blue: #5e7af5;
+  --color-blue-hover: #3458f9;
+  --color-yellow: #fdf202;
+  --color-light-purple: #b6b8f7;
+  --color-pink: #ffa3c7;
+  --color-button-hover: #ffffff83;
 }
 
 * {
@@ -59,7 +65,7 @@ input {
 }
 
 .globalHeader {
-  font-size: 8vw;
+  font-size: clamp(3.75rem, 2.8804rem + 4.3478vi, 6.25rem);
   font-weight: 200;
   text-align: center;
   margin-top: 5rem;
