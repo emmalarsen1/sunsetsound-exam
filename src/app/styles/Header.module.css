@@ -114,6 +114,11 @@
   top: 0;
 }
 
+.active {
+  color: aqua;
+  border: 2px solid black;
+}
+
 /****** logo ********/
 .nav img {
   width: 100px;
@@ -155,5 +160,9 @@
   }
   .menu {
     display: none;
+  }
+  .active {
+    color: aqua;
+    border: 2px solid black;
   }
 }
