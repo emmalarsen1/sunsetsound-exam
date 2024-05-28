@@ -2,13 +2,13 @@ import React from "react";
 import styles from "../styles/Billingform.module.css";
 import { addBooking } from "@/lib/data";
 
-function Billingform(setPage) {
-  // const checkForError = (e) => {
-  //   if (e.target.name == "expodate") {
-  //     if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
-  //     else if (e.target.value.toString().length === 3 && e.target.value.toString().charAt(2) === "/") e.target.value = e.target.value.replace("/", "");
-  //   }
-  // };
+function Billingform({ setPage }) {
+  const checkForError = (e) => {
+    if (e.target.name == "expodate") {
+      if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
+      else if (e.target.value.toString().length === 3 && e.target.value.toString().charAt(2) === "/") e.target.value = e.target.value.replace("/", "");
+    }
+  };
 
   function formHandler(e) {
     setPage(4);

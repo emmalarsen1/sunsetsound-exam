@@ -17,6 +17,8 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
     }
   };
 
+  const selectionMade = () => selectedArea !== null;
+
   return (
     <>
       <form>
@@ -37,7 +39,9 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
       {page !== 4 && (
         <div>
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <button onClick={() => setPage((o) => o + 1)}>Next</button>
+          <button onClick={() => setPage((o) => o + 1)} disabled={!selectionMade()}>
+            Next
+          </button>
         </div>
       )}
     </>
