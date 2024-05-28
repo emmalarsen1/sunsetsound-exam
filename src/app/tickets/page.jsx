@@ -7,6 +7,7 @@ import TicketCardBack from "../components/TicketCardBack";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
 import Button from "../components/Button";
+import ScrollToTop from "react-scroll-to-top";
 
 function Tickets() {
   const [isFlippedRegular, setIsFlippedRegular] = useState(false);
@@ -76,6 +77,7 @@ function Tickets() {
           </div>
         </div>
       </div>
+      <ScrollToTop width="38" color="#5e7af5" className={`importantstyle`} smooth />
     </>
   );
 }
