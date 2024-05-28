@@ -39,7 +39,7 @@ export default async function page() {
             </Link>
           ))}
         </div>
-        <ScrollToTop width="38" color="#5e7af5" smooth />
+        <ScrollToTop width="38" color="#5e7af5" className={`importantstyle`} smooth />
       </div>
     </>
   );

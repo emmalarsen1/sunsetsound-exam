@@ -6,6 +6,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import combineData from "@/lib/combineData";
 import { useMediaQuery } from "react-responsive";
+import ScrollToTop from "react-scroll-to-top";
 
 function Schedule() {
   const [bands, setbands] = useState();
@@ -144,6 +145,7 @@ function Schedule() {
           </article>
         </div>
       </div>
+      <ScrollToTop width="38" color="#5e7af5" className={`importantstyle`} smooth />
     </div>
   );
 }

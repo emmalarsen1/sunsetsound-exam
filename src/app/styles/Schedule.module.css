@@ -107,9 +107,6 @@
     display: none;
   }
 
-  .bandbox {
-    flex-grow: 1;
-  }
   .mobileContent {
     display: none;
   }
@@ -179,6 +176,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 320px;
   }
   .img_textstyle .color_container:hover {
     /* border: 2px solid white; */
