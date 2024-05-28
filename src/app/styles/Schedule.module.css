@@ -42,6 +42,10 @@
   margin-top: -10px;
 }
 
+.showContent.areabutton {
+  background: #3458f9;
+}
+
 .new_times {
   font-size: 1.2rem;
   display: grid;

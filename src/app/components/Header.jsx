@@ -4,13 +4,10 @@ import Link from "next/link";
 import styles from "../styles/Header.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 function Header() {
-  const router = useRouter();
-  const isActive = (href) => {
-    return router.pathname === href ? styles.active : "";
-  };
+  const pathname = usePathname();
 
   const [state, setState] = useState("close");
 
@@ -29,14 +26,14 @@ function Header() {
           <Image className={styles.logo} src="ss_logo.svg" alt="logo" width={50} height={50}></Image>
         </Link>
         <div className={styles.headermenu}>
-          <Link href={"/program"}>
-            <a className={isActive("/program")}>Lineup</a>
+          <Link className={`link ${pathname === "/program" ? "active" : ""}`} href="/program">
+            Lineup
           </Link>
-          <Link href={"/tickets"}>
-            <a className={isActive("/program")}>Tickets</a>
+          <Link className={`link ${pathname === "/tickets" ? "active" : ""}`} href="/tickets">
+            Tickets
           </Link>
-          <Link href={"/schedule"}>
-            <a className={isActive("/program")}>Schedule</a>
+          <Link className={`link ${pathname === "/schedule" ? "active" : ""}`} href="/schedule">
+            Schedule
           </Link>
         </div>
         <div className={styles.burger_wrapper} onClick={openClose}>
@@ -47,17 +44,17 @@ function Header() {
       <div className={styles.menu + " " + styles[state]}>
         <ul className={styles.menu_links}>
           <div className={styles.menu_links_wrapper} onClick={() => setState("close")}>
-            <Link href={"/"}>
-              <a className={isActive("/")}>Home</a>
+            <Link className={`link ${pathname === "/" ? "active" : ""}`} href="/">
+              Home
             </Link>
-            <Link href={"/program"}>
-              <a className={isActive("/program")}>Program</a>
+            <Link className={`link ${pathname === "/program" ? "active" : ""}`} href={"/program"}>
+              Lineup
             </Link>
-            <Link href={"/tickets"}>
-              <a className={isActive("/tickets")}>Tickets</a>
+            <Link className={`link ${pathname === "/tickets" ? "active" : ""}`} href={"/tickets"}>
+              Tickets
             </Link>
-            <Link href={"/schedule"}>
-              <a className={isActive("/schedule")}>Schedule</a>
+            <Link className={`link ${pathname === "/schedule" ? "active" : ""}`} href={"/schedule"}>
+              Schedule
             </Link>
           </div>
         </ul>

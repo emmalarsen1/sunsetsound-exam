@@ -116,6 +116,7 @@
 
 .active {
   color: aqua;
+  border: 2px solid black;
 }
 
 /****** logo ********/
@@ -159,5 +160,9 @@
   }
   .menu {
     display: none;
+  }
+  .active {
+    color: aqua;
+    border: 2px solid black;
   }
 }
