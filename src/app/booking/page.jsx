@@ -118,10 +118,10 @@ function Booking() {
             )}
             {page === 2 && (
               <Availablespots
-                setPage={setData}
+                setPage={setPage}
                 data={data}
                 ticketTotal={ticketTotal}
-              ></Availablespots>
+              />
             )}
             {page === 3 && <Billingform setPage={setPage}></Billingform>}
             {page === 4 && <Ordercomplete />}
