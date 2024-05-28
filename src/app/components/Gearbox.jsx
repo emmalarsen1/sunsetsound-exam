@@ -35,6 +35,15 @@ function Gearbox({ gearChoice, setGearChoice }) {
       };
     });
   }
+
+  function toggleGreenCamp() {
+    setGearChoice((old) => {
+      return {
+        ...old,
+        greenCamping: !old.greenCamping,
+      };
+    });
+  }
   return (
     <>
       <div>
@@ -49,6 +58,13 @@ function Gearbox({ gearChoice, setGearChoice }) {
         <button onClick={removeThreePersons}>-</button>
         <span>{gearChoice.threetent}</span>
         <button onClick={addThreePersons}>+</button>
+      </div>
+      <div>
+        <h2>Green Camping</h2>
+        <label>
+          <input type="checkbox" checked={gearChoice.greenCamping} onChange={toggleGreenCamp} />
+          Y/N
+        </label>
       </div>
     </>
   );
