@@ -1,14 +1,14 @@
 .buttonstyle:hover {
-  border-color: #181818;
-  box-shadow: 5px 5px 0 0 #282828;
-  color: #181818;
+  border-color: var(--color-black18);
+  box-shadow: 5px 5px 0 0 var(--color-black28);
+  color: var(--color-black18);
   text-decoration: none;
   text-align: center;
 }
 
 .buttonstyle {
   border-radius: 769rem 769rem 769rem 769rem;
-  border: dotted #181818;
+  border: dotted var(--color-black18);
   border-width: 3px 3px 3px 3px;
   padding: 15px 20px 15px 20px;
   transition: all 200ms linear 0s;
@@ -16,22 +16,22 @@
 }
 .buttonstyle a {
   text-decoration: none;
-  color: black;
+  color: var(--color-black);
 }
 .button_a {
   font-size: 1.1rem;
   text-transform: uppercase;
 }
 .pink {
-  background-color: #ffa3c7;
+  background-color: var(--color-pink);
 }
 .pink:hover {
-  background-color: #ffffff83;
+  background-color: var(--color-button-hover);
 }
 
 .yellow {
-  background-color: #fdf202;
+  background-color: var(--color-yellow);
 }
 .yellow:hover {
-  background-color: #ffffff83;
+  background-color: var(--color-button-hover);
 }

@@ -76,15 +76,15 @@
   color: #fdf202;
 } */
 .topBandWrapper a:hover {
-  color: #b6b8f7;
+  color: var(--color-light-purple);
   transition: all 150ms linear 0s;
 }
 .midBandWrapper a:hover {
-  color: #5e7af5;
+  color: var(--color-blue);
   transition: all 150ms linear 0s;
 }
 
 .botBandWrapper a:hover {
-  color: #fdf202;
+  color: var(--color-yellow);
   transition: all 150ms linear 0s;
 }

@@ -1,11 +1,16 @@
 :root {
   --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
   --color-blue: #5e7af5;
+  --color-black: black;
+  --color-white: white;
+  --color-black18: #181818;
+  --color-black28: #282828;
   --color-blue-hover: #3458f9;
   --color-yellow: #fdf202;
   --color-light-purple: #b6b8f7;
   --color-pink: #ffa3c7;
   --color-button-hover: #ffffff83;
+  --color-link-hover: azure;
 }
 
 * {
