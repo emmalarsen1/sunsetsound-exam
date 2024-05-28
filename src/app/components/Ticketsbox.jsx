@@ -99,9 +99,9 @@ function Ticketsbox({
     <>
       {/* TICKETBOX */}
       <h2>Ticket(s)</h2>
-      <div>
-        <p className={styles.ticketLine}>Regular Ticket</p>
-        <div className={styles.ticketLine}>
+      <div className={styles.ticketLine}>
+        <p>Regular Ticket</p>
+        <div>
           <button onClick={removeRegular} className={styles.miunsPlusButton}>
             -
           </button>
@@ -112,9 +112,9 @@ function Ticketsbox({
         </div>
       </div>
 
-      <div>
-        <p className={styles.ticketLine}>VIP Ticket</p>
-        <div className={styles.ticketLine}>
+      <div className={styles.ticketLine}>
+        <p>VIP Ticket</p>
+        <div>
           <button onClick={removeVip} className={styles.miunsPlusButton}>
             -
           </button>
@@ -126,21 +126,26 @@ function Ticketsbox({
       </div>
       <div>
         {/* GEARBOX */}
-        <p className={styles.ticketLine}>2-person tent</p>
         <div className={styles.ticketLine}>
-          <button onClick={removeTwoPersons} className={styles.miunsPlusButton}>
-            -
-          </button>
-          <span>{gearChoice.twotent}</span>
-          <button onClick={addTwoPersons} className={styles.miunsPlusButton}>
-            +
-          </button>
+          <p>2-person tent</p>
+          <div>
+            <button
+              onClick={removeTwoPersons}
+              className={styles.miunsPlusButton}
+            >
+              -
+            </button>
+            <span>{gearChoice.twotent}</span>
+            <button onClick={addTwoPersons} className={styles.miunsPlusButton}>
+              +
+            </button>
+          </div>
         </div>
       </div>
 
-      <div>
-        <p className={styles.ticketLine}>3-person tent</p>
-        <div className={`${styles.ticketLine} ${styles.plusMinusCollected}`}>
+      <div className={styles.ticketLine}>
+        <p>3-person tent</p>
+        <div className={styles.plusMinusCollected}>
           <button
             onClick={removeThreePersons}
             className={styles.miunsPlusButton}
@@ -153,9 +158,10 @@ function Ticketsbox({
           </button>
         </div>
       </div>
-      <div>
+      <div className={styles.ticketLine}>
         <label>
           Greencamping
+          <span></span>
           <input
             type="checkbox"
             checked={gearChoice.greenCamping}

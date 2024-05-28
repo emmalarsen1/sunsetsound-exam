@@ -34,8 +34,12 @@
   gap: 0.5rem;
   border: 1px solid #5e7af5;
   padding: 1rem 1.7rem 1rem 1.7rem;
+  min-width: 350px;
+  min-height: 400px;
 }
-
+.basketContent {
+  min-width: 250px;
+}
 .basketTitle {
   font-size: var(--h1Title);
   font-family: "feneon-dense", sans-serif;
@@ -55,10 +59,12 @@
 
 .feeTickets {
   background: rgba(94, 122, 245, 0.4);
+  margin: 1rem 0 1rem;
 }
 
 .feeTents {
   background: rgba(94, 122, 245, 0.4);
+  margin-bottom: 1rem;
 }
 
 .feeTotal {
@@ -70,7 +76,8 @@
 
 /* Ticketsbox styling */
 .ticketLine {
-  display: inline;
+  display: flex;
+  justify-content: space-between;
 }
 .miunsPlusButton {
   border: 1px solid #5e7af5;
