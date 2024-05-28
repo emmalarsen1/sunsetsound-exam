@@ -69,8 +69,8 @@ export default async function page({ params }) {
     sun: "Sunday",
   };
 
-  const allBandsData = await getData("bands");
-  const remainingBands = allBandsData.filter((band) => band.slug !== slug);
+  const randomBandsData = await getData("bands");
+  const remainingBands = randomBandsData.filter((band) => band.slug !== slug);
 
   const shuffledBands = remainingBands.sort(() => 0.5 - Math.random());
   const randomBands = shuffledBands.slice(0, 3);
