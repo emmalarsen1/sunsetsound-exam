@@ -102,7 +102,7 @@ function Booking() {
             {page === 1 && (
               <div>
                 <h2>Ticket Info</h2>
-                <GetTicketInfo ticketChoice={ticketChoice}></GetTicketInfo>
+                <GetTicketInfo setPage={setPage} ticketChoice={ticketChoice}></GetTicketInfo>
               </div>
             )}
             {page === 2 && <Availablespots setPage={setPage} data={data} ticketTotal={ticketTotal} />}

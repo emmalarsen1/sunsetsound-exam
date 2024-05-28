@@ -3,14 +3,15 @@ import styles from "../styles/Billingform.module.css";
 import { addBooking } from "@/lib/data";
 
 function Billingform(setPage) {
-  const checkForError = (e) => {
-    if (e.target.name == "expodate") {
-      if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
-      else if (e.target.value.toString().length === 3 && e.target.value.toString().charAt(2) === "/") e.target.value = e.target.value.replace("/", "");
-    }
-  };
+  // const checkForError = (e) => {
+  //   if (e.target.name == "expodate") {
+  //     if (e.target.value.toString().length === 2) e.target.value = e.target.value + "/";
+  //     else if (e.target.value.toString().length === 3 && e.target.value.toString().charAt(2) === "/") e.target.value = e.target.value.replace("/", "");
+  //   }
+  // };
 
-  const formHandler = (e) => {
+  function formHandler(e) {
+    setPage(4);
     e.preventDefault();
 
     let info = {};
@@ -32,8 +33,8 @@ function Billingform(setPage) {
     //   return { ...o, userid: info.userid };
     // });
     /* await addBooking(info); */
-    addBooking(info);
-  };
+    // addBooking(info);
+  }
 
   return (
     <div>

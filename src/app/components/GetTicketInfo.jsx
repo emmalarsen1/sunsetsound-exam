@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TicketForm from "./Ticketinfo";
 
-function GetTicketInfo({ ticketChoice }) {
+function GetTicketInfo({ ticketChoice, setPage }) {
   const [regTicketLenght, setRegTicketLenght] = useState();
   const [vipTicketLenght, setVipTicketLenght] = useState();
 
@@ -25,8 +25,13 @@ function GetTicketInfo({ ticketChoice }) {
     });
   }, []);
 
+  async function handleSubmit(e) {
+    setPage(2);
+    e.preventDefault();
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       {regTicketLenght &&
         regTicketLenght.map((oneReg, i) => {
           return <TicketForm key={i} ticketNumber={i + 1} ticketType="Regular"></TicketForm>;
