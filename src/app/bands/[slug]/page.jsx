@@ -116,7 +116,7 @@ export default async function page({ params }) {
                 <h3 className={styles.randomBandsSubH}>{band.name}</h3>
                 <p>{slicedBio(band.bio, 150)}</p>
                 <div className={styles.imageWrapper}>
-                  <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={10} height={10} />
+                  <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={160} height={160} />
                 </div>
               </Link>
             </div>
