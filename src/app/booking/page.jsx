@@ -110,23 +110,22 @@ function Booking() {
             {page === 1 && (
               <div>
                 <h2>Ticket Info</h2>
-                <GetTicketInfo ticketChoice={ticketChoice}></GetTicketInfo>
+                <GetTicketInfo
+                  setPage={setPage}
+                  ticketChoice={ticketChoice}
+                ></GetTicketInfo>
               </div>
+            )}
+            {page === 2 && (
+              <Availablespots
+                setPage={setData}
+                data={data}
+                ticketTotal={ticketTotal}
+              ></Availablespots>
             )}
             {page === 3 && <Billingform setPage={setPage}></Billingform>}
             {page === 4 && <Ordercomplete />}
             {/* Sørger for ikke at vise knapperne på confirmed siden  */}
-            {page !== 4 && (
-              <div>
-                <button onClick={() => setPage((o) => o - 1)}>Back</button>
-                <button
-                  className={styles.nextbutton}
-                  onClick={() => setPage((o) => o + 1)}
-                >
-                  Next
-                </button>
-              </div>
-            )}
           </section>
           {/* Sørger for ikke at vise kurven på confirmed siden  */}
           {page !== 4 && (
