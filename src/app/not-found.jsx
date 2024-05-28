@@ -9,7 +9,7 @@ export default function NotFound() {
       <h3 className={styles.subtitle}>OPS! SOMETHING WENT WRONG</h3>
       <p>Go back to home page</p>
       <div className={styles.buttonspace}>
-        <Button href={"/"} buttontext="HOME" />
+        <Button href={"/"} buttontext="HOME" color="primary" />
       </div>
     </div>
   );
