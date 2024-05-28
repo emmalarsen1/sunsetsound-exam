@@ -113,11 +113,12 @@ export default async function page({ params }) {
           {randomBands.map((band) => (
             <div key={band.slug}>
               <Link href={`/bands/${band.slug}`} className={styles.bandLink}>
-                <h3 className={styles.randomBandsSubH}>{band.name}</h3>
-                <p>{slicedBio(band.bio, 150)}</p>
-                <div className={styles.imageWrapper}>
-                  <Image className={styles.bandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={160} height={160} />
+                <div>
+                  <Image className={styles.randomBandImage} src={band.logo && !band.logo.startsWith("https") ? `http://localhost:8080/logos/${band.logo}` : band.logo} alt={`cover of ${band.name}`} width={160} height={160} />
                 </div>
+                <h3 className={styles.randomBandsSubH}>{band.name}</h3>
+                <p className={styles.dataWrapper}>{band.genre}</p>
+                <p>{slicedBio(band.bio, 150)}</p>
               </Link>
             </div>
           ))}
