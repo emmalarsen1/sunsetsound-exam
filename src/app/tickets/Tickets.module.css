@@ -105,8 +105,7 @@
   color: black;
   background-color: #ffa552;
   text-decoration: none;
-  transition: transform 0.6s ease, border-bottom 0.6s ease,
-    border-right 0.6s ease;
+  transition: transform 0.6s ease, border-bottom 0.6s ease, border-right 0.6s ease;
   text-transform: uppercase;
   margin-top: 1rem;
 }
@@ -116,12 +115,12 @@
   border-bottom: 11px solid black;
   border-right: 11px solid black;
 }
-
+/****** dette bruges til den nye knap med prikkerne ******/
 .indexButWrap {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 10px auto 10px;
   padding: 0 1rem;
   max-width: 400px;
   gap: 1.5rem 1rem;
