@@ -1,6 +1,14 @@
 import React from "react";
+import styles from "../booking/Booking.module.css";
 
-function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
+function Ticketsbox({
+  ticketChoice,
+  setTicketChoice,
+  gearChoice,
+  setGearChoice,
+  page,
+  setPage,
+}) {
   // FUNKTIONER FOR TICKETS
   function removeRegular() {
     setTicketChoice((old) => {
@@ -90,38 +98,69 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
   return (
     <>
       {/* TICKETBOX */}
+      <h2>Ticket(s)</h2>
       <div>
-        <h2>Regular Ticket</h2>
-        <button onClick={removeRegular}>-</button>
-        <span>{ticketChoice.regular}</span>
-        <button onClick={addRegular}>+</button>
+        <p className={styles.ticketLine}>Regular Ticket</p>
+        <div className={styles.ticketLine}>
+          <button onClick={removeRegular} className={styles.miunsPlusButton}>
+            -
+          </button>
+          <span>{ticketChoice.regular}</span>
+          <button onClick={addRegular} className={styles.miunsPlusButton}>
+            +
+          </button>
+        </div>
       </div>
 
       <div>
-        <h2>VIP Ticket</h2>
-        <button onClick={removeVip}>-</button>
-        <span>{ticketChoice.vip}</span>
-        <button onClick={addVip}>+</button>
+        <p className={styles.ticketLine}>VIP Ticket</p>
+        <div className={styles.ticketLine}>
+          <button onClick={removeVip} className={styles.miunsPlusButton}>
+            -
+          </button>
+          <span>{ticketChoice.vip}</span>
+          <button onClick={addVip} className={styles.miunsPlusButton}>
+            +
+          </button>
+        </div>
       </div>
       <div>
-        <h2>2-person tent</h2>
-        <button onClick={removeTwoPersons}>-</button>
-        <span>{gearChoice.twotent}</span>
-        <button onClick={addTwoPersons}>+</button>
+        {/* GEARBOX */}
+        <p className={styles.ticketLine}>2-person tent</p>
+        <div className={styles.ticketLine}>
+          <button onClick={removeTwoPersons} className={styles.miunsPlusButton}>
+            -
+          </button>
+          <span>{gearChoice.twotent}</span>
+          <button onClick={addTwoPersons} className={styles.miunsPlusButton}>
+            +
+          </button>
+        </div>
       </div>
 
-      {/* GEARBOX */}
       <div>
-        <h2>3-person tent</h2>
-        <button onClick={removeThreePersons}>-</button>
-        <span>{gearChoice.threetent}</span>
-        <button onClick={addThreePersons}>+</button>
+        <p className={styles.ticketLine}>3-person tent</p>
+        <div className={`${styles.ticketLine} ${styles.plusMinusCollected}`}>
+          <button
+            onClick={removeThreePersons}
+            className={styles.miunsPlusButton}
+          >
+            -
+          </button>
+          <span>{gearChoice.threetent}</span>
+          <button onClick={addThreePersons} className={styles.miunsPlusButton}>
+            +
+          </button>
+        </div>
       </div>
       <div>
-        <h2>Green Camping</h2>
         <label>
-          <input type="checkbox" checked={gearChoice.greenCamping} onChange={toggleGreenCamp} />
-          Y/N
+          Greencamping
+          <input
+            type="checkbox"
+            checked={gearChoice.greenCamping}
+            onChange={toggleGreenCamp}
+          />
         </label>
       </div>
 
@@ -129,7 +168,10 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       {page !== 4 && (
         <div>
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <button onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}>
+          <button
+            onClick={() => setPage((o) => o + 1)}
+            disabled={buttonDisabled()}
+          >
             Next
           </button>
         </div>
