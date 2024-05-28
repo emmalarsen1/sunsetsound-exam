@@ -32,7 +32,7 @@ function Billingform(setPage) {
     //   return { ...o, userid: info.userid };
     // });
     /* await addBooking(info); */
-    // addBooking(info);
+    addBooking(info);
   };
 
   return (
