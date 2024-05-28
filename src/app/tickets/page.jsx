@@ -40,7 +40,7 @@ function Tickets() {
       <div>
         <h1 className={`globalHeader`}>Tickets</h1>
         <div className={styles.indexButWrap}>
-          <Button href={"/booking"} buttontext="Get Tickets" color="pink" />
+          <Button href={"/booking"} buttontext="Get Tickets" color="primary" />
         </div>
       </div>
       <div>

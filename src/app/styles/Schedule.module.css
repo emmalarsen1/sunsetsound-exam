@@ -45,6 +45,11 @@
     background: #3458f9;
   }
 
+  .areabutton {
+    font-size: 1.8rem;
+    font-family: "libre baskerville";
+  }
+
   .new_times {
     font-size: 1.2rem;
     display: grid;
@@ -86,6 +91,9 @@
   .color_container a {
     color: currentColor;
     text-decoration: none;
+  }
+  .weekday {
+    font-size: 2rem;
   }
 }
 /****** tablet ******/
@@ -133,6 +141,10 @@
 
   .showContent.areabutton {
     background: #3458f9;
+  }
+  .areabutton {
+    font-size: 1.8rem;
+    font-family: "libre baskerville";
   }
 
   .new_times {
@@ -210,6 +222,7 @@
   padding: 5px;
   color: #5e7af5;
   text-transform: uppercase;
+  text-decoration: 3px underline dotted;
 }
 
 /******** buttons ********/

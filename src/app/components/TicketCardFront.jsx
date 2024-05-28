@@ -11,7 +11,7 @@ function TicketCardFront({ name, desc, price }) {
       <p className={styles.description}>{desc}</p>
       <p className={styles.price}>{price}</p>
       <div className={styles.indexButWrap}>
-        <Button href={""} buttontext="Read more" color="primary" />
+        <Button href={""} buttontext="Read more" color="pink" />
       </div>
     </div>
   );
