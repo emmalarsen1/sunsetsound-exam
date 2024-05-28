@@ -64,8 +64,24 @@
   transition: font-size 0.9s ease-in-out; /* Smooth transition */
 }
 
-.topBandStyle:hover,
+/* .topBandStyle:hover,
 .midBandStyle:hover,
 .botBandStyle:hover {
   font-size: 3.3em;
+} */
+
+/* .topBandStyle:hover,
+.midBandStyle:hover,
+.botBandStyle:hover a {
+  color: #fdf202;
+} */
+.topBandWrapper a:hover {
+  color: #b6b8f7;
+}
+.midBandWrapper a:hover {
+  color: #5e7af5;
+}
+
+.botBandWrapper a:hover {
+  color: #fdf202;
 }
