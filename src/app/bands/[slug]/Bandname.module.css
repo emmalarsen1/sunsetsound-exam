@@ -77,13 +77,14 @@
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
+  white-space: nowrap;
 }
 
 .randomBandsWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 .bandLink {
@@ -91,4 +92,11 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+}
+
+.randomBandImage {
+  width: 100%;
+  height: auto;
+  max-height: 190px;
+  object-fit: cover;
 }
