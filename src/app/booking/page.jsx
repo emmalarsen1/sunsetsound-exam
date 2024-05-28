@@ -2,11 +2,10 @@
 import { useState, useEffect } from "react";
 import styles from "../booking/Booking.module.css";
 import Ticketsbox from "../components/Ticketsbox";
-import Gearbox from "../components/Gearbox";
 import Availablespots from "../components/Availablespots";
 import Ordercomplete from "../components/Ordercomplete";
 import Billingform from "../components/Billingform";
-import TicketForm from "../components/Ticketinfo";
+import GetTicketInfo from "../components/GetTicketInfo";
 
 function Booking() {
   const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
@@ -23,6 +22,7 @@ function Booking() {
   }, []);
 
   const [page, setPage] = useState(0);
+
   const [ticketChoice, setTicketChoice] = useState({
     regular: 0,
     vip: 0,
@@ -35,27 +35,29 @@ function Booking() {
       return newTotal;
     });
   }, [ticketChoice]);
-  console.log(ticketTotal);
+
   const [gearChoice, setGearChoice] = useState({
     twotent: 0,
     threetent: 0,
     greenCamping: false,
   });
 
-  const [formData, setFormData] = useState({
-    regular: [],
-    vip: [],
-  });
-  const handleFormDataChange = (type, index, field, value) => {
-    setFormData((prev) => {
-      const newFormData = { ...prev };
-      if (!newFormData[type][index]) {
-        newFormData[type][index] = {};
-      }
-      newFormData[type][index][field] = value;
-      return newFormData;
-    });
-  };
+  // const [formData, setFormData] = useState({
+  //   regular: [],
+  //   vip: [],
+  // });
+
+  // const handleFormDataChange = (type, index, field, value) => {
+  //   setFormData((prev) => {
+  //     const newFormData = { ...prev };
+  //     if (!newFormData[type][index]) {
+  //       newFormData[type][index] = {};
+  //     }
+  //     newFormData[type][index][field] = value;
+  //     return newFormData;
+  //   });
+  // };
+
   return (
     <>
       <h1 className={`globalHeader`}>Tickets</h1>
@@ -94,27 +96,16 @@ function Booking() {
             {page === 0 && (
               <div>
                 {" "}
-                <Ticketsbox ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} /> <Gearbox gearChoice={gearChoice} setGearChoice={setGearChoice} />{" "}
+                <Ticketsbox setPage={setPage} ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} gearChoice={gearChoice} setGearChoice={setGearChoice} />
               </div>
             )}
             {page === 1 && (
               <div>
                 <h2>Ticket Info</h2>
-                {/* Array.from Laver et array fra længden af ticketChoice.regular  */}
-                {/* (_, i) => () lidt Ninja-kode, mapping-funktion hvor _ ignoreres men repræsenterer det nuværende element og i er index   */}
-                {/* TicketForm komponenetet bliver renderet  */}
-                {/* key={regular${i}} (Key-prop) hjælper React med at identificere hvilke elementer der bliver fjernet eller tilføjet. Skal have unikt ID (i)  */}
-                {/* ticketNumber={Regular ${i + 1}} dette prop gives til hver TicketForm for at give hvert komponent et navn "Ticket 1" og "Ticket 2" eksempelvis  */}
-                {/* Efterfølgende sker det samme med VIP  */}
-                {Array.from({ length: ticketChoice.regular }, (_, i) => (
-                  <TicketForm key={`regular${i}`} ticketNumber={`Regular ${i + 1}`} fData={formData.regular[i] || {}} onChange={(field, value) => handleFormDataChange("regular", i, field, value)} />
-                ))}
-                {Array.from({ length: ticketChoice.vip }, (_, i) => (
-                  <TicketForm key={`vip${i}`} ticketNumber={`VIP ${i + 1}`} fData={formData.vip[i] || {}} onChange={(field, value) => handleFormDataChange("vip", i, field, value)} />
-                ))}
+                <GetTicketInfo setPage={setPage} ticketChoice={ticketChoice}></GetTicketInfo>
               </div>
             )}
-            {page === 2 && <Availablespots data={data} ticketTotal={ticketTotal} />}
+            {page === 2 && <Availablespots setPage={setPage} data={data} ticketTotal={ticketTotal} />}
             {page === 3 && <Billingform setPage={setPage}></Billingform>}
             {page === 4 && <Ordercomplete />}
             {/* Sørger for ikke at vise knapperne på confirmed siden  */}
