@@ -1,0 +1,23 @@
+.buttonstyle:hover {
+  background-color: rgba(255, 255, 255, 0.656);
+  border-color: #181818;
+  box-shadow: 5px 5px 0 0 #282828;
+  color: #181818;
+  text-decoration: none;
+  text-align: center;
+}
+
+.buttonstyle {
+  border-radius: 769rem 769rem 769rem 769rem;
+  border: dotted #181818;
+  border-width: 3px 3px 3px 3px;
+  padding: 15px 20px 15px 20px;
+  transition: all 200ms linear 0s;
+  text-align: center;
+  background-color: #ffa552;
+}
+.buttonstyle a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.3rem;
+}

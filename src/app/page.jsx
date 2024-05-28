@@ -1,6 +1,7 @@
 import styles from "./styles/page.module.css";
 import layout from "./layout.jsx";
 import Link from "next/link";
+import Button from "./components/Button";
 
 export default async function Home() {
   return (
@@ -12,12 +13,8 @@ export default async function Home() {
           <h2>Main Street 25, 7800 Foocity Denmark</h2>
         </div>
         <div className={styles.indexButWrap}>
-          <Link className={styles.indexButton} href={"/booking"}>
-            Get Tickets
-          </Link>
-          <Link className={styles.indexButton} href={"/program"}>
-            Program
-          </Link>
+          <Button href={"/booking"} buttontext="Get Tickets" color="primary" />
+          <Button href={"/program"} buttontext="Lineup" color="primary" />
         </div>
       </div>
     </>
