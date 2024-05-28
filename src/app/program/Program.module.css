@@ -18,7 +18,7 @@
 }
 
 .topBandStyle {
-  font-size: 3em;
+  font-size: clamp(1.875rem, 1.5489rem + 1.6304vi, 2.8125rem);
   margin: 0;
   cursor: pointer;
   text-transform: uppercase;
@@ -36,7 +36,7 @@
 }
 
 .midBandStyle {
-  font-size: 1.8em;
+  font-size: clamp(1.25rem, 1.0326rem + 1.087vi, 1.875rem);
   margin: 0;
   cursor: pointer;
   text-transform: uppercase;
@@ -53,7 +53,7 @@
 }
 
 .botBandStyle {
-  font-size: 1.4em;
+  font-size: clamp(0.9375rem, 0.7636rem + 0.8696vi, 1.4375rem);
   margin: 0;
   cursor: pointer;
 }
