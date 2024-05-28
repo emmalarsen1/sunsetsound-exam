@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../tickets/Tickets.module.css"; // Antag at stierne til CSS-modulerne er korrekte
+import Button from "./Button";
 
 function TicketCardBack({ name, moreinfo }) {
   return (
@@ -11,7 +12,7 @@ function TicketCardBack({ name, moreinfo }) {
         <p className={styles.moreInfo}>{moreinfo}</p>
       </div>
       <div className={styles.indexButWrap}>
-        <button className={styles.indexButton}>Back</button>
+        <Button href={""} buttontext="Back" color="primary" />
       </div>
     </div>
   );

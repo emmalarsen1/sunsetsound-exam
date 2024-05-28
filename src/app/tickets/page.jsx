@@ -6,6 +6,7 @@ import TicketCardFront from "../components/TicketCardFront";
 import TicketCardBack from "../components/TicketCardBack";
 import Link from "next/link";
 import { useMediaQuery } from "react-responsive";
+import Button from "../components/Button";
 
 function Tickets() {
   const [isFlippedRegular, setIsFlippedRegular] = useState(false);
@@ -39,93 +40,38 @@ function Tickets() {
       <div>
         <h1 className={`globalHeader`}>Tickets</h1>
         <div className={styles.indexButWrap}>
-          <Link className={styles.indexButton} href={"/booking"}>
-            Get Tickets
-          </Link>
+          <Button href={"/booking"} buttontext="Get Tickets" color="pink" />
         </div>
       </div>
       <div>
-        <div
-          className={
-            isMobile
-              ? styles.mobileContainer
-              : isTablet
-              ? styles.tabletContainer
-              : styles.desktopContainer
-          }
-        >
+        <div className={isMobile ? styles.mobileContainer : isTablet ? styles.tabletContainer : styles.desktopContainer}>
           <div onClick={handleClickRegular}>
-            <ReactCardFlip
-              isFlipped={isFlippedRegular}
-              flipDirection="horizontal"
-            >
-              <TicketCardFront
-                name="REGULAR"
-                desc="Full access, all week, all year"
-                price="799 DKK"
-              ></TicketCardFront>
-              <TicketCardBack
-                moreinfo="With a regular ticket, attendees can immerse themselves in the festival atmosphere, explore food and beverage options, and discover emerging artists across multiple stages."
-                name="REGULAR"
-              ></TicketCardBack>
+            <ReactCardFlip isFlipped={isFlippedRegular} flipDirection="horizontal">
+              <TicketCardFront name="REGULAR" desc="Full access, all week, all year" price="799 DKK"></TicketCardFront>
+              <TicketCardBack moreinfo="With a regular ticket, attendees can immerse themselves in the festival atmosphere, explore food and beverage options, and discover emerging artists across multiple stages." name="REGULAR"></TicketCardBack>
             </ReactCardFlip>
           </div>
           <div onClick={handleClickVIP}>
             <ReactCardFlip isFlipped={isFlippedVIP} flipDirection="horizontal">
-              <TicketCardFront
-                name="VIP"
-                desc="Full access with extra perks"
-                price="1299 DKK"
-              ></TicketCardFront>
-              <TicketCardBack
-                moreinfo="A VIP ticket to the music festival grants exclusive access to premium viewing areas near the main stage and offers complimentary drinks and snacks throughout the event."
-                name="VIP"
-              ></TicketCardBack>
+              <TicketCardFront name="VIP" desc="Full access with extra perks" price="1299 DKK"></TicketCardFront>
+              <TicketCardBack moreinfo="A VIP ticket to the music festival grants exclusive access to premium viewing areas near the main stage and offers complimentary drinks and snacks throughout the event." name="VIP"></TicketCardBack>
             </ReactCardFlip>
           </div>
         </div>
         <h2 className={styles.campingTitle}>Camping options</h2>
 
-        <div
-          className={
-            isMobile
-              ? styles.mobileContainer
-              : isTablet
-              ? styles.tabletContainer
-              : styles.desktopContainer
-          }
-        >
+        <div className={isMobile ? styles.mobileContainer : isTablet ? styles.tabletContainer : styles.desktopContainer}>
           {" "}
           <div onClick={handleClick2PersonTent}>
-            <ReactCardFlip
-              isFlipped={isFlipped2PersonTent}
-              flipDirection="horizontal"
-            >
-              <TicketCardFront
-                name="2-person-tent"
-                desc="A two-person tent installed by Sunset Sound-crew"
-                price="299 DKK"
-              />
-              <TicketCardBack
-                moreinfo="Sunset Sound crew offers a range of accommodation options, including cozy two-person tents and spacious three-person tents installed by the skilled Sunset Sound crew."
-                name="2-person-tent"
-              />
+            <ReactCardFlip isFlipped={isFlipped2PersonTent} flipDirection="horizontal">
+              <TicketCardFront name="2-person-tent" desc="A two-person tent installed by Sunset Sound-crew" price="299 DKK" />
+              <TicketCardBack moreinfo="Sunset Sound crew offers a range of accommodation options, including cozy two-person tents and spacious three-person tents installed by the skilled Sunset Sound crew." name="2-person-tent" />
             </ReactCardFlip>
           </div>
           <div onClick={handleClick3PersonTent}>
-            <ReactCardFlip
-              isFlipped={isFlipped3PersonTent}
-              flipDirection="horizontal"
-            >
-              <TicketCardFront
-                name="3-person-tent"
-                desc="A three-person tent installed by Sunset Sound-crew"
-                price="399 DKK"
-              />
-              <TicketCardBack
-                moreinfo="Sunset Sound crew offers a range of accommodation options, including cozy two-person tents and spacious three-person tents installed by the skilled Sunset Sound crew."
-                name="3-person-tent"
-              />
+            <ReactCardFlip isFlipped={isFlipped3PersonTent} flipDirection="horizontal">
+              <TicketCardFront name="3-person-tent" desc="A three-person tent installed by Sunset Sound-crew" price="399 DKK" />
+              <TicketCardBack moreinfo="Sunset Sound crew offers a range of accommodation options, including cozy two-person tents and spacious three-person tents installed by the skilled Sunset Sound crew." name="3-person-tent" />
             </ReactCardFlip>
           </div>
         </div>
