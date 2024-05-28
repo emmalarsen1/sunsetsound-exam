@@ -39,6 +39,7 @@ function Booking() {
   const [gearChoice, setGearChoice] = useState({
     twotent: 0,
     threetent: 0,
+    greenCamping: false,
   });
 
   const [formData, setFormData] = useState({
@@ -139,9 +140,10 @@ function Booking() {
                 {gearChoice.twotent + gearChoice.threetent > 0 && <h3>Tent(s):</h3>}
                 {gearChoice.twotent > 0 && <p>2-person tent: {gearChoice.twotent}x 299,-</p>}
                 {gearChoice.threetent > 0 && <p>3-person tent: {gearChoice.threetent}x 399,-</p>}
+                {gearChoice.greenCamping && <p>Green Camping: 1x 250,-</p>}
               </div>
               <p className={styles.feeTotal}>
-                Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399}
+                Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399 + gearChoice.greenCamping * 250}
                 ,-
               </p>
               {fee.map(
