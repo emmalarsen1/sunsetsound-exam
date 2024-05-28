@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import styles from "../tickets/Tickets.module.css"; // Antag at stierne til CSS-modulerne er korrekte
 import Button from "./Button";
 
