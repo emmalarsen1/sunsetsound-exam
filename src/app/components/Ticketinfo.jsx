@@ -1,48 +1,31 @@
 import React from "react";
 import styles from "../booking/Booking.module.css";
 
-function TicketForm({ ticketNumber, fData, onChange }) {
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    onChange(name, value);
-  };
+function TicketForm({ ticketNumber, ticketType }) {
   return (
-    <div className={styles.ticketForm}>
-      <h3>Ticket {ticketNumber}</h3>
-      <div>
-        <form>
+    <>
+      <div className={styles.ticketForm}>
+        <h3>
+          {ticketType} Ticket {ticketNumber}
+        </h3>
+        <div>
           <fieldset>
             <label>
               Fullname:
-              <input
-                type="text"
-                name="fullname"
-                value={fData.fullname || ""}
-                onChange={handleChange}
-              />
+              <input type="text" name="fullname" required />
             </label>
             <label>
               Email:
-              <input
-                type="email"
-                name="email"
-                value={fData.email || ""}
-                onChange={handleChange}
-              />
+              <input type="email" name="email" required />
             </label>
             <label>
               Phone-number:
-              <input
-                type="tel"
-                name="phone"
-                value={fData.phone || ""}
-                onChange={handleChange}
-              />
+              <input type="tel" name="phone" required />
             </label>
           </fieldset>
-        </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
