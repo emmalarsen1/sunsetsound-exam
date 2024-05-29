@@ -40,39 +40,58 @@ function Billingform({ setPage }) {
 
   return (
     <div>
-      <form className={styles.billingwrapper} onSubmit={formHandler}>
-        <div className={styles.billingGrid}>
-          <label>Full name</label>
-          <input classname={styles.inputField} name="firstname" label="Firtsname" placeholder="John" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
-          <label>Email & Phone</label>
-          <div className={styles.billingGrid}>
-            <input classname={styles.inputField} name="email" label="Email" placeholder="john@example.com" onChange={checkForError} pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
-            <input classname={styles.inputField} name="mobile" label="Mobile" placeholder="12345678" onChange={checkForError} pattern="[+0-9]{8,}" required inputmode="numerical" />
+      <form className={styles} onSubmit={formHandler}>
+        <fieldset>
+          <p>Billing Information</p>
+          <div className={styles.inputBox}>
+            <label htmlFor="name">Full name</label>
+            <input className={styles.inputField} name="fullname" id="name" placeholder="Lars Larsen" pattern="[A-Za-zæøåÆØÅ]{2,}" required />
           </div>
-          <label>Address</label>
-          <div className={styles.billingGrid}>
-            <input classname={styles.inputField} name="address1" label="Address 1" placeholder="Street and number" onChange={checkForError} pattern="[A-Za-z0-9'\.\-\s\,]{2,}" required />
+          <div className={styles.smallerField}>
+            <div className={styles.inputBox}>
+              <label htmlFor="email">Email</label>
+              <input className={styles.inputField} name="email" id="email" placeholder="lars@mail.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+            </div>
+            <div className={styles.inputBox}>
+              <label htmlFor="mobile">Phone</label>
+              <input className={styles.inputField} name="mobile" id="mobile" placeholder="2323 2323" required inputmode="numerical" />
+            </div>
           </div>
-          <label>City & Zip</label>
-          <div className={styles.billingGrid}>
-            <input classname={styles.inputField} name="city" label="City" placeholder="City name" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
-            <input classname={styles.inputField} name="zip" label="Zip code" placeholder="1234" onChange={checkForError} pattern="[+0-9]{4,}" required inputmode="numerical" />
+          <div className={styles.inputBox}>
+            <label htmlFor="address">Address</label>
+            <input className={styles.inputField} name="address" id="address" placeholder="Larsvej 50 2 th" required />
           </div>
-          <label>County</label>
-          <input classname={styles.inputField} name="country" label="Country" placeholder="Country" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
-        </div>
-        <div className={styles.cardGrid}>
-          <label>Cardnumber</label>
-          <div className={styles.billingGrid}>
-            <input classname={styles.inputField} name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required maxLength={16} inputmode="numerical" />
+          <div className={styles.smallerField}>
+            <div className={styles.inputBox}>
+              <label htmlFor="zip">Zip</label>
+              <input className={styles.inputField} name="zip" id="zip" placeholder="2300" pattern="[+0-9]{4,}" required inputmode="numerical" />
+            </div>
+            <div className={styles.inputBox}>
+              <label htmlFor="city">City</label>
+              <input className={styles.inputField} name="city" id="city" placeholder="Copenhagen" required />
+            </div>
           </div>
-          <label>Exp. Date & CVC</label>
-          <div className={styles.billingGrid}>
-            <input classname={styles.inputField} name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} inputmode="numerical" />
-            <input classname={styles.inputField} name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required maxLength={3} inputmode="numerical" />
+          <div className={styles.inputBox}>
+            <label htmlFor="country">County</label>
+            <input className={styles.inputField} name="country" id="country" placeholder="Denmark" required />
           </div>
-        </div>
-        <BookingButton buttontext={"Confirm"}></BookingButton>
+          <p>Credit Card Details</p>
+          <div className={styles.inputBox}>
+            <label htmlFor="cardnumber">Cardnumber</label>
+            <input className={styles.inputField} name="cardnumber" id="cardnumber" placeholder="1122 3344 5566 7788" required maxLength={16} inputmode="numerical" pattern="[0-9]{16}" />
+          </div>
+          <div className={styles.smallerField}>
+            <div className={styles.inputBox}>
+              <label htmlFor="expodate">Exp. Date</label>
+              <input className={styles.inputField} name="expodate" id="expodate" placeholder="MM/YY" required maxLength={5} inputmode="numerical" pattern="[0-1][0-9][/][0-9]{2}" />
+            </div>
+            <div className={styles.inputBox}>
+              <label htmlFor="cvc">CVC</label>
+              <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} onChange={checkForError} pattern="[0-9]{3}" />
+            </div>
+          </div>
+          <BookingButton buttontext={"Confirm"}></BookingButton>
+        </fieldset>
       </form>
     </div>
   );

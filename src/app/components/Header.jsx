@@ -34,13 +34,13 @@ function Header() {
           <Image className={styles.logo} src="ss_logo.svg" alt="logo" width={50} height={50}></Image>
         </Link>
         <div className={styles.headermenu}>
-          <Link className={`link ${pathname === "/program" ? "active" : ""}`} href="/program">
+          <Link className={`link ${pathname === "/program" ? styles.active : ""}`} href="/program">
             Lineup
           </Link>
-          <Link className={`link ${pathname === "/tickets" ? "active" : ""}`} href="/tickets">
+          <Link className={`link ${pathname === "/tickets" ? styles.active : ""}`} href="/tickets">
             Tickets
           </Link>
-          <Link className={`link ${pathname === "/schedule" ? "active" : ""}`} href="/schedule">
+          <Link className={`link ${pathname === "/schedule" ? styles.active : ""}`} href="/schedule">
             Schedule
           </Link>
         </div>
@@ -50,22 +50,22 @@ function Header() {
       </nav>
 
       <div className={styles.menu + " " + styles[state]}>
-        <ul className={styles.menu_links}>
+        <div className={styles.menu_links}>
           <div className={styles.menu_links_wrapper} onClick={() => setState("close")}>
-            <Link className={`link ${pathname === "/" ? "active" : ""}`} href="/">
+            <Link className={`link ${pathname === "/" ? styles.active : ""}`} href="/">
               Home
             </Link>
-            <Link className={`link ${pathname === "/program" ? "active" : ""}`} href={"/program"}>
+            <Link className={`link ${pathname === "/program" ? styles.active : ""}`} href={"/program"}>
               Lineup
             </Link>
-            <Link className={`link ${pathname === "/tickets" ? "active" : ""}`} href={"/tickets"}>
+            <Link className={`link ${pathname === "/tickets" ? styles.active : ""}`} href={"/tickets"}>
               Tickets
             </Link>
-            <Link className={`link ${pathname === "/schedule" ? "active" : ""}`} href={"/schedule"}>
+            <Link className={`link ${pathname === "/schedule" ? styles.active : ""}`} href={"/schedule"}>
               Schedule
             </Link>
           </div>
-        </ul>
+        </div>
       </div>
     </header>
   );

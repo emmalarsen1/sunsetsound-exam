@@ -114,11 +114,6 @@
     right: 0;
     top: 0;
   }
-
-  .active {
-    color: aqua;
-    border: 2px solid black;
-  }
 }
 .tabletContainer {
   .nav {
@@ -138,6 +133,7 @@
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    font-size: clamp(1.125rem, 0.9728rem + 0.7609vi, 1.2625rem);
   }
 
   .headermenu a {
@@ -156,9 +152,9 @@
   .menu {
     display: none;
   }
-  .active {
-    color: aqua;
-    border: 2px solid black;
+  .headermenu a.active {
+    color: var(--color-blue);
+    text-decoration: 3px underline dotted var(--color-blue);
   }
 }
 
@@ -173,7 +169,7 @@
   .nav {
     padding: 1rem 2rem;
     box-sizing: border-box;
-    position: fixed;
+    /* position: fixed; */
     z-index: 1000;
     left: 0;
     right: 0;
@@ -187,6 +183,7 @@
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    font-size: clamp(1.125rem, 0.9728rem + 0.7609vi, 1.2625rem);
   }
 
   .headermenu a {
@@ -205,8 +202,8 @@
   .menu {
     display: none;
   }
-  .active {
-    color: aqua;
-    border: 2px solid black;
+  .headermenu a.active {
+    color: var(--color-blue);
+    text-decoration: 3px underline dotted var(--color-blue);
   }
 }
