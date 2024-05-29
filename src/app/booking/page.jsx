@@ -1,16 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import styles from "../booking/Booking.module.css";
-import Ticketsbox from "../components/Ticketsbox";
-import Availablespots from "../components/Availablespots";
-import Ordercomplete from "../components/Ordercomplete";
-import Billingform from "../components/Billingform";
-import GetTicketInfo from "../components/GetTicketInfo";
+import Ticketsbox from "../components/bookingflow/Ticketsbox";
+import Availablespots from "../components/bookingflow/Availablespots";
+import Ordercomplete from "../components/bookingflow/Ordercomplete";
+import Billingform from "../components/bookingflow/Billingform";
+import GetTicketInfo from "../components/bookingflow/GetTicketInfo";
 
 function Booking() {
-  const fee = [
-    { name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 },
-  ];
+  const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
 
   const [data, setData] = useState(null);
 
@@ -98,31 +96,16 @@ function Booking() {
             {page === 0 && (
               <div>
                 {" "}
-                <Ticketsbox
-                  setPage={setPage}
-                  ticketChoice={ticketChoice}
-                  setTicketChoice={setTicketChoice}
-                  gearChoice={gearChoice}
-                  setGearChoice={setGearChoice}
-                />
+                <Ticketsbox setPage={setPage} ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} gearChoice={gearChoice} setGearChoice={setGearChoice} />
               </div>
             )}
             {page === 1 && (
               <div>
                 <h2>Ticket Info</h2>
-                <GetTicketInfo
-                  setPage={setPage}
-                  ticketChoice={ticketChoice}
-                ></GetTicketInfo>
+                <GetTicketInfo setPage={setPage} ticketChoice={ticketChoice}></GetTicketInfo>
               </div>
             )}
-            {page === 2 && (
-              <Availablespots
-                setPage={setPage}
-                data={data}
-                ticketTotal={ticketTotal}
-              />
-            )}
+            {page === 2 && <Availablespots setPage={setPage} data={data} ticketTotal={ticketTotal} />}
             {page === 3 && <Billingform setPage={setPage}></Billingform>}
             {page === 4 && <Ordercomplete />}
             {/* Sørger for ikke at vise knapperne på confirmed siden  */}
@@ -135,38 +118,20 @@ function Booking() {
                 <p className={styles.basketSubtitle}>Basket</p>
                 <hr />
                 <div className={styles.feeTickets}>
-                  {ticketChoice.regular + ticketChoice.vip > 0 && (
-                    <h3>Ticket(s):</h3>
-                  )}
-                  {ticketChoice.regular > 0 && (
-                    <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
-                  )}
-                  {ticketChoice.vip > 0 && (
-                    <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
-                  )}
+                  {ticketChoice.regular + ticketChoice.vip > 0 && <h3>Ticket(s):</h3>}
+                  {ticketChoice.regular > 0 && <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>}
+                  {ticketChoice.vip > 0 && <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>}
                 </div>
                 <div className={styles.feeTents}>
-                  {gearChoice.twotent + gearChoice.threetent > 0 && (
-                    <h3>Tent(s):</h3>
-                  )}
-                  {gearChoice.twotent > 0 && (
-                    <p>2-person tent: {gearChoice.twotent}x 299,-</p>
-                  )}
-                  {gearChoice.threetent > 0 && (
-                    <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-                  )}
+                  {gearChoice.twotent + gearChoice.threetent > 0 && <h3>Tent(s):</h3>}
+                  {gearChoice.twotent > 0 && <p>2-person tent: {gearChoice.twotent}x 299,-</p>}
+                  {gearChoice.threetent > 0 && <p>3-person tent: {gearChoice.threetent}x 399,-</p>}
                   {gearChoice.greenCamping && <p>Green Camping: 1x 250,-</p>}
                 </div>
                 <hr />
                 <div>
                   <p className={styles.feeTotal}>
-                    Total:{" "}
-                    {fee[0].amount * fee[0].price +
-                      ticketChoice.regular * 799 +
-                      ticketChoice.vip * 1299 +
-                      gearChoice.twotent * 299 +
-                      gearChoice.threetent * 399 +
-                      gearChoice.greenCamping * 250}
+                    Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399 + gearChoice.greenCamping * 250}
                     ,-
                   </p>
                   {fee.map(

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "@/app/styles/bookingstyles/OrderComplete.module.css";
 
 function Ordercomplete() {
   return (

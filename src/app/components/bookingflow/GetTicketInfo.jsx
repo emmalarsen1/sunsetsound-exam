@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TicketForm from "./Ticketinfo";
+import styles from "@/app/styles/bookingstyles/TicketInfo.module.css";
 
 function GetTicketInfo({ ticketChoice, setPage }) {
   const [regTicketLenght, setRegTicketLenght] = useState();

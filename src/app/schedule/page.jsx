@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import styles from "../styles/Schedule.module.css";
+import styles from "./Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import React from "react";
 import { useState, useEffect } from "react";

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../booking/Booking.module.css";
+import styles from "@/app/styles/bookingstyles/TicketInfo.module.css";
 
 function TicketForm({ ticketNumber, ticketType }) {
   return (

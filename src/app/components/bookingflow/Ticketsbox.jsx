@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../booking/Booking.module.css";
+import styles from "@/app/styles/bookingstyles/TicketsBox.module.css";
 
 function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
   // FUNKTIONER FOR TICKETS

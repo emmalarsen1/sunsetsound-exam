@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "../styles/Schedule.module.css";
+import styles from "@/app/schedule/Schedule.module.css";
 
 function OneSchedule({ band }) {
   return (
