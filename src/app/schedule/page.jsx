@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import styles from "./Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import React from "react";
@@ -51,10 +50,6 @@ function Schedule() {
   useEffect(() => {
     fetchData(day);
     setFullDay(showWeekDay(day));
-  }, [day]);
-
-  useEffect(() => {
-    fetchData(day);
   }, [day]);
 
   //Time

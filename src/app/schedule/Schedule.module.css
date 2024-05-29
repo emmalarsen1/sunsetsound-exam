@@ -95,6 +95,11 @@
   .weekday {
     font-size: 2rem;
   }
+
+  .activeButton {
+    background-color: #5e7af520;
+    backdrop-filter: blur(10px);
+  }
 }
 /****** tablet ******/
 .tabletContainer {
