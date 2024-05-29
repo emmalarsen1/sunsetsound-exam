@@ -29,12 +29,6 @@
   white-space: nowrap;
 }
 
-.bandMembers {
-}
-
-.bandGenre {
-}
-
 .bandBio {
   padding: 0 20px;
   margin: 0;
@@ -69,7 +63,7 @@
 .randomBandsHeader {
   display: flex;
   justify-content: center;
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 1.7391rem + 3.8043vi, 4.6875rem);
   white-space: nowrap;
 }
 
@@ -99,4 +93,30 @@
   height: auto;
   max-height: 190px;
   object-fit: cover;
+}
+/****** Mobile *******/
+@media (width < 600px) {
+  .randomBandsWrapper,
+  .bandWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .bandWrapper .bandImage {
+    order: -1;
+  }
+
+  .randomBandsHeader {
+    white-space: unset;
+    text-align: center;
+  }
+  .infoWrapper {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .bandBio,
+  .bandHype {
+    padding: 15px 0 15px 0;
+  }
 }
