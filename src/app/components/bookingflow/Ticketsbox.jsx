@@ -168,10 +168,7 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       {/* BUTTONS */}
       {page !== 4 && (
         <div>
-          <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <BookingButton onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}>
-            Next
-          </BookingButton>
+          <BookingButton buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}></BookingButton>
         </div>
       )}
     </>

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "@/app/styles/bookingstyles/Billingform.module.css";
 import { addBooking } from "@/lib/data";
+import BookingButton from "./BookingButton";
 
 function Billingform({ setPage }) {
   const checkForError = (e) => {
@@ -71,8 +72,8 @@ function Billingform({ setPage }) {
           <input name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
         </label>
 
-        <button>Confirm</button>
-      </form>
+        <BookingButton buttontext={"Confirm"}></BookingButton>
+      </form>{" "}
     </div>
   );
 }
