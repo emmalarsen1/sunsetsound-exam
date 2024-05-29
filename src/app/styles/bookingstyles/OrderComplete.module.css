@@ -1,0 +1,31 @@
+.completeWrapper {
+  width: 100%;
+  padding: 20px 1rem;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  gap: 4rem;
+}
+
+.completeTitles {
+  display: flex;
+  word-break: break-word;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.completeHeader {
+  font-size: clamp(3.125rem, 1.4358rem + 5.4054vi, 5.625rem);
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 400px;
+  gap: 2.5rem 1rem;
+}
