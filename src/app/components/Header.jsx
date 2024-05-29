@@ -50,7 +50,7 @@ function Header() {
       </nav>
 
       <div className={styles.menu + " " + styles[state]}>
-        <ul className={styles.menu_links}>
+        <div className={styles.menu_links}>
           <div className={styles.menu_links_wrapper} onClick={() => setState("close")}>
             <Link className={`link ${pathname === "/" ? styles.active : ""}`} href="/">
               Home
@@ -65,7 +65,7 @@ function Header() {
               Schedule
             </Link>
           </div>
-        </ul>
+        </div>
       </div>
     </header>
   );
