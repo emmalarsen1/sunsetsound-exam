@@ -1,7 +1,7 @@
 import "./styles/globals.css";
 import "./styles/reset.css";
-import Header from "@/app/components/Header";
-import Footer from "@/app/components/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Link from "next/link";
 import { Libre_Baskerville } from "next/font/google";
 
