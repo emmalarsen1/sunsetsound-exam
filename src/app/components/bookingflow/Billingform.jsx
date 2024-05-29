@@ -42,16 +42,16 @@ function Billingform({ setPage }) {
       <form className={styles.billingwrapper} onSubmit={formHandler}>
         <label>
           Name
-          <input type="text" name="fullname" placeholder="fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
+          <input type="text" name="fullname" placeholder=" fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
         </label>
         <label>
           Email
-          <input name="email" type="email" placeholder="fx peter@gmail.com" required></input>
+          <input name="email" type="email" placeholder=" fx JohnDoe@gmail.com" required></input>
         </label>
 
         <label>
           Phone Number
-          <input type="tel" name="phone" pattern="[0-9]*" placeholder="fx +45 3232 3232" required></input>
+          <input type="tel" name="phone" pattern="[0-9]*" placeholder=" fx +45 3232 3232" required></input>
         </label>
 
         <label htmlFor="">
@@ -62,8 +62,8 @@ function Billingform({ setPage }) {
 
         <label for="zip">
           Zip / City
-          <input id="zip" type="number" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
-          <input type="text" name="city" placeholder="fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
+          <input id="zip" type="number" name="zip" maxlength="4" placeholder=" fx 3480" pattern="[0-9]{4}" required></input>
+          <input type="text" name="city" placeholder=" fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
         </label>
 
         <label htmlFor="">
