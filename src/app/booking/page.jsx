@@ -52,7 +52,11 @@ function Booking() {
     <>
       <h1 className={`globalHeader`}>Tickets</h1>
       <div className={styles.bookingMain}>
-        <ol className={styles.breadCrumbsWrapper}>
+        <ol
+          className={
+            isMobile ? styles.breadCrumbsMobile : styles.breadCrumbsWrapper
+          }
+        >
           <li>
             {/* onClick => setPage sætter siden til det korrekte side ud fra index  */}
             {/*disabled sørger for at brødkrumme kun er brugbar tilbage og ikke frem */}
@@ -142,60 +146,100 @@ function Booking() {
               <div
                 className={
                   isMobile
-                    ? styles.sectionWrapperMobile
+                    ? styles.sectionBasketMobile
                     : isTablet
                     ? styles.sectionWrapperTablet
                     : styles.sectionWrapperDesktop
                 }
               >
                 <div className={styles.basketContent}>
-                  <p className={styles.basketTitle}>sunset sound</p>
-                  <p className={styles.basketSubtitle}>Basket</p>
-                  <hr />
-                  <div className={styles.feeTickets}>
-                    {ticketChoice.regular + ticketChoice.vip > 0 && (
-                      <p>Ticket(s):</p>
-                    )}
-                    {ticketChoice.regular > 0 && (
-                      <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
-                    )}
-                    {ticketChoice.vip > 0 && (
-                      <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
-                    )}
-                  </div>
-                  <div className={styles.feeTents}>
-                    {gearChoice.twotent + gearChoice.threetent > 0 && (
-                      <p>Tent(s):</p>
-                    )}
-                    {gearChoice.twotent > 0 && (
-                      <p>2-person tent: {gearChoice.twotent}x 299,-</p>
-                    )}
-                    {gearChoice.threetent > 0 && (
-                      <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-                    )}
-                    {gearChoice.greenCamping && <p>Green Camping: 1x 250,-</p>}
-                  </div>
-                  <hr />
+                  <p
+                    className={
+                      isMobile
+                        ? styles.hideInMobile
+                        : isTablet
+                        ? styles.basketTitle
+                        : styles.basketTitle
+                    }
+                  >
+                    sunset sound
+                  </p>
+                  <p
+                    className={
+                      isMobile
+                        ? styles.hideInMobile
+                        : isTablet
+                        ? styles.basketSubtitle
+                        : styles.basketSubtitle
+                    }
+                  >
+                    Basket
+                  </p>
+                  <hr
+                    className={
+                      isMobile
+                        ? styles.hideInMobile
+                        : isTablet
+                        ? styles.hrColor
+                        : styles.hrColor
+                    }
+                  />
                   <div>
-                    <p className={styles.feeTotal}>
-                      Total:{" "}
-                      {fee[0].amount * fee[0].price +
-                        ticketChoice.regular * 799 +
-                        ticketChoice.vip * 1299 +
-                        gearChoice.twotent * 299 +
-                        gearChoice.threetent * 399 +
-                        gearChoice.greenCamping * 250}
-                      ,-
-                    </p>
-                    {fee.map(
-                      (item) =>
-                        item.amount > 0 && (
-                          <div className={styles.feeFixed} key={item.id}>
-                            <p>{item.name}&nbsp;</p>
-                            <p>{item.price},-</p>
-                          </div>
-                        )
-                    )}
+                    <div className={styles.feeTickets}>
+                      {ticketChoice.regular + ticketChoice.vip > 0 && (
+                        <p>Ticket(s):</p>
+                      )}
+                      {ticketChoice.regular > 0 && (
+                        <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
+                      )}
+                      {ticketChoice.vip > 0 && (
+                        <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
+                      )}
+                    </div>
+                    <div className={styles.feeTents}>
+                      {gearChoice.twotent + gearChoice.threetent > 0 && (
+                        <p>Tent(s):</p>
+                      )}
+                      {gearChoice.twotent > 0 && (
+                        <p>2-person tent: {gearChoice.twotent}x 299,-</p>
+                      )}
+                      {gearChoice.threetent > 0 && (
+                        <p>3-person tent: {gearChoice.threetent}x 399,-</p>
+                      )}
+                      {gearChoice.greenCamping && (
+                        <p>Green Camping: 1x 250,-</p>
+                      )}
+                    </div>
+                    <hr
+                      className={
+                        isMobile
+                          ? styles.hideInMobile
+                          : isTablet
+                          ? styles.hrColor
+                          : styles.hrColor
+                      }
+                    />
+                    <div>
+                      <p className={styles.feeTotal}>
+                        Total:{" "}
+                        {fee[0].amount * fee[0].price +
+                          ticketChoice.regular * 799 +
+                          ticketChoice.vip * 1299 +
+                          gearChoice.twotent * 299 +
+                          gearChoice.threetent * 399 +
+                          gearChoice.greenCamping * 250}
+                        ,-
+                      </p>
+                      {fee.map(
+                        (item) =>
+                          item.amount > 0 && (
+                            <div className={styles.feeFixed} key={item.id}>
+                              <p>{item.name}&nbsp;</p>
+                              <p>{item.price},-</p>
+                            </div>
+                          )
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
