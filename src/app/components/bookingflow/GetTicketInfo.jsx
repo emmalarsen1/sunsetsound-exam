@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TicketForm from "./Ticketinfo";
 import styles from "@/app/styles/bookingstyles/TicketInfo.module.css";
+import BookingButton from "./BookingButton";
 
 function GetTicketInfo({ ticketChoice, setPage }) {
   const [regTicketLenght, setRegTicketLenght] = useState();
@@ -42,7 +43,7 @@ function GetTicketInfo({ ticketChoice, setPage }) {
           return <TicketForm key={i} ticketNumber={i + 1} ticketType="VIP"></TicketForm>;
         })}
 
-      <button>Submit</button>
+      <BookingButton buttontext={"Continue"}></BookingButton>
     </form>
   );
 }

@@ -2,6 +2,8 @@
 import React from "react";
 import { useState } from "react";
 import styles from "@/app/styles/bookingstyles/AvailableSpots.module.css";
+import Billingform from "./Billingform";
+import BookingButton from "./BookingButton";
 
 export default function Availablespots({ data, ticketTotal, page, setPage }) {
   const [spots, setSpots] = useState(data);
@@ -39,10 +41,7 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
       </form>
       {page !== 4 && (
         <div>
-          <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <button onClick={() => setPage((o) => o + 1)} disabled={!selectionMade()}>
-            Next
-          </button>
+          <BookingButton buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={!selectionMade()}></BookingButton>
         </div>
       )}
     </>
