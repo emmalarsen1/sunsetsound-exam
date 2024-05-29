@@ -1,3 +1,6 @@
+/*Overall styling og booking-site*/
+
+/*Booking main styling (bagground box) and section layout*/
 .bookingMain {
   max-width: fit-content;
   border: 1px solid #5e7af5;
@@ -9,8 +12,8 @@
   background-color: rgb(226, 239, 251);
   margin: 1rem;
 }
-
-.bookingWrapper {
+.desktopWrapper,
+.tabletWrapper {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -19,7 +22,35 @@
   gap: 2rem;
   margin: 7rem;
 }
+.mobileWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.sectionWrapperDesktop,
+.sectionWrapperTablet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid #5e7af5;
+  padding: 1rem 1.7rem 1rem 1.7rem;
+  min-height: 450px;
+  max-height: 450px;
+  min-width: 410;
+  overflow-y: auto;
+}
+.sectionWrapperMobile {
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 310px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid #5e7af5;
+  padding: 1rem 1.7rem 1rem 1.7rem;
+  overflow-y: auto;
+}
 
+/*Breadcrumb*/
 .breadCrumbsWrapper {
   display: flex;
   flex-direction: row;
@@ -28,15 +59,7 @@
   list-style: none;
 }
 
-.basketWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1px solid #5e7af5;
-  padding: 1rem 1.7rem 1rem 1.7rem;
-  min-width: 350px;
-  min-height: 400px;
-}
+/*Basket Styling*/
 .basketContent {
   min-width: 250px;
 }
@@ -56,25 +79,17 @@
   font-size: 12px;
   margin-top: -1rem;
 }
-
 .feeTickets {
   background: rgba(94, 122, 245, 0.4);
   margin: 1rem 0 1rem;
 }
-
 .feeTents {
   background: rgba(94, 122, 245, 0.4);
   margin-bottom: 1rem;
 }
-
 .feeTotal {
   font-weight: bold;
   font-size: 1.8rem;
   font-family: "Libre Franklin";
   text-transform: uppercase;
-}
-
-.bookingSub {
-  display: flex;
-  justify-content: space-between;
 }
