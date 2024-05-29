@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "@/app/styles/bookingstyles/TicketsBox.module.css";
+import BookingButton from "./BookingButton";
 
 function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
   // FUNKTIONER FOR TICKETS
@@ -168,9 +169,9 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       {page !== 4 && (
         <div>
           <button onClick={() => setPage((o) => o - 1)}>Back</button>
-          <button onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}>
+          <BookingButton onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}>
             Next
-          </button>
+          </BookingButton>
         </div>
       )}
     </>

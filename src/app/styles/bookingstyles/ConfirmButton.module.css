@@ -1,0 +1,16 @@
+.BookingBtn {
+  border-radius: 769rem 769rem 769rem 769rem;
+  border: dotted var(--color-black18);
+  border-width: 3px 3px 3px 3px;
+  padding: 15px 20px 15px 20px;
+  transition: all 200ms linear 0s;
+  text-align: center;
+}
+
+.BookingBtn:hover {
+  border-color: var(--color-black18);
+  box-shadow: 5px 5px 0 0 var(--color-black28);
+  color: var(--color-black18);
+  text-decoration: none;
+  text-align: center;
+}
