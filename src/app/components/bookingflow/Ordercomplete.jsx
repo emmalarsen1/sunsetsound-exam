@@ -7,8 +7,8 @@ function Ordercomplete() {
     <div className={styles.completeWrapper}>
       <div className={styles.completeTitles}>
         <h2 className={styles.completeHeader}>ORDER COMPLETE!</h2>
-        <p>Go check your email for a confirmation</p>
-        <p>Return Home or check out the Lineup</p>
+        <p>Go check your email for a confirmation.</p>
+        <p>Return Home or check out the Lineup:</p>
       </div>
       <div className={styles.buttonWrapper}>
         <MainButton href={"/"} buttontext="Home" color="primary" />
