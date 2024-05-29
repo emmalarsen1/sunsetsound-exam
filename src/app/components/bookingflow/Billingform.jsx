@@ -41,47 +41,41 @@ function Billingform({ setPage }) {
   return (
     <div>
       <form className={styles.billingwrapper} onSubmit={formHandler}>
-        <div>
-          <label>
-            Name
-            <input type="text" name="fullname" placeholder="fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
-          </label>
-          <label>
-            Email
-            <input name="email" type="email" placeholder="fx peter@gmail.com" required></input>
-          </label>
-
-          <label>
-            Phone Number
-            <input type="tel" name="phone" pattern="[0-9]*" placeholder="fx +45 3232 3232" required></input>
-          </label>
-
-          <label htmlFor="">
-            Address
-            <input type="text" name="address" aria-label="Address 1" placeholder="Street and number" pattern="[a-zA-ZæøåÆØÅ\s\-0-9]+" required />
-          </label>
-
-          <label for="zip">
-            Zip / City
-            <input id="zip" type="number" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
-            <input type="text" name="city" placeholder="fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
-          </label>
-
-          <label htmlFor="">
-            Credit Card Number
-            <input name="cardnumber" placeholder="1212 1212 1212 1212" pattern="[0-9]{16}" required maxLength={16} inputMode="numerical" onChange={checkForError} />
-            <input name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
-          </label>
+        <div className={styles.billingGrid}>
+          <label>Full name</label>
+          <input classname={styles.inputField} name="firstname" label="Firtsname" placeholder="John" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
+          <label>Email & Phone</label>
+          <div className={styles.billingGrid}>
+            <input classname={styles.inputField} name="email" label="Email" placeholder="john@example.com" onChange={checkForError} pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+            <input classname={styles.inputField} name="mobile" label="Mobile" placeholder="12345678" onChange={checkForError} pattern="[+0-9]{8,}" required inputmode="numerical" />
+          </div>
+          <label>Address</label>
+          <div className={styles.billingGrid}>
+            <input classname={styles.inputField} name="address1" label="Address 1" placeholder="Street and number" onChange={checkForError} pattern="[A-Za-z0-9'\.\-\s\,]{2,}" required />
+          </div>
+          <label>City & Zip</label>
+          <div className={styles.billingGrid}>
+            <input classname={styles.inputField} name="city" label="City" placeholder="City name" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
+            <input classname={styles.inputField} name="zip" label="Zip code" placeholder="1234" onChange={checkForError} pattern="[+0-9]{4,}" required inputmode="numerical" />
+          </div>
+          <label>County</label>
+          <input classname={styles.inputField} name="country" label="Country" placeholder="Country" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
+        </div>
+        <div className={styles.cardGrid}>
+          <label>Cardnumber</label>
+          <div className={styles.billingGrid}>
+            <input classname={styles.inputField} name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required maxLength={16} inputmode="numerical" />
+          </div>
+          <label>Exp. Date & CVC</label>
+          <div className={styles.billingGrid}>
+            <input classname={styles.inputField} name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} inputmode="numerical" />
+            <input classname={styles.inputField} name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required maxLength={3} inputmode="numerical" />
+          </div>
         </div>
         <BookingButton buttontext={"Confirm"}></BookingButton>
-      </form>{" "}
+      </form>
     </div>
   );
 }
 
 export default Billingform;
-
-// <Input name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required maxLength={16} inputmode="numerical" />
-// <div className={styles.grid}>
-//   <Input name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} inputmode="numerical" />
-//   <Input name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required maxLength={3} inputmode="numerical" />
