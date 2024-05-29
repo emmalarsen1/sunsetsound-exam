@@ -2,8 +2,16 @@ import React from "react";
 import styles from "../../styles/bookingstyles/TicketsBox.module.css";
 
 import BookingButton from "./BookingButton";
+import ToolTip from "./ToolTip";
 
-function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
+function Ticketsbox({
+  ticketChoice,
+  setTicketChoice,
+  gearChoice,
+  setGearChoice,
+  page,
+  setPage,
+}) {
   // FUNKTIONER FOR TICKETS
   function removeRegular() {
     setTicketChoice((old) => {
@@ -104,10 +112,10 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
   return (
     <>
       {/* TICKETBOX */}
-      <h2>Ticket(s)</h2>
+      <p>Ticket(s)</p>
       <div className={styles.ticketLine}>
         <p>Regular Ticket</p>
-        <div>
+        <div className={styles.plusMinusCollected}>
           <button onClick={removeRegular} className={styles.miunsPlusButton}>
             -
           </button>
@@ -120,7 +128,7 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
 
       <div className={styles.ticketLine}>
         <p>VIP Ticket</p>
-        <div>
+        <div className={styles.plusMinusCollected}>
           <button onClick={removeVip} className={styles.miunsPlusButton}>
             -
           </button>
@@ -134,8 +142,11 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
         {/* GEARBOX */}
         <div className={styles.ticketLine}>
           <p>2-person tent</p>
-          <div>
-            <button onClick={removeTwoPersons} className={styles.miunsPlusButton}>
+          <div className={styles.plusMinusCollected}>
+            <button
+              onClick={removeTwoPersons}
+              className={styles.miunsPlusButton}
+            >
               -
             </button>
             <span>{gearChoice.twotent}</span>
@@ -149,7 +160,10 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       <div className={styles.ticketLine}>
         <p>3-person tent</p>
         <div className={styles.plusMinusCollected}>
-          <button onClick={removeThreePersons} className={styles.miunsPlusButton}>
+          <button
+            onClick={removeThreePersons}
+            className={styles.miunsPlusButton}
+          >
             -
           </button>
           <span>{gearChoice.threetent}</span>
@@ -159,17 +173,26 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
         </div>
       </div>
       <div className={styles.ticketLine}>
-        <label>
-          Greencamping
-          <span></span>
-          <input type="checkbox" checked={gearChoice.greenCamping} onChange={toggleGreenCamp} />
-        </label>
+        <div className={styles.greenCamping}>
+          <label>Greencamping</label>
+          <ToolTip ToolTipText="This allows you to set up your camp in our Greencamping-area with focus on the enviroment"></ToolTip>
+        </div>
+        <input
+          className={styles.checkBox}
+          type="checkbox"
+          checked={gearChoice.greenCamping}
+          onChange={toggleGreenCamp}
+        />
       </div>
 
       {/* BUTTONS */}
       {page !== 4 && (
         <div>
-          <BookingButton buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}></BookingButton>
+          <BookingButton
+            buttontext={"Continue"}
+            onClick={() => setPage((o) => o + 1)}
+            disabled={buttonDisabled()}
+          ></BookingButton>
         </div>
       )}
     </>

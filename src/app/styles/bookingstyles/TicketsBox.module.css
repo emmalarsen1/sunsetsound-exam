@@ -2,6 +2,7 @@
 .ticketLine {
   display: flex;
   justify-content: space-between;
+  line-height: 1.5rem;
 }
 .miunsPlusButton {
   border: 1px solid #5e7af5;
@@ -9,5 +10,15 @@
   padding: 0 0.45em;
 }
 .plusMinusCollected {
-  align-content: end;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.greenCamping {
+  display: inline;
+  margin-top: 2rem;
+}
+.checkBox {
+  margin-top: 2rem;
+  margin-right: 1.75rem;
 }
