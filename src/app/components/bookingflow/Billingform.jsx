@@ -40,38 +40,38 @@ function Billingform({ setPage }) {
   return (
     <div>
       <form className={styles.billingwrapper} onSubmit={formHandler}>
-        <label>
-          Name
-          <input type="text" name="fullname" placeholder="fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="fx peter@gmail.com" required></input>
-        </label>
+        <div>
+          <label>
+            Name
+            <input type="text" name="fullname" placeholder="fx John Doe" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" placeholder="fx peter@gmail.com" required></input>
+          </label>
 
-        <label>
-          Phone Number
-          <input type="tel" name="phone" pattern="[0-9]*" placeholder="fx +45 3232 3232" required></input>
-        </label>
+          <label>
+            Phone Number
+            <input type="tel" name="phone" pattern="[0-9]*" placeholder="fx +45 3232 3232" required></input>
+          </label>
 
-        <label htmlFor="">
-          Address
-          <input type="text" name="address" aria-label="Address 1" placeholder="Street and number" pattern="[a-zA-ZæøåÆØÅ\s\-0-9]+" required />
-          <input type="text" name="adress2" aria-label="Address 2" placeholder="Appartment number, etc." pattern="[0-9][a-zA-ZæøåÆØÅ\s\-]+" />
-        </label>
+          <label htmlFor="">
+            Address
+            <input type="text" name="address" aria-label="Address 1" placeholder="Street and number" pattern="[a-zA-ZæøåÆØÅ\s\-0-9]+" required />
+          </label>
 
-        <label for="zip">
-          Zip / City
-          <input id="zip" type="number" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
-          <input type="text" name="city" placeholder="fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
-        </label>
+          <label for="zip">
+            Zip / City
+            <input id="zip" type="number" name="zip" maxlength="4" placeholder="fx 3480" pattern="[0-9]{4}" required></input>
+            <input type="text" name="city" placeholder="fx Frederiksberg" pattern="[a-zA-ZæøåÆØÅ\s\-]+" required></input>
+          </label>
 
-        <label htmlFor="">
-          Credit Card Number
-          <input name="cardnumber" placeholder="1212 1212 1212 1212" pattern="[0-9]{16}" required maxLength={16} inputMode="numerical" onChange={checkForError} />
-          <input name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
-        </label>
-
+          <label htmlFor="">
+            Credit Card Number
+            <input name="cardnumber" placeholder="1212 1212 1212 1212" pattern="[0-9]{16}" required maxLength={16} inputMode="numerical" onChange={checkForError} />
+            <input name="expodate" placeholder="MM/YY" pattern="[0-1][0-9]/[0-9]{2}" required maxLength={5} inputMode="numerical" onChange={checkForError} />
+          </label>
+        </div>
         <BookingButton buttontext={"Confirm"}></BookingButton>
       </form>{" "}
     </div>
