@@ -1,9 +1,9 @@
 import React from "react";
-import combinedData from "@/lib/combineData";
-import { getData } from "@/lib/data";
+import combinedData from "../../../lib/combineData";
+import { getData } from "../../../lib/data";
 import Image from "next/image";
 import styles from "./Bandname.module.css";
-import NotFound from "@/app/not-found";
+import NotFound from "../../not-found";
 import Link from "next/link";
 
 export async function generateStaticParams() {

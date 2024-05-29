@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "@/app/styles/bookingstyles/Billingform.module.css";
-import { addBooking } from "@/lib/data";
+import styles from "../../styles/bookingstyles/Billingform.module.css";
+
+import { addBooking } from "../../../lib/data";
 import BookingButton from "./BookingButton";
 
 function Billingform({ setPage }) {

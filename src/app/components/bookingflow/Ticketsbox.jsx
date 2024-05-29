@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "@/app/styles/bookingstyles/TicketsBox.module.css";
+import styles from "../../styles/bookingstyles/TicketsBox.module.css";
+
 import BookingButton from "./BookingButton";
 
 function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {

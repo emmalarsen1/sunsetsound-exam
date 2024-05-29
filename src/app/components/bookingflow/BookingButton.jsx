@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/app/styles/bookingstyles/ConfirmButton.module.css";
+import styles from "../../styles/bookingstyles/ConfirmButton.module.css";
 
 function BookingButton({ buttontext, onClick, disabled, color }) {
   const buttonColor = color === "primary" ? styles.yellow : styles.pink;

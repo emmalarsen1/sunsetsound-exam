@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import styles from "@/app/styles/bookingstyles/AvailableSpots.module.css";
+import styles from "../../styles/bookingstyles/AvailableSpots.module.css";
 import Billingform from "./Billingform";
 import BookingButton from "./BookingButton";
 

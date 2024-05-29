@@ -4,7 +4,7 @@ import styles from "./Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import React from "react";
 import { useState, useEffect } from "react";
-import combineData from "@/lib/combineData";
+import combineData from "../../lib/combineData";
 import { useMediaQuery } from "react-responsive";
 import ScrollToTop from "react-scroll-to-top";
 

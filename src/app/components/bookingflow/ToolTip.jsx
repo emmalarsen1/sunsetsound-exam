@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/app/styles/bookingstyles/ToolTip.module.css";
+import styles from "../../styles/bookingstyles/ToolTip.module.css";
 
 const ToolTip = ({ ToolTipText }) => {
   return (
