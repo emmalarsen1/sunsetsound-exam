@@ -26,14 +26,18 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
     <>
       <form>
         <fieldset>
-          <legend>Choose your camping area</legend>
+          <legend className={styles.title}>Choose your camping area</legend>
           {spots.map(
             (spot, index) =>
               ticketTotal < spot.available && (
-                <div key={index}>
-                  <input type="radio" name="campingArea" id={`campingArea${index}`} value={spot.area} onChange={handleSelection} />
-                  <span>{spot.available} spots available at </span>
-                  <label htmlFor={`campingArea${index}`}>{spot.area}</label>
+                <div className={styles.camping} key={index}>
+                  <div className={styles.camping_spot_title}>
+                    <label htmlFor={`campingArea${index}`}>{spot.area}</label>
+                  </div>
+                  <div>
+                    <input className={styles.radiobutton} type="radio" name="campingArea" id={`campingArea${index}`} value={spot.area} onChange={handleSelection} />
+                    <span>{spot.available} spots available</span>
+                  </div>
                 </div>
               )
           )}

@@ -1,0 +1,15 @@
+.title {
+  font-size: 1.5rem;
+}
+.camping {
+  padding: 10px 0 10px 0;
+}
+.camping_spot_title label {
+  font-size: 1.1rem;
+  font-family: "libre baskerville";
+  color: var(--color-blue);
+  text-transform: uppercase;
+}
+.radiobutton {
+  margin-right: 4px;
+}

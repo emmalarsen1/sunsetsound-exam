@@ -62,4 +62,9 @@
 }
 .indexSubTitle {
   font-size: clamp(1.25rem, 1.0326rem + 1.087vi, 1.875rem);
+  line-height: normal;
+}
+
+.address {
+  margin-top: -15px;
 }

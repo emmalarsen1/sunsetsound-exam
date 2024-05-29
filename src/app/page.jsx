@@ -10,7 +10,7 @@ export default async function Home() {
         <div className={styles.indexTitles}>
           <h1 className={styles.indexHeaderTitle}>SUNSET SOUND</h1>
           <h3 className={styles.indexSubTitle}>SUMMER MUSIC FESTIVAL 2024</h3>
-          <h2>Main Street 25, 7800 Foocity Denmark</h2>
+          <h2 className={styles.address}>· Main Street 25, 7800 Foocity Denmark ·</h2>
         </div>
         <div className={styles.indexButWrap}>
           <MainButton href={"/booking"} buttontext="Get Tickets" color="primary" />
