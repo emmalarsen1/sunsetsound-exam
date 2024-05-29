@@ -45,21 +45,21 @@ function Billingform({ setPage }) {
           <p>Billing Information</p>
           <div className={styles.inputBox}>
             <label htmlFor="name">Full name</label>
-            <input className={styles.inputField} name="fullname" id="name" placeholder="Lars Larsen" pattern="[A-Za-zæøåÆØÅ]{2,}" required />
+            <input className={styles.inputField} name="fullname" id="name" type="text" placeholder="Lars Larsen" pattern="[A-Za-zæøåÆØÅ]{2,}" required />
           </div>
           <div className={styles.smallerField}>
             <div className={styles.inputBox}>
               <label htmlFor="email">Email</label>
-              <input className={styles.inputField} name="email" id="email" placeholder="lars@mail.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
+              <input className={styles.inputField} name="email" id="email" type="email" placeholder="lars@mail.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
             </div>
             <div className={styles.inputBox}>
               <label htmlFor="mobile">Phone</label>
-              <input className={styles.inputField} name="mobile" id="mobile" placeholder="2323 2323" required inputmode="numerical" />
+              <input className={styles.inputField} name="mobile" id="mobile" type="tel" placeholder="2323 2323" pattern="[+0-9]{8,}" required inputmode="numerical" />
             </div>
           </div>
           <div className={styles.inputBox}>
             <label htmlFor="address">Address</label>
-            <input className={styles.inputField} name="address" id="address" placeholder="Larsvej 50 2 th" required />
+            <input className={styles.inputField} name="address" id="address" type="text" placeholder="Larsvej 50 2 th" required />
           </div>
           <div className={styles.smallerField}>
             <div className={styles.inputBox}>
@@ -83,11 +83,11 @@ function Billingform({ setPage }) {
           <div className={styles.smallerField}>
             <div className={styles.inputBox}>
               <label htmlFor="expodate">Exp. Date</label>
-              <input className={styles.inputField} name="expodate" id="expodate" placeholder="MM/YY" required maxLength={5} inputmode="numerical" pattern="[0-1][0-9][/][0-9]{2}" />
+              <input className={styles.inputField} name="expodate" id="expodate" placeholder="MM/YY" required maxLength={5} inputmode="numerical" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" />
             </div>
             <div className={styles.inputBox}>
               <label htmlFor="cvc">CVC</label>
-              <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} onChange={checkForError} pattern="[0-9]{3}" />
+              <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} pattern="[0-9]{3}" />
             </div>
           </div>
           <BookingButton buttontext={"Confirm"}></BookingButton>
