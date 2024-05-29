@@ -13,15 +13,30 @@ function TicketForm({ ticketNumber, ticketType }) {
           <fieldset className={styles.infoBox}>
             <div className={styles.infoBox}>
               <label>Full name:</label>
-              <input type="text" name="fullname" required className={styles.inputField} />
+              <input
+                type="text"
+                name="fullname"
+                required
+                className={styles.inputField}
+              />
             </div>
             <div className={styles.infoBox}>
               <label>Email:</label>
-              <input type="email" name="email" required className={styles.inputField} />
+              <input
+                type="email"
+                name="email"
+                required
+                className={styles.inputField}
+              />
             </div>
             <div className={styles.infoBox}>
               <label>Phone-number:</label>
-              <input type="tel" name="phone" required className={styles.inputField} />
+              <input
+                type="tel"
+                name="phone"
+                required
+                className={styles.inputField}
+              />
             </div>
           </fieldset>
         </div>

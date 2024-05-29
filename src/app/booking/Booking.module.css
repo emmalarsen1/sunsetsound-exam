@@ -73,3 +73,8 @@
   font-family: "Libre Franklin";
   text-transform: uppercase;
 }
+
+.bookingSub {
+  display: flex;
+  justify-content: space-between;
+}
