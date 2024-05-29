@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "../tickets/Tickets.module.css";
-import Button from "./Button";
+import MainButton from "./Button";
 
 function TicketCardFront({ name, desc, price }) {
   return (
@@ -11,7 +11,7 @@ function TicketCardFront({ name, desc, price }) {
       <p className={styles.description}>{desc}</p>
       <p className={styles.price}>{price}</p>
       <div className={styles.indexButWrap}>
-        <Button href={""} buttontext="Read more" color="pink" />
+        <MainButton href={""} buttontext="Read more" color="pink" />
       </div>
     </div>
   );

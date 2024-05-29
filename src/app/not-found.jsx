@@ -1,6 +1,6 @@
 import styles from "../app/styles/not-found.module.css";
 import Link from "next/link";
-import Button from "./components/Button";
+import MainButton from "./components/Button";
 
 export default function NotFound() {
   return (
@@ -9,7 +9,7 @@ export default function NotFound() {
       <h3 className={styles.subtitle}>OPS! SOMETHING WENT WRONG</h3>
       <p>Go back to home page</p>
       <div className={styles.buttonspace}>
-        <Button href={"/"} buttontext="HOME" color="primary" />
+        <MainButton href={"/"} buttontext="HOME" color="primary" />
       </div>
     </div>
   );

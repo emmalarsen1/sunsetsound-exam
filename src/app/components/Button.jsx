@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/Button.module.css";
 
-function Button({ href, buttontext, color }) {
+function MainButton({ href, buttontext, color }) {
   const buttonColor = color === "primary" ? styles.yellow : styles.pink;
   return (
     <div className={styles.button_a}>
@@ -11,4 +11,4 @@ function Button({ href, buttontext, color }) {
     </div>
   );
 }
-export default Button;
+export default MainButton;
