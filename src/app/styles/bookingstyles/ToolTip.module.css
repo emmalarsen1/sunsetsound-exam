@@ -23,9 +23,8 @@
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%; /* Position the tooltip above the icon */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-15%);
   opacity: 0; /* Start with tooltip hidden */
   transition: opacity 0.3s; /* Smooth transition */
 }
@@ -33,4 +32,15 @@
 .tooltipContainer:hover .tooltipText {
   visibility: visible;
   opacity: 1; /* Show tooltip on hover */
+}
+/****** Mobile *******/
+@media (width < 600px) {
+  .tooltipText {
+    bottom: 0;
+    transform: translateY(104%) translateX(-13%);
+  }
+  .tooltipContainer:hover .tooltipText {
+    visibility: visible;
+    opacity: 1; /* Show tooltip on hover */
+  }
 }
