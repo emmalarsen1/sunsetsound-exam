@@ -44,7 +44,7 @@ function GetTicketInfo({ ticketChoice, setPage }) {
           return <TicketForm key={i} ticketNumber={i + 1} ticketType="VIP"></TicketForm>;
         })}
 
-      <BookingButton color="yellow" buttontext={"Continue"}></BookingButton>
+      <BookingButton color="blue" buttontext={"Continue"}></BookingButton>
     </form>
   );
 }

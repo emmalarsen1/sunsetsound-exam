@@ -170,7 +170,7 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       {/* BUTTONS */}
       {page !== 4 && (
         <div>
-          <BookingButton color="yellow" buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}></BookingButton>
+          <BookingButton color="blue" buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}></BookingButton>
         </div>
       )}
     </>
