@@ -24,7 +24,7 @@ function GetTicketInfo({ ticketChoice, setPage }) {
       }
       return newArray;
     });
-  }, []);
+  }, [ticketChoice.regular, ticketChoice.vip]);
 
   async function handleSubmit(e) {
     setPage(2);
