@@ -3,11 +3,11 @@ import TicketForm from "./Ticketinfo";
 import BookingButton from "./BookingButton";
 
 function GetTicketInfo({ ticketChoice, setPage }) {
-  const [regTicketLenght, setRegTicketLenght] = useState();
-  const [vipTicketLenght, setVipTicketLenght] = useState();
+  const [regTicketLength, setRegTicketLength] = useState();
+  const [vipTicketLength, setVipTicketLength] = useState();
 
   useEffect(() => {
-    setRegTicketLenght(() => {
+    setRegTicketLength(() => {
       const newArray = [];
 
       for (let i = newArray.length; i < ticketChoice.regular; i++) {
@@ -16,7 +16,7 @@ function GetTicketInfo({ ticketChoice, setPage }) {
       return newArray;
     });
 
-    setVipTicketLenght(() => {
+    setVipTicketLength(() => {
       const newArray = [];
 
       for (let i = newArray.length; i < ticketChoice.vip; i++) {
@@ -33,12 +33,12 @@ function GetTicketInfo({ ticketChoice, setPage }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {regTicketLenght &&
-        regTicketLenght.map((oneReg, i) => {
+      {regTicketLength &&
+        regTicketLength.map((oneReg, i) => {
           return <TicketForm key={i} ticketNumber={i + 1} ticketType="Regular"></TicketForm>;
         })}
-      {vipTicketLenght &&
-        vipTicketLenght.map((oneVip, i) => {
+      {vipTicketLength &&
+        vipTicketLength.map((oneVip, i) => {
           return <TicketForm key={i} ticketNumber={i + 1} ticketType="VIP"></TicketForm>;
         })}
 
