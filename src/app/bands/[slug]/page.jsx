@@ -7,14 +7,6 @@ import NotFound from "../../not-found";
 import Link from "next/link";
 
 export async function generateStaticParams() {
-  // const res = await fetch("https://broken-tinted-wombat.glitch.me/bands");
-  // const res = await fetch("http://localhost:8080/bands");
-  // const pages = await res.json();
-  // const paths = pages.map((page) => {
-  //   return { slug: page.slug };
-  // });
-  // return paths;
-
   const data = await getData("bands");
   return data.map((oneBand) => ({
     slug: oneBand.slug,
@@ -43,13 +35,6 @@ function formatBandMembers(members) {
 }
 
 export default async function page({ params }) {
-  // const url = `https://broken-tinted-wombat.glitch.me/bands?slug=${slug}`;
-  // const url = `http://localhost:8080/bands?slug=${slug}`;
-  // const res = await fetch(url);
-  // const bandData = await res.json();
-  // const oneBand = bandData.filter((oneRule) => oneRule.slug === slug);
-  // const data = oneBand[0];
-
   const { slug } = params;
   const fetchData = await combinedData();
   const filterData = Object.entries(fetchData).map((venue) => {
@@ -127,43 +112,3 @@ export default async function page({ params }) {
     </>
   );
 }
-
-// Noget Chatgpt fetch:
-// export async function generateStaticParams() {
-//   const url = "http://localhost:8080/bands";
-//   const res = await fetch(url);
-//   const bandData = await res.json();
-//   console.log(bandData);
-
-//   return bandData.map((post) => ({
-//     params: {
-//       slug: post.slug,
-//     },
-//   }));
-// }
-
-// export async function page({ params }) {
-//   const { slug } = params;
-
-//   const url = `http://localhost:8080/bands/${slug}`;
-//   const res = await fetch(url);
-//   const data = await res.json();
-
-// ORiginal fetch:
-// export async function generateStaticParams() {
-//   const url = "http://localhost:8080/bands";
-//   const res = await fetch(url);
-//   const bandData = await res.json();
-//   console.log(bandData);
-
-//   return bandData.map((post) => ({
-//     slug: post.slug,
-//   }));
-// }
-
-// export default async function page({ params }) {
-//   const { slug } = params;
-
-//   const oneBand = bandData.filter((oneRule) => oneRule.slug === slug);
-//   const data = oneBand[0];
-//   return (

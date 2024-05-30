@@ -17,7 +17,6 @@ function Billingform({ setPage }) {
     e.preventDefault();
 
     let info = {};
-    // let extraPersons = [];
     const formData = new FormData(e.target);
     info.fullname = formData.get("fullname");
     info.address = formData.get("address");
@@ -25,17 +24,10 @@ function Billingform({ setPage }) {
     info.zip = formData.get("zip");
     info.email = formData.get("email");
     info.tele = formData.get("phone");
-    // totalTickets.forEach((extra, i) => {
-    //   extraPersons.push(formData.get(`extraname${i}`));
-    // });
 
-    // info.extrapersons = extraPersons;
     info.userid = self.crypto.randomUUID();
-    // setBookingInfo((o) => {
-    //   return { ...o, userid: info.userid };
-    // });
-    /* await addBooking(info); */
-    // addBooking(info);
+
+    addBooking(info);
   }
 
   return (

@@ -7,15 +7,12 @@ import BookingButton from "./BookingButton";
 export default function Availablespots({ data, ticketTotal, page, setPage }) {
   const [spots, setSpots] = useState(data);
   const [selectedArea, setSelectedArea] = useState(null);
-  const [ticketCount, setTicketCount] = useState(1);
 
   const handleSelection = (event) => {
     const selectedArea = event.target.value;
     const area = spots.find((spot) => spot.area === selectedArea);
-    if (area.available >= ticketCount) {
+    if (area.available >= ticketTotal) {
       setSelectedArea(selectedArea);
-    } else {
-      alert("There is not enough spots available for the selected amount of tickets");
     }
   };
 
@@ -50,26 +47,3 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
     </>
   );
 }
-
-//   return (
-//     <form>
-//       <fieldset>
-//         <legend>Choose your camping area</legend>
-//         <input type="radio" name="svartheim" id="svartheim" value="svartheim" />
-//         <label htmlFor="svartheim">Svartheim</label>
-//       </fieldset>
-//     </form>
-//   );
-// }
-// async function Availablespots() {
-//   const url = "http://localhost:8080/available-spots";
-//   const res = await fetch(url);
-//   const spotsData = await res.json();
-//   return (
-//     <div>
-//       <p>Hej køb billet til {spotsData.area}</p>
-//     </div>
-//   );
-// }
-
-// export default Availablespots;

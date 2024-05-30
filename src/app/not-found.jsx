@@ -1,5 +1,4 @@
 import styles from "../app/styles/not-found.module.css";
-import Link from "next/link";
 import MainButton from "./components/Button";
 
 export default function NotFound() {

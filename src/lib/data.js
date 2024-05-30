@@ -7,28 +7,6 @@ export async function getData(param) {
   return await res.json();
 }
 
-// Forsøg på at implementeret SupaBase
-// PUT: reserverer spots
-export async function getReservation(title, spots) {
-  const response = await fetch(endPoint + "reserve-spot", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      area: title,
-      amount: spots,
-    }),
-  });
-  return await response.json();
-}
-
-export async function getSpots() {
-  const res = await fetch(endPoint + "available-spots");
-  return await res.json();
-}
-
-//
 // POST: tilføjer ny booking
 export async function addBooking(info) {
   let headersList = {
@@ -40,13 +18,11 @@ export async function addBooking(info) {
 
   let bodyContent = JSON.stringify({
     fullname: info.fullname,
-    lastname: info.lastname,
     address: info.address,
     city: info.city,
     zip: info.zip,
     email: info.email,
     tele: info.tele,
-    // extrappl: info.extrappl,
     userid: info.userid,
   });
 
@@ -59,56 +35,4 @@ export async function addBooking(info) {
   let data = await response.json();
 
   return data;
-}
-
-//
-// POST: tilføjet reservation
-export async function addReservation(info) {
-  let headersList = {
-    Accept: "application/json",
-    apikey: apikey,
-    prefer: "return=representation",
-    "Content-Type": "application/json",
-  };
-
-  const getId = await fetch("https://pexwboaieovroxjkczsc.supabase.co/rest/v1/sunsetfest?userid=eq." + info.userid, {
-    headers: headersList,
-  });
-  const idData = await getId.json();
-  const userId = idData[0].userid;
-
-  let bodyContent = JSON.stringify({
-    userid: userId,
-    camp: info.camp,
-    regticket: info.regticket,
-    vipticket: info.vipticket,
-    twotent: info.twotent,
-    threetent: info.threetent,
-    greencamping: info.greencamping,
-  });
-
-  let response = await fetch("https://pexwboaieovroxjkczsc.supabase.co/rest/v1/sunsetfest_booking", {
-    method: "POST",
-    body: bodyContent,
-    headers: headersList,
-  });
-
-  let data = await response.json();
-
-  return data;
-}
-
-//
-// SET: færdiggøre reservationen
-export async function setReservation(reservationId) {
-  const response = await fetch(endPoint + "fullfill-reservation", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      id: reservationId.id,
-    }),
-  });
-  return await response.json();
 }
