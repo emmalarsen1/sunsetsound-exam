@@ -57,6 +57,11 @@
   gap: 1rem;
   margin-left: 1rem;
   list-style: none;
+  color: var(--color-light-grey);
+}
+
+.active {
+  color: var(--color-black);
 }
 .breadCrumbsMobile {
   display: flex;
