@@ -1,5 +1,5 @@
+/****** mobile ******/
 .mobileContainer {
-  /****** mobile ******/
   .mobileButtons {
     display: flex;
     flex-direction: column;
@@ -34,8 +34,6 @@
     border: 2px solid var(--color-blue);
     border-bottom-left-radius: 0.6rem;
     border-bottom-right-radius: 0.6rem;
-    /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px); */
     padding: 15px;
     justify-content: space-around;
     margin-top: -10px;
@@ -47,7 +45,7 @@
 
   .areabutton {
     font-size: 1.8rem;
-    font-family: "libre baskerville";
+    font-family: var(--subtitle-font);
   }
 
   .new_times {
@@ -74,7 +72,7 @@
     font-size: 1.2rem;
     z-index: 1;
     text-align: center;
-    font-family: system-ui, sans-serif;
+    font-family: var(--paragraph-font);
     padding: 5px;
   }
   .img_textstyle .color_container {
@@ -84,7 +82,6 @@
     align-items: center;
   }
   .img_textstyle .color_container:hover {
-    /* border: 2px solid white; */
     background-color: var(--color-blue-hover);
   }
 
@@ -134,8 +131,6 @@
     border: 2px solid var(--color-blue);
     border-bottom-left-radius: 0.6rem;
     border-bottom-right-radius: 0.6rem;
-    /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(15px); */
     padding: 15px;
     justify-content: space-around;
     margin-top: -10px;
@@ -146,7 +141,7 @@
   }
   .areabutton {
     font-size: 1.8rem;
-    font-family: "libre baskerville";
+    font-family: var(--subtitle-font);
   }
 
   .new_times {
@@ -173,7 +168,7 @@
     font-size: 1.2rem;
     z-index: 1;
     text-align: center;
-    font-family: system-ui, sans-serif;
+    font-family: var(--paragraph-font);
     padding: 5px;
   }
   .img_textstyle .color_container {
@@ -184,7 +179,6 @@
     min-width: 320px;
   }
   .img_textstyle .color_container:hover {
-    /* border: 2px solid white; */
     background-color: var(--color-blue-hover);
   }
 
@@ -205,7 +199,7 @@
   font-size: 1.2rem;
   padding: 1rem;
   color: var(--color-blue);
-  font-family: "libre baskerville", cursive;
+  font-family: var(--subtitle-font), cursive;
   place-self: center;
 }
 .areatitle {
@@ -215,6 +209,15 @@
 
 .days {
   text-align: center;
+}
+
+/******** buttons ********/
+.areabutton {
+  padding: 25px 10px;
+  border: 2px solid var(--color-blue);
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
 }
 .button {
   padding: 10px;
@@ -229,15 +232,6 @@
   padding: 5px;
   color: var(--color-blue);
   text-transform: uppercase;
-}
-
-/******** buttons ********/
-.areabutton {
-  padding: 25px 10px;
-  border: 2px solid var(--color-blue);
-  margin-top: 8px;
-  margin-bottom: 8px;
-  font-size: 1.5rem;
 }
 
 /****** desktop *******/
@@ -310,7 +304,7 @@
     font-size: 1.6rem;
     z-index: 1;
     text-align: center;
-    font-family: system-ui, sans-serif;
+    font-family: var(--paragraph-font);
     padding: 5px;
   }
   .img_textstyle .color_container {
@@ -320,7 +314,6 @@
     align-items: center;
   }
   .img_textstyle .color_container:hover {
-    /* border: 2px solid white; */
     background-color: var(--color-blue-hover);
   }
 

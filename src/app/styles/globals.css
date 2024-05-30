@@ -1,7 +1,8 @@
 :root {
-  --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
+  /****** colors *******/
   --color-blue: #5e7af5;
   --color-black: black;
+  --color-green: #9cfdb7;
   --color-white: white;
   --color-black18: #181818;
   --color-black28: #282828;
@@ -11,6 +12,14 @@
   --color-pink: #ffa3c7;
   --color-button-hover: #ffffff83;
   --color-link-hover: azure;
+
+  /******* fonts *******/
+  --header-font: "feneon-dense", sans-serif;
+  --subtitle-font: "libre baskerville";
+  --paragraph-font: system-ui, sans-serif;
+
+  /********* font size **********/
+  --h1Title: clamp(2.5rem, 2.0652rem + 2.1739vi, 3.75rem);
 }
 
 * {
@@ -20,9 +29,6 @@
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: flex-start; */
   background: radial-gradient(circle at center top, #ffe401, #aff76d, #9fdede, #b6bcf7, #b6b8f7);
   animation: moveGradient 15s ease-in-out infinite;
   background-size: 200% 200%;
@@ -51,16 +57,16 @@ main {
 
 h1 {
   font-size: var(--h1Title);
-  font-family: "feneon-dense", sans-serif;
+  font-family: var(--header-font);
 }
 
 h2 {
-  font-family: "feneon-dense", sans-serif;
+  font-family: var(--header-font);
   font-weight: 300;
   font-style: normal;
 }
 h3 {
-  font-family: "libre baskerville";
+  font-family: var(--subtitle-font);
 }
 
 input {
@@ -75,7 +81,7 @@ input {
   margin-bottom: 3rem;
 }
 
-/***** scroll *******/
+/***** scroll on mobile *******/
 
 .importantstyle {
   display: block !important;

@@ -88,13 +88,13 @@
 }
 .basketTitle {
   font-size: var(--h1Title);
-  font-family: "feneon-dense", sans-serif;
+  font-family: var(--header-font);
 }
 .hrColor {
   color: #5e7af5;
 }
 .basketSubtitle {
-  font-family: "Libre Franklin";
+  font-family: var(--subtitle-font);
   text-transform: uppercase;
   margin-top: -2rem;
   margin-bottom: 1rem;
@@ -116,6 +116,6 @@
 .feeTotal {
   font-weight: bold;
   font-size: 1.8rem;
-  font-family: "Libre Franklin";
+  font-family: var(--header-font);
   text-transform: uppercase;
 }

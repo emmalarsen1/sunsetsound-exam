@@ -14,3 +14,16 @@
   text-decoration: none;
   text-align: center;
 }
+.green {
+  background-color: var(--color-green);
+}
+.green:hover {
+  background-color: var(--color-button-hover);
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+}
+.yellow:hover {
+  background-color: var(--color-button-hover);
+}

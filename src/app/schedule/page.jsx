@@ -58,7 +58,11 @@ function Schedule() {
     for (let i = 0; i < 24; i += 2) {
       i < 10 ? list.push(<h2 className={styles.new_times_title}>0{i}:00</h2>) : list.push(<h2 className={styles.new_times_title}>{i}:00</h2>);
     }
-    return <div className={styles.new_times}>{list}</div>;
+    return (
+      <div key={day.day} className={styles.new_times}>
+        {list}
+      </div>
+    );
   };
 
   const toggleVisibility = (area) => {
