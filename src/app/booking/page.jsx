@@ -101,7 +101,6 @@ function Booking() {
               {page === 2 && <Availablespots setPage={setPage} data={data} ticketTotal={ticketTotal} />}
               {page === 3 && <Billingform setPage={setPage}></Billingform>}
               {page === 4 && <Ordercomplete />}
-              {/* Sørger for ikke at vise knapperne på confirmed siden  */}
             </div>
           </section>
           {/* Sørger for ikke at vise kurven på confirmed siden  */}

@@ -44,11 +44,3 @@ export default async function page() {
     </>
   );
 }
-
-// {
-//   bandData.map((data) => (
-//     <Link key={bandData} href={`/bands/${data.slug}`}>
-//       {data.name}
-//     </Link>
-//   ));
-// }

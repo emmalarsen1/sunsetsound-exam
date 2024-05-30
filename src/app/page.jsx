@@ -1,6 +1,4 @@
 import styles from "./styles/page.module.css";
-import layout from "./layout.jsx";
-import Link from "next/link";
 import MainButton from "./components/Button";
 
 export default async function Home() {

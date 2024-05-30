@@ -61,20 +61,9 @@
 .topBandStyle,
 .midBandStyle,
 .botBandStyle {
-  transition: font-size 0.9s ease-in-out; /* Smooth transition */
+  transition: font-size 0.9s ease-in-out;
 }
 
-/* .topBandStyle:hover,
-.midBandStyle:hover,
-.botBandStyle:hover {
-  font-size: 3.3em;
-} */
-
-/* .topBandStyle:hover,
-.midBandStyle:hover,
-.botBandStyle:hover a {
-  color: #fdf202;
-} */
 .topBandWrapper a:hover {
   color: var(--color-light-purple);
   transition: all 150ms linear 0s;

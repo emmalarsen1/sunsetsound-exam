@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import TicketForm from "./Ticketinfo";
-import styles from "../../styles/bookingstyles/TicketInfo.module.css";
-
 import BookingButton from "./BookingButton";
 
 function GetTicketInfo({ ticketChoice, setPage }) {

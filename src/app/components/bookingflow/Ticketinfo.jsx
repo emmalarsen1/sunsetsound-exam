@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "../../styles/bookingstyles/TicketInfo.module.css";
 
-import ToolTip from "./ToolTip";
-
 function TicketForm({ ticketNumber, ticketType }) {
   return (
     <>
