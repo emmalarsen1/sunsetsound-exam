@@ -45,7 +45,7 @@ function Billingform({ setPage }) {
           <p>Billing Information</p>
           <div className={styles.inputBox}>
             <label htmlFor="name">Full name</label>
-            <input className={styles.inputField} name="fullname" id="name" type="text" placeholder="Lars Larsen" pattern="[A-Za-zæøåÆØÅ]{2,}" required />
+            <input className={styles.inputField} name="fullname" id="name" type="text" placeholder="Lars Larsen" pattern="[A-Za-zæøåÆØÅ]{2,}\s?)+" required />
           </div>
           <div className={styles.smallerField}>
             <div className={styles.inputBox}>
