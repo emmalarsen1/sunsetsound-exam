@@ -45,8 +45,8 @@ function Billingform({ setPage }) {
               <input className={styles.inputField} name="email" id="email" type="email" placeholder="lars@mail.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
             </div>
             <div className={styles.inputBox}>
-              <label htmlFor="mobile">Phone</label>
-              <input className={styles.inputField} name="mobile" id="mobile" type="tel" placeholder="2323 2323" pattern="[+0-9]{8,}" required inputmode="numerical" />
+              <label htmlFor="phone">Phone</label>
+              <input className={styles.inputField} name="phone" id="phone" type="tel" placeholder="2323 2323" pattern="[+0-9]{8,}" required inputmode="numerical" />
             </div>
           </div>
           <div className={styles.inputBox}>
