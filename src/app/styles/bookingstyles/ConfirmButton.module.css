@@ -21,9 +21,9 @@
   background-color: var(--color-button-hover);
 }
 
-.yellow {
-  background-color: var(--color-yellow);
+.blue {
+  background-color: var(--color-light-blue);
 }
-.yellow:hover {
+.blue:hover {
   background-color: var(--color-button-hover);
 }
