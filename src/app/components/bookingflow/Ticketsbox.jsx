@@ -133,6 +133,7 @@ function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, 
       </div>
       <div>
         {/* GEARBOX */}
+        <p>Tent(s)</p>
         <div className={styles.ticketLine}>
           <p>2-person tent</p>
           <div className={styles.plusMinusCollected}>

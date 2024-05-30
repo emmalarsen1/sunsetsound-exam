@@ -67,19 +67,21 @@ function Billingform({ setPage }) {
             <label htmlFor="country">County</label>
             <input className={styles.inputField} name="country" id="country" placeholder="Denmark" required />
           </div>
-          <p>Credit Card Details</p>
-          <div className={styles.inputBox}>
-            <label htmlFor="cardnumber">Cardnumber</label>
-            <input className={styles.inputField} name="cardnumber" id="cardnumber" placeholder="1122 3344 5566 7788" required maxLength={16} inputmode="numerical" pattern="[0-9]{16}" />
-          </div>
-          <div className={styles.smallerField}>
+          <div className={styles.paymentSection}>
+            <p>Credit Card Details</p>
             <div className={styles.inputBox}>
-              <label htmlFor="expodate">Exp. Date</label>
-              <input className={styles.inputField} name="expodate" id="expodate" placeholder="MM/YY" required maxLength={5} inputmode="numerical" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" />
+              <label htmlFor="cardnumber">Cardnumber</label>
+              <input className={styles.inputField} name="cardnumber" id="cardnumber" placeholder="1122 3344 5566 7788" required maxLength={16} inputmode="numerical" pattern="[0-9]{16}" />
             </div>
-            <div className={styles.inputBox}>
-              <label htmlFor="cvc">CVC</label>
-              <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} pattern="[0-9]{3}" />
+            <div className={styles.smallerField}>
+              <div className={styles.inputBox}>
+                <label htmlFor="expodate">Exp. Date</label>
+                <input className={styles.inputField} name="expodate" id="expodate" placeholder="MM/YY" required maxLength={5} inputmode="numerical" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" />
+              </div>
+              <div className={styles.inputBox}>
+                <label htmlFor="cvc">CVC</label>
+                <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} pattern="[0-9]{3}" />
+              </div>
             </div>
           </div>
           <BookingButton color="green" buttontext={"Confirm"}></BookingButton>

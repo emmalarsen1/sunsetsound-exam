@@ -13,3 +13,8 @@
 .radiobutton {
   margin-right: 4px;
 }
+
+.btnWrapper {
+  display: grid;
+  margin-top: 1.5rem;
+}
