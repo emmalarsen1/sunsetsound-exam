@@ -42,7 +42,7 @@
 .campingTitle,
 .moreInfo {
   text-align: center;
-  font-family: "Libre Baskerville";
+  font-family: var(--subtitle-font);
   font-style: normal;
 }
 .topP {

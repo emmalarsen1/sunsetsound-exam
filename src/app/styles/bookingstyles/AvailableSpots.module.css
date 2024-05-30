@@ -6,7 +6,7 @@
 }
 .camping_spot_title label {
   font-size: 1.1rem;
-  font-family: "libre baskerville";
+  font-family: var(--subtitle-font);
   color: var(--color-blue);
   text-transform: uppercase;
 }

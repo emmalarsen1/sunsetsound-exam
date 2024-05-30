@@ -4,14 +4,7 @@ import styles from "../../styles/bookingstyles/TicketsBox.module.css";
 import BookingButton from "./BookingButton";
 import ToolTip from "./ToolTip";
 
-function Ticketsbox({
-  ticketChoice,
-  setTicketChoice,
-  gearChoice,
-  setGearChoice,
-  page,
-  setPage,
-}) {
+function Ticketsbox({ ticketChoice, setTicketChoice, gearChoice, setGearChoice, page, setPage }) {
   // FUNKTIONER FOR TICKETS
   function removeRegular() {
     setTicketChoice((old) => {
@@ -143,10 +136,7 @@ function Ticketsbox({
         <div className={styles.ticketLine}>
           <p>2-person tent</p>
           <div className={styles.plusMinusCollected}>
-            <button
-              onClick={removeTwoPersons}
-              className={styles.miunsPlusButton}
-            >
+            <button onClick={removeTwoPersons} className={styles.miunsPlusButton}>
               -
             </button>
             <span>{gearChoice.twotent}</span>
@@ -160,10 +150,7 @@ function Ticketsbox({
       <div className={styles.ticketLine}>
         <p>3-person tent</p>
         <div className={styles.plusMinusCollected}>
-          <button
-            onClick={removeThreePersons}
-            className={styles.miunsPlusButton}
-          >
+          <button onClick={removeThreePersons} className={styles.miunsPlusButton}>
             -
           </button>
           <span>{gearChoice.threetent}</span>
@@ -177,22 +164,13 @@ function Ticketsbox({
           <label>Greencamping</label>
           <ToolTip ToolTipText="This allows you to set up your camp in our Greencamping-area with focus on the enviroment"></ToolTip>
         </div>
-        <input
-          className={styles.checkBox}
-          type="checkbox"
-          checked={gearChoice.greenCamping}
-          onChange={toggleGreenCamp}
-        />
+        <input className={styles.checkBox} type="checkbox" checked={gearChoice.greenCamping} onChange={toggleGreenCamp} />
       </div>
 
       {/* BUTTONS */}
       {page !== 4 && (
         <div>
-          <BookingButton
-            buttontext={"Continue"}
-            onClick={() => setPage((o) => o + 1)}
-            disabled={buttonDisabled()}
-          ></BookingButton>
+          <BookingButton color="yellow" buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={buttonDisabled()}></BookingButton>
         </div>
       )}
     </>

@@ -90,7 +90,7 @@ function Billingform({ setPage }) {
               <input className={styles.inputField} name="cvc" id="cvc" placeholder="CVC" required maxLength={3} pattern="[0-9]{3}" />
             </div>
           </div>
-          <BookingButton buttontext={"Confirm"}></BookingButton>
+          <BookingButton color="green" buttontext={"Confirm"}></BookingButton>
         </fieldset>
       </form>
     </div>

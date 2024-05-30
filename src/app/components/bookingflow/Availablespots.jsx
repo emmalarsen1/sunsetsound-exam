@@ -45,7 +45,7 @@ export default function Availablespots({ data, ticketTotal, page, setPage }) {
       </form>
       {page !== 4 && (
         <div>
-          <BookingButton buttontext={"Continue"} onClick={() => setPage((o) => o + 1)} disabled={!selectionMade()}></BookingButton>
+          <BookingButton buttontext={"Continue"} color="yellow" onClick={() => setPage((o) => o + 1)} disabled={!selectionMade()}></BookingButton>
         </div>
       )}
     </>
