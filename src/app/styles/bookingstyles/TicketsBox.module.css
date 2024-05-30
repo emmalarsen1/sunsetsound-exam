@@ -22,3 +22,7 @@
   margin-top: 2rem;
   margin-right: 1.75rem;
 }
+.btnWrapper {
+  display: grid;
+  margin-top: 1.5rem;
+}
