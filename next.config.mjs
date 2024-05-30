@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "http",
         hostname: "localhost",
       },
+      {
+        protocol: "http",
+        hostname: "broken-tinted-wombat.glitch.me",
+      },
     ],
   },
 };
