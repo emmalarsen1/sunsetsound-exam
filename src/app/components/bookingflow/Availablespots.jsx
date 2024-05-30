@@ -2,7 +2,6 @@
 import React from "react";
 import { useState } from "react";
 import styles from "../../styles/bookingstyles/AvailableSpots.module.css";
-import Billingform from "./Billingform";
 import BookingButton from "./BookingButton";
 
 export default function Availablespots({ data, ticketTotal, page, setPage }) {
