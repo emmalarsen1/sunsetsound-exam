@@ -10,9 +10,7 @@ import ToolTip from "../components/bookingflow/ToolTip";
 import { useMediaQuery } from "react-responsive";
 
 function Booking() {
-  const fee = [
-    { name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 },
-  ];
+  const fee = [{ name: "Fixed booking fee", price: "99", id: 0, type: "fee", amount: 1 }];
   const [data, setData] = useState(null);
   useEffect(() => {
     // fetch("https://broken-tinted-wombat.glitch.me/available-spots")
@@ -48,6 +46,7 @@ function Booking() {
   const isTablet = useMediaQuery({
     query: "(min-width: 601px) and (max-width: 1024px)",
   });
+
   return (
     <>
       <h1 className={`globalHeader`}>Tickets</h1>
@@ -56,60 +55,38 @@ function Booking() {
           <li>
             {/* onClick => setPage sætter siden til det korrekte side ud fra index  */}
             {/*disabled sørger for at brødkrumme kun er brugbar tilbage og ikke frem */}
-            <button onClick={() => setPage(0)} disabled={page === 0}>
+            <button onClick={() => setPage(0)} disabled={page === 0} className={`button ${page === 0 ? styles.active : ""}`}>
               Tickets
             </button>
           </li>
           <li>
-            <button onClick={() => setPage(1)} disabled={page <= 1}>
+            <button onClick={() => setPage(1)} disabled={page <= 1} className={`button ${page === 1 ? styles.active : ""}`}>
               Ticket Info
             </button>
           </li>
           <li>
-            <button onClick={() => setPage(2)} disabled={page <= 2}>
+            <button onClick={() => setPage(2)} disabled={page <= 2} className={`button ${page === 2 ? styles.active : ""}`}>
               Camping
             </button>
           </li>
           <li>
-            <button onClick={() => setPage(3)} disabled={page <= 3}>
+            <button onClick={() => setPage(3)} disabled={page <= 3} className={`button ${page === 3 ? styles.active : ""}`}>
               Billing
             </button>
           </li>
           <li>
-            <button onClick={() => setPage(4)} disabled={page <= 4}>
+            <button onClick={() => setPage(4)} disabled={page <= 4} className={`button ${page === 4 ? styles.active : ""}`}>
               Confirmed
             </button>
           </li>
         </ol>
-        <div
-          className={
-            isMobile
-              ? styles.mobileWrapper
-              : isTablet
-              ? styles.tabletWrapper
-              : styles.desktopWrapper
-          }
-        >
+        <div className={isMobile ? styles.mobileWrapper : isTablet ? styles.tabletWrapper : styles.desktopWrapper}>
           <section>
-            <div
-              className={
-                isMobile
-                  ? styles.sectionWrapperMobile
-                  : isTablet
-                  ? styles.sectionWrapperTablet
-                  : styles.sectionWrapperDesktop
-              }
-            >
+            <div className={isMobile ? styles.sectionWrapperMobile : isTablet ? styles.sectionWrapperTablet : styles.sectionWrapperDesktop}>
               {page === 0 && (
                 <div>
                   {" "}
-                  <Ticketsbox
-                    setPage={setPage}
-                    ticketChoice={ticketChoice}
-                    setTicketChoice={setTicketChoice}
-                    gearChoice={gearChoice}
-                    setGearChoice={setGearChoice}
-                  />
+                  <Ticketsbox setPage={setPage} ticketChoice={ticketChoice} setTicketChoice={setTicketChoice} gearChoice={gearChoice} setGearChoice={setGearChoice} />
                 </div>
               )}
               {page === 1 && (
@@ -117,20 +94,11 @@ function Booking() {
                   <p>Ticket(s) Info</p>
                   <ToolTip ToolTipText="Fill out the information of each ticketholder"></ToolTip>
                   <div>
-                    <GetTicketInfo
-                      setPage={setPage}
-                      ticketChoice={ticketChoice}
-                    ></GetTicketInfo>
+                    <GetTicketInfo setPage={setPage} ticketChoice={ticketChoice}></GetTicketInfo>
                   </div>
                 </div>
               )}
-              {page === 2 && (
-                <Availablespots
-                  setPage={setPage}
-                  data={data}
-                  ticketTotal={ticketTotal}
-                />
-              )}
+              {page === 2 && <Availablespots setPage={setPage} data={data} ticketTotal={ticketTotal} />}
               {page === 3 && <Billingform setPage={setPage}></Billingform>}
               {page === 4 && <Ordercomplete />}
               {/* Sørger for ikke at vise knapperne på confirmed siden  */}
@@ -139,52 +107,26 @@ function Booking() {
           {/* Sørger for ikke at vise kurven på confirmed siden  */}
           {page !== 4 && (
             <section>
-              <div
-                className={
-                  isMobile
-                    ? styles.sectionWrapperMobile
-                    : isTablet
-                    ? styles.sectionWrapperTablet
-                    : styles.sectionWrapperDesktop
-                }
-              >
+              <div className={isMobile ? styles.sectionWrapperMobile : isTablet ? styles.sectionWrapperTablet : styles.sectionWrapperDesktop}>
                 <div className={styles.basketContent}>
                   <p className={styles.basketTitle}>sunset sound</p>
                   <p className={styles.basketSubtitle}>Basket</p>
                   <hr />
                   <div className={styles.feeTickets}>
-                    {ticketChoice.regular + ticketChoice.vip > 0 && (
-                      <p>Ticket(s):</p>
-                    )}
-                    {ticketChoice.regular > 0 && (
-                      <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>
-                    )}
-                    {ticketChoice.vip > 0 && (
-                      <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>
-                    )}
+                    {ticketChoice.regular + ticketChoice.vip > 0 && <p>Ticket(s):</p>}
+                    {ticketChoice.regular > 0 && <p>Regular Ticket: {ticketChoice.regular}x 799,-</p>}
+                    {ticketChoice.vip > 0 && <p>VIP Ticket: {ticketChoice.vip}x 1299,-</p>}
                   </div>
                   <div className={styles.feeTents}>
-                    {gearChoice.twotent + gearChoice.threetent > 0 && (
-                      <p>Tent(s):</p>
-                    )}
-                    {gearChoice.twotent > 0 && (
-                      <p>2-person tent: {gearChoice.twotent}x 299,-</p>
-                    )}
-                    {gearChoice.threetent > 0 && (
-                      <p>3-person tent: {gearChoice.threetent}x 399,-</p>
-                    )}
+                    {gearChoice.twotent + gearChoice.threetent > 0 && <p>Tent(s):</p>}
+                    {gearChoice.twotent > 0 && <p>2-person tent: {gearChoice.twotent}x 299,-</p>}
+                    {gearChoice.threetent > 0 && <p>3-person tent: {gearChoice.threetent}x 399,-</p>}
                     {gearChoice.greenCamping && <p>Green Camping: 1x 250,-</p>}
                   </div>
                   <hr />
                   <div>
                     <p className={styles.feeTotal}>
-                      Total:{" "}
-                      {fee[0].amount * fee[0].price +
-                        ticketChoice.regular * 799 +
-                        ticketChoice.vip * 1299 +
-                        gearChoice.twotent * 299 +
-                        gearChoice.threetent * 399 +
-                        gearChoice.greenCamping * 250}
+                      Total: {fee[0].amount * fee[0].price + ticketChoice.regular * 799 + ticketChoice.vip * 1299 + gearChoice.twotent * 299 + gearChoice.threetent * 399 + gearChoice.greenCamping * 250}
                       ,-
                     </p>
                     {fee.map(
