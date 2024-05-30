@@ -27,6 +27,16 @@
   gap: 2.5rem 1rem;
 }
 
+.indexTagline {
+  display: flex;
+  word-break: break-word;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
 .indexHeaderTitle {
   font-size: clamp(3.125rem, 1.4358rem + 5.4054vi, 5.625rem);
 }
