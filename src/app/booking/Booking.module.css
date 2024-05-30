@@ -56,6 +56,7 @@
   margin-left: 1rem;
   list-style: none;
   color: var(--color-light-grey);
+  padding: 5px 0 0 0;
 }
 
 .active {
@@ -66,6 +67,12 @@
   flex-direction: row;
   gap: 0.1rem;
   list-style: none;
+  color: var(--color-light-grey);
+}
+
+.breadCrumbsMobile button {
+  padding: 5px;
+  font-size: 0.7rem;
 }
 /*Basket Styling*/
 
